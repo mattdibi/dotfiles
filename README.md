@@ -14,7 +14,6 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 ```
 
-
 Airline installation
 ```sh
 git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
@@ -24,6 +23,12 @@ NERDtree installation
 ```sh
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 ```
+Gitgutter installation
+```sh
+cd ~/.vim/bundle
+git clone git://github.com/airblade/vim-gitgutter.git
+```
+
 Vimrc installation
 
 ```sh
