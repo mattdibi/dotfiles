@@ -1,3 +1,4 @@
+execute pathogen#infect()
 colo darkblue
 
 set number
@@ -6,3 +7,6 @@ set showmatch
 
 syntax enable
 
+set laststatus=2
+
+map <C-n> :NERDTreeToggle<CR>

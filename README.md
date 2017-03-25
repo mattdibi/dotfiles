@@ -6,6 +6,27 @@ Simply type these commands on a terminal window:
 
 ```sh
 $ git clone https://github.com/mattdibi/vimrc.git
+```
+
+Pathogen installation
+```sh
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+```
+
+
+Airline installation
+```sh
+git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
+```
+
+NERDtree installation
+```sh
+git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
+```
+Vimrc installation
+
+```sh
 $ cd vimrc/ 
 $ sh install_vimrc.sh
 ```
