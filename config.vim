@@ -1,0 +1,2 @@
+colo darkblue
+syntax on
