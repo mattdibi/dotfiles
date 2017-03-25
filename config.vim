@@ -1,2 +1,8 @@
 colo darkblue
-syntax on
+
+set number
+set showcmd
+set showmatch
+
+syntax enable
+
