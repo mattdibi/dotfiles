@@ -10,3 +10,5 @@ syntax enable
 set laststatus=2
 
 map <C-n> :NERDTreeToggle<CR>
+
+set updatetime=250
