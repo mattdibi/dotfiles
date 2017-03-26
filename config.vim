@@ -2,7 +2,7 @@
 execute pathogen#infect()
 
 " Common
-colo darkblue
+colo space-vim-dark 
 
 set number
 set showcmd
@@ -10,15 +10,12 @@ set showmatch
 
 syntax enable
 
-"Airline
+" Airline
 set laststatus=2
 
-"Nerdtree
+" Nerdtree
 map <C-n> :NERDTreeToggle<CR>
 
-"Gitgutter
+" Gitgutter
 set updatetime=250
-
-"Darker linenumber coloring
-hi LineNr ctermfg=DarkGrey 
 
