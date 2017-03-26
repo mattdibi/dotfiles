@@ -23,7 +23,13 @@ NERDtree installation
 ```sh
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 ```
-Gitgutter installation
+Fugitive
+```sh
+cd ~/.vim/bundle
+git clone git://github.com/tpope/vim-fugitive.git
+vim -u NONE -c "helptags vim-fugitive/doc" -c q
+```
+Gitgutter
 ```sh
 cd ~/.vim/bundle
 git clone git://github.com/airblade/vim-gitgutter.git
