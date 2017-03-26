@@ -18,3 +18,7 @@ map <C-n> :NERDTreeToggle<CR>
 
 "Gitgutter
 set updatetime=250
+
+"Darker linenumber coloring
+hi LineNr ctermfg=DarkGrey 
+
