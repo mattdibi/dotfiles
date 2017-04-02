@@ -7,6 +7,7 @@ colo space-vim-dark
 set number
 set showcmd
 set showmatch
+set autoindent
 
 syntax enable
 
