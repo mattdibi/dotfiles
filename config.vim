@@ -13,6 +13,7 @@ syntax enable
 
 " Airline
 set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
 
 " Nerdtree
 map <C-n> :NERDTreeToggle<CR>
