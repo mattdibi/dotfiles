@@ -35,20 +35,23 @@ git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 
 **Use:** C-n toggles tree.
 
-#### Gitgutter
+#### Gitgutter installation
 ```sh
 cd ~/.vim/bundle
 git clone git://github.com/airblade/vim-gitgutter.git
 ```
 
-#### Vim-Surround
+#### Vim-Surround installation
 ```sh
 cd ~/.vim/bundle
 git clone git://github.com/tpope/vim-surround.git
 ```
 **Use:** 
-* ysiw": surrounds word with "
-* cs"(: change surrounding " to (
+```sh
+ysiw": surrounds word with "
+cs"(: change surrounding " to (
+ds(: delete surrounding (
+```
 
 #### Vimrc installation
 ```sh
