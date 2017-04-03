@@ -15,6 +15,7 @@ set relativenumber
 set showcmd
 set showmatch
 set cmdheight=2
+set cursorline 
 
 " Search
 set ignorecase
@@ -23,6 +24,7 @@ set smartcase
 syntax enable
 
 "Formatting
+set autoindent                  " Auto indentation. To paste use paste mode: :set paste
 set nowrap                      " Do not wrap long lines
 set shiftwidth=4                " Use indents of 4 spaces
 set expandtab                   " Tabs are spaces, not tabs
