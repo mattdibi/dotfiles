@@ -23,14 +23,20 @@ NERDtree installation
 ```sh
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 ```
+
 Gitgutter
 ```sh
 cd ~/.vim/bundle
 git clone git://github.com/airblade/vim-gitgutter.git
 ```
 
-Vimrc installation
+Vim-Surround
+```sh
+cd ~/.vim/bundle
+git clone git://github.com/tpope/vim-surround.git
+```
 
+Vimrc installation
 ```sh
 $ cd vimrc/ 
 $ sh install_vimrc.sh
