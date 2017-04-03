@@ -11,6 +11,7 @@ catch
 endtry
 
 set number
+set relativenumber
 set showcmd
 set showmatch
 set cmdheight=2
@@ -18,7 +19,6 @@ set cmdheight=2
 " Search
 set ignorecase
 set smartcase
-set hlsearch
 
 syntax enable
 
