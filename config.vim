@@ -42,3 +42,8 @@ map <C-n> :NERDTreeToggle<CR>
 " Gitgutter
 set updatetime=250
 
+" Custom macros
+inoremap ;f for(int i = 0; i < size; i++) {<Enter><Enter>}<Esc>kci}
+inoremap ;i if() {<Enter><Enter>}<Esc>kkf(ci)
+autocmd Filetype cpp inoremap ;m int main(int argc, char *argv[]) {<Enter><Enter><Tab>return 0;<Enter><Esc><<i}<Esc>kkko<Tab>
+
