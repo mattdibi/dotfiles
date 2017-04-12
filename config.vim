@@ -33,6 +33,10 @@ set nojoinspaces      " Prevents inserting two spaces after punctuation on a joi
 set splitright        " Puts new vsplit windows to the right of the current
 set splitbelow        " Puts new split windows to the bottom of the current
 
+"Display all characters
+" set list
+" set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+
 " Airline
 set laststatus=2
 
@@ -43,8 +47,9 @@ map <C-n> :NERDTreeToggle<CR>
 set updatetime=250
 
 " Custom macros
-inoremap ;f for(int i = 0; i < size; i++) {<Enter><Enter>}<Esc>kci}
-inoremap ;i if() {<Enter><Enter>}<Esc>kkf(ci)
+inoremap ;f for(int i = 0; i < size; i++) {<Enter>}<Esc>ko<Tab>
+inoremap ;i if() {<Enter>}<Esc>kf(ci)
+inoremap ;c {<Enter>}<Esc>ko<Tab>
 
 " C++ main
 autocmd Filetype cpp inoremap ;m int main(int argc, char *argv[]) {<Enter><Enter><Tab>return 0;<Enter><Esc><<i}<Esc>kkko<Tab>
