@@ -34,8 +34,9 @@ set splitright        " Puts new vsplit windows to the right of the current
 set splitbelow        " Puts new split windows to the bottom of the current
 
 "Display all characters
-" set list
-" set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+" Use :set list to activate
+" Use :set list! to deactivate
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 
 " Airline
 set laststatus=2
