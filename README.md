@@ -23,6 +23,11 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 ```
 
+#### Java GetSet
+```sh
+git clone https://github.com/vim-scripts/java_getset.vim.git ~/.vim/bundle/vim-airline
+```
+
 #### Airline installation
 ```sh
 git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
