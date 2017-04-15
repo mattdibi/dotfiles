@@ -1,7 +1,7 @@
 " Pathogen
 execute pathogen#infect()
 
-" Common
+" Colorscheme
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
@@ -10,6 +10,7 @@ try
 catch
 endtry
 
+" Common
 set number
 set relativenumber
 set showcmd
@@ -17,9 +18,14 @@ set showmatch
 set cmdheight=2
 set cursorline 
 
+set autoread          " Autoload file changes. You can undo by pressing u.
+
+set backspace=indent,eol,start
+
 " Search
 set ignorecase
 set smartcase
+set incsearch         " Start searching before pressing enter
 
 syntax enable
 
