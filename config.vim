@@ -11,6 +11,7 @@ catch
 endtry
 
 " Common
+set noswapfile  " Do not create swap files
 set number
 set relativenumber
 set showcmd
@@ -54,11 +55,6 @@ map <C-n> :NERDTreeToggle<CR>
 set updatetime=250
 
 " Custom macros
-" Parenthesis autocompletion
-inoremap [ [<Space>]<Esc>hci]
-inoremap ( (<Space>)<Esc>hci)
-inoremap { {<Space>}<Esc>hci}
-
 inoremap ;f for(int i = 0; i < size; i++) {<Enter>}<Esc>ko<Tab>
 inoremap ;i if() {<Enter>}<Esc>kf(ci)
 inoremap ;c {<Enter>}<Esc>ko<Tab>
