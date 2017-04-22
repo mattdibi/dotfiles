@@ -33,13 +33,6 @@ git clone https://github.com/vim-scripts/java_getset.vim.git ~/.vim/bundle/getse
 git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
 ```
 
-#### NERDtree installation
-```sh
-git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
-```
-
-**Use:** C-n toggles tree.
-
 #### Gitgutter installation
 ```sh
 cd ~/.vim/bundle

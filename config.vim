@@ -32,7 +32,7 @@ syntax enable
 
 "Formatting
 set autoindent        " Auto indentation. To paste use paste mode: :set paste
-set nowrap            " Don't wrap long lines
+set wrap              " Wrap long lines
 set shiftwidth=4      " Use indents of 4 spaces
 set expandtab         " Tabs are spaces, not tabs
 set tabstop=4         " An indentation every four columns
@@ -47,9 +47,6 @@ set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 
 " Airline
 set laststatus=2
-
-" Nerdtree
-map <C-n> :NERDTreeToggle<CR>
 
 " Gitgutter
 set updatetime=250
