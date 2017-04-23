@@ -49,6 +49,7 @@ git clone git://github.com/tpope/vim-surround.git
 ysiw": surrounds word with "
 cs"(: change surrounding " to (
 ds(: delete surrounding (
+After a selection w/ Visual mode: S[symbol] surrounds the selection with [symbol]
 ```
 
 #### Vimrc installation
