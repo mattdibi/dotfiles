@@ -11,6 +11,7 @@ catch
 endtry
 
 " Common
+syntax enable
 set noswapfile        " Do not create swap files
 set number
 set relativenumber
@@ -18,19 +19,14 @@ set showcmd
 set showmatch
 set cmdheight=2
 set cursorline 
-
 set autoread          " Autoload file changes. You can undo by pressing u.
 
-set pastetoggle=<f5>  " Toggle paste mode using F5 key
-
-set backspace=indent,eol,start
+set backspace=indent,eol,start " Backspace through lines
 
 " Search
 set ignorecase
 set smartcase
 set incsearch         " Start searching before pressing enter
-
-syntax enable
 
 "Formatting
 set autoindent        " Auto indentation. To paste use paste mode: :set paste
@@ -42,23 +38,28 @@ set nojoinspaces      " Prevents inserting two spaces after punctuation on a joi
 set splitright        " Puts new vsplit windows to the right of the current
 set splitbelow        " Puts new split windows to the bottom of the current
 
-"Display all characters
-" Use :set list to activate
-" Use :set list! to deactivate
+"Display all characters (use F3 to toggle)
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 
+" Plugins settings
 " Airline
 set laststatus=2
-
 " Gitgutter
 set updatetime=250
 
-" Custom macros
+" Mode toggle
+" Toggle paste mode using F5 key
+set pastetoggle=<F5> 
+" Toggle list char using F3 key
+nnoremap <F3> :set list!<CR>
+
+" Custom 'macros'
+" Common
 inoremap ;f for(int i = 0; i < size; i++) {<Enter>}<Esc>ko<Tab>
 inoremap ;i if() {<Enter>}<Esc>kf(ci)
 inoremap ;c {<Enter>}<Esc>ko<Tab>
 
-" Latex
+" Latex accented characters
 autocmd Filetype tex inoremap è \`e
 autocmd Filetype tex inoremap é \'e
 autocmd Filetype tex inoremap ò \`o
