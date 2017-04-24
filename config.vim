@@ -56,6 +56,14 @@ inoremap ;f for(int i = 0; i < size; i++) {<Enter>}<Esc>ko<Tab>
 inoremap ;i if() {<Enter>}<Esc>kf(ci)
 inoremap ;c {<Enter>}<Esc>ko<Tab>
 
+" Latex
+autocmd Filetype tex inoremap è \`e
+autocmd Filetype tex inoremap é \'e
+autocmd Filetype tex inoremap ò \`o
+autocmd Filetype tex inoremap à \`a
+autocmd Filetype tex inoremap ù \`u
+autocmd Filetype tex inoremap ì \`\i\
+
 " C++ main
 autocmd Filetype cpp inoremap ;m int main(int argc, char *argv[]) {<Enter><Enter><Tab>return 0;<Enter><Esc><<i}<Esc>kkko<Tab>
 
