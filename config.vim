@@ -11,7 +11,7 @@ catch
 endtry
 
 " Common
-set noswapfile  " Do not create swap files
+set noswapfile        " Do not create swap files
 set number
 set relativenumber
 set showcmd
@@ -20,6 +20,8 @@ set cmdheight=2
 set cursorline 
 
 set autoread          " Autoload file changes. You can undo by pressing u.
+
+set pastetoggle=<f5>  " Toggle paste mode using F5 key
 
 set backspace=indent,eol,start
 
