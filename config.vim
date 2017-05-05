@@ -68,6 +68,8 @@ autocmd Filetype tex inoremap ù \`u
 autocmd Filetype tex inoremap ì \`\i\
 " Latex page interrupt
 autocmd Filetype tex inoremap ;<Enter> %% Interruzione di pagina<Enter>\newpage<Enter>
+" Latex verbatim
+autocmd Filetype tex inoremap ;v \verb\|\|<Esc>i
 
 " C++ main
 autocmd Filetype cpp inoremap ;m int main(int argc, char *argv[]) {<Enter><Enter><Tab>return 0;<Enter><Esc><<i}<Esc>kkko<Tab>
