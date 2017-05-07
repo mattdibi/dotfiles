@@ -26,6 +26,12 @@ set lazyredraw        " Redraw only when we need to. (Faster macros)
 
 set backspace=indent,eol,start " Backspace through lines
 
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
 " Search
 set ignorecase
 set smartcase
