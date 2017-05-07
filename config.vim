@@ -38,7 +38,6 @@ set smartcase
 set incsearch         " Start searching before pressing enter
 
 " Center the display line after searches.
-
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
