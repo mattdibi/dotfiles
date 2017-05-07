@@ -22,7 +22,6 @@ set cursorline
 set autoread          " Autoload file changes. You can undo by pressing u.
 
 set wildmenu          " Visual autocomplete for command menu
-set lazyredraw        " Redraw only when we need to. (Faster macros)
 
 set backspace=indent,eol,start " Backspace through lines
 
