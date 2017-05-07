@@ -37,6 +37,15 @@ set ignorecase
 set smartcase
 set incsearch         " Start searching before pressing enter
 
+" Center the display line after searches.
+
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
 "Formatting
 set autoindent        " Auto indentation. To paste use paste mode: :set paste
 set wrap              " Wrap long lines
