@@ -34,6 +34,7 @@ git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
 ```
 
 #### Gitgutter installation
+**Note**: Removed because caused system crash (?)
 ```sh
 cd ~/.vim/bundle
 git clone git://github.com/airblade/vim-gitgutter.git
