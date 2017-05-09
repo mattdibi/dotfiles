@@ -20,7 +20,6 @@ set showmatch
 set cmdheight=2
 set cursorline 
 set autoread          " Autoload file changes. You can undo by pressing u.
-
 set wildmenu          " Visual autocomplete for command menu
 
 set backspace=indent,eol,start " Backspace through lines
@@ -43,6 +42,10 @@ nnoremap * *zz
 nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
+
+" Visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv
 
 "Formatting
 set autoindent        " Auto indentation. To paste use paste mode: :set paste
