@@ -100,8 +100,8 @@ call s:hi('StatusLine'   , 140 , s:n_bg+2 , 'None' , 'None')
 call s:hi('StatusLineNC' , 244 , s:n_bg+1 , 'None' , 'None')
 hi StatusLineNC guibg=#3a3a3a
 
-call s:hi('TabLine'     , 250 , s:n_bg+4 , 'None' , 'None')
-call s:hi('TabLineSel'  , 140 , s:n_bg+1 , 'None' , 'None')
+call s:hi('TabLine'     , 66  , s:n_bg+3 , 'None' , 'None')
+call s:hi('TabLineSel'  , 178 , s:n_bg+4 , 'None' , 'None')
 call s:hi('TabLineFill' , 145 , s:n_bg+2 , 'None' , 'None')
 
 call s:hi('WildMenu' , 169 , s:n_bg+1 , 'bold' , 'bold')
@@ -112,10 +112,10 @@ call s:hi('Character'   , 75  , '' , 'None' , 'None')
 call s:hi('Number'      , 111 , '' , 'None' , 'None')
 call s:hi('Float'       , 135 , '' , 'None' , 'None')
 call s:hi('String'      , 36  , '' , 'None' , 'None')
-call s:hi('Conditional' , 134 , '' , 'bold' , 'bold')
-call s:hi('Constant'    , 135 , '' , 'bold' , 'bold')
-call s:hi('Debug'       , 225 , '' , 'bold' , 'bold')
-call s:hi('Define'      , 81  , '' , 'None' , 'None')
+call s:hi('Conditional' , 134 , '' , 'None' , 'None')
+call s:hi('Constant'    , 135 , '' , 'None' , 'None')
+call s:hi('Debug'       , 225 , '' , 'None' , 'None')
+call s:hi('Define'      , 177 , '' , 'None' , 'None')
 call s:hi('Delimiter'   , 241 , '' , 'None' , 'None')
 hi Boolean         guifg=#FF68DD
 hi Character       guifg=#FF62B0
@@ -134,17 +134,14 @@ call s:hi('DiffDelete' , 162 , 53  , 'None' , 'None')
 call s:hi('DiffText'   , ''  , 102 , 'None' , 'None')
 
 call s:hi('Directory'  , 67  , ''  , 'bold' , 'bold')
-call s:hi('Exception'  , 118 , ''  , 'bold' , 'bold')
+call s:hi('Exception'  , 137 , ''  , 'bold' , 'bold')
 call s:hi('FoldColumn' , 67  , 16  , 'None' , 'None')
-call s:hi('Folded'     , 67  , 16  , 'Bold' , 'Bold')
-call s:hi('Function'   , 168 , ''  , 'bold' , 'bold')
-call s:hi('Identifier' , 98  , ''  , 'None' , 'None')
+call s:hi('Folded'     , 133  , 236 , 'None' , 'None')
+call s:hi('Function'   , 132 , ''  , 'bold' , 'bold')
+call s:hi('Identifier' , 168 , ''  , 'None' , 'None')
 call s:hi('Ignore'     , 244 , 233 , 'None' , 'None')
-call s:hi('Operator'   , 67 , ''  , 'None' , 'None')
+call s:hi('Operator'   , 67  , ''  , 'None' , 'None')
 hi Folded       guifg=#59955C guibg=#273746
-hi Function     guifg=#bc6ec5
-hi Identifier   guifg=#E994AB
-hi Identifier   guifg=#5f87d7
 hi Ignore       guifg=#B4D1B6
 hi Operator     guifg=#25A0C5
 
@@ -157,18 +154,27 @@ hi PreProc      guifg=#DD75DD
 hi Question     guifg=#F9BB00
 hi Repeat       guifg=#8282FF
 
-call s:hi('Keyword' , 62  , '' , 'bold' , 'bold,italic')
+call s:hi('Keyword' , 68  , '' , 'bold' , 'bold')
 call s:hi('Label'   , 104 , '' , 'None' , 'None')
 call s:hi('Macro'   , 110 , '' , 'None' , 'None')
 hi keyword      guifg=#E469FE
 hi Label        guifg=#DFB0FF
 hi Macro        guifg=#8C8CFF
 
+call s:hi('Type'       , 169 , '' , 'None'      , 'None')
+call s:hi('Typedef'    , 204 , '' , 'None'      , 'None')
+call s:hi('Underlined' , '' , '' , 'underline' , 'underline')
+hi Type         guifg=#ce537a
+hi Typedef      guifg=#ce537a
+
+call s:hi('Statement' , 68 , '' , 'None' , 'None')
+hi Statement guifg=#4f97d7
+
 call s:hi('Search'    , 16 , 76 , 'bold' , 'bold')
 call s:hi('IncSearch' , 16 , 76 , 'bold' , 'bold')
-call s:hi('MatchParen', 10, s:n_bg-1, 'bold,underline', 'bold,underline')
+call s:hi('MatchParen', 40 , s:n_bg-1, 'bold,underline', 'bold,underline')
 hi Search       guifg=#292b2e guibg=#86dc2f
-hi MatchParen   guifg=#00ff00 guibg=#292b2e
+hi MatchParen   guifg=#00ff00 guibg=NONE
 
 call s:hi('ModeMsg'  , 229 , '' , 'None' , 'None')
 hi ModeMsg guifg=#FFF06A
@@ -184,24 +190,24 @@ hi PmenuSbar    guifg=#C269FE guibg=#303030
 " SignColumn may relate to ale sign
 call s:hi('SignColumn' , 118 , s:n_bg , 'None' , 'None')
 call s:hi('Todo'       , 172 , s:n_bg , 'bold' , 'bold')
-hi Todo         guibg=#292b2e
-hi SignColumn   guibg=#292b2e
+hi Todo         guibg=NONE
+hi SignColumn   guibg=NONE
 
 " VertSplit consistent with normal background to hide it
 call s:hi('VertSplit' , s:n_bg , s:n_bg , 'None' , 'None')
-hi VertSplit    guibg=#292b2e
+hi VertSplit    guibg=NONE
 
 call s:hi('Warning'    , 222 , s:n_bg , 'bold' , 'bold')
 call s:hi('WarningMsg' , 222 , s:n_bg , 'bold' , 'bold')
-hi Warning      guifg=#dc752f guibg=#292b2e
-hi WarningMsg   guifg=#dc752f guibg=#292b2e
+hi Warning      guifg=#dc752f guibg=NONE
+hi WarningMsg   guifg=#dc752f guibg=NONE
 
 call s:hi('Error'    , 160 , s:n_bg , 'bold' , 'bold')
 call s:hi('ErrorMsg' , 196 , s:n_bg , 'bold' , 'bold')
-hi Error        guifg=#e0211d guibg=#292b2e
-hi ErrorMsg     guifg=#e0211d guibg=#292b2e
+hi Error        guifg=#e0211d guibg=NONE
+hi ErrorMsg     guifg=#e0211d guibg=NONE
 
-call s:hi('Special'        , 81  , '' , 'None' , 'None')
+call s:hi('Special'        , 75  , '' , 'None' , 'None')
 call s:hi('SpecialKey'     , 59  , '' , 'None' , 'None')
 call s:hi('SpecialChar'    , 171 , '' , 'bold' , 'bold')
 call s:hi('SpecialComment' , 245 , '' , 'bold' , 'bold')
@@ -216,23 +222,14 @@ call s:hi('SpellCap'   , 110 , '' , 'underline'    , 'undercurl')
 call s:hi('SpellLocal' , 253 , '' , 'underline'    , 'undercurl')
 call s:hi('SpellRare'  , 218 , '' , 'underline'    , 'undercurl')
 
-call s:hi('Statement' , 68 , '' , 'bold' , 'bold')
-hi Statement guifg=#4f97d7
-
 call s:hi('Tag'          , 161 , ''  , 'None' , 'None')
 call s:hi('Title'        , 176 , ''  , 'None' , 'None')
-call s:hi('Structure'    , 81  , ''  , 'None' , 'None')
+call s:hi('Structure'    , 32  , ''  , 'None' , 'None')
 call s:hi('StorageClass' , 208 , ''  , 'None' , 'None')
 hi Tag          guifg=#E469FE
 hi Title        guifg=#DD75DD
 hi Structure    guifg=#E37795
 hi StorageClass guifg=#D881ED
-
-call s:hi('Type'       , 81 , '' , 'None'      , 'None')
-call s:hi('Typedef'    , 81 , '' , 'None'      , 'None')
-call s:hi('Underlined' , '' , '' , 'underline' , 'underline')
-hi Type         guifg=#ce537a
-hi Typedef      guifg=#ce537a
 
 call s:hi('Visual'    , '' , s:n_bg+3 , 'None' , 'None')
 call s:hi('VisualNOS' , '' , 238      , 'None' , 'None')
@@ -242,7 +239,7 @@ call s:hi('Comment'  , 30  , ''  , 'None' , 'italic')
 hi Comment guifg=#2aa1ae
 
 " tilde group
-call s:hi('NonText' , 141 , '' , 'None' , 'None')
+call s:hi('NonText' , 241 , '' , 'None' , 'None')
 hi NonText guifg=#534B5D
 
 hi SVDNormal  guifg=#b2b2b2 ctermfg=249
@@ -275,6 +272,10 @@ hi link markdownH3 SVDYellowBold
 hi link markdownH4 SVDOrangeBold
 hi link markdownH5 SVDBlue
 hi link markdownH6 SVDGreen
+
+" cpp
+hi cppExceptions       ctermfg=207 guifg=#CC3366 cterm=bold gui=bold
+hi link cppSTLexception cppExceptions
 
 """""""""""""""""""""""""""""""""""""""""""
 " Plugins
