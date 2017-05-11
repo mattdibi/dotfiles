@@ -33,6 +33,17 @@ git clone https://github.com/vim-scripts/java_getset.vim.git ~/.vim/bundle/getse
 git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
 ```
 
+#### LaTex-Box installation
+```sh
+cd ~/.vim/bundle
+git clone https://github.com/LaTeX-Box-Team/LaTeX-Box.git
+```
+
+**Use:**
+```
+:LatexTOC = Open a table of contents. Use Enter to navigate to selected entry.
+```
+
 #### Gitgutter installation
 **Note**: Removed because caused system crash (?)
 ```sh
