@@ -1,6 +1,9 @@
 " Pathogen
 execute pathogen#infect()
 
+" Plugin load
+filetype plugin on
+
 " Colorscheme
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
