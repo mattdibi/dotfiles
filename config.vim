@@ -68,6 +68,8 @@ set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 set laststatus=2
 " Gitgutter
 set updatetime=250
+" LaTeX-Box
+nnoremap <F4> ::LatexTOCToggle<CR>
 
 " Mode toggle
 " Toggle paste mode using F5 key
