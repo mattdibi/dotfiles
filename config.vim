@@ -24,6 +24,8 @@ set cmdheight=2
 set cursorline 
 set autoread          " Autoload file changes. You can undo by pressing u.
 set wildmenu          " Visual autocomplete for command menu
+set laststatus=2      " Always diplay status bar
+set updatetime=250    " Update time 250ms
 
 set backspace=indent,eol,start " Backspace through lines
 
@@ -63,17 +65,12 @@ set splitbelow        " Puts new split windows to the bottom of the current
 "Display all characters (use F3 to toggle)
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 
-" Plugins settings
-" Airline
-set laststatus=2
-" Gitgutter
-set updatetime=250
-" LaTeX-Box
-autocmd Filetype tex nnoremap <F4> :LatexTOCToggle<CR>
 
-" Mode toggle
+" Function row mode toggle hotkeys
 " Toggle paste mode using F5 key
 set pastetoggle=<F5> 
+" Plugins settings
+autocmd Filetype tex nnoremap <F4> :LatexTOCToggle<CR>
 " Toggle list char using F3 key
 nnoremap <F3> :set list!<CR>
 " Toggle spell checker using F2 key
