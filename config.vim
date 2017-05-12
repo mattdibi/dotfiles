@@ -69,13 +69,15 @@ set laststatus=2
 " Gitgutter
 set updatetime=250
 " LaTeX-Box
-nnoremap <F4> :LatexTOCToggle<CR>
+autocmd Filetype tex nnoremap <F4> :LatexTOCToggle<CR>
 
 " Mode toggle
 " Toggle paste mode using F5 key
 set pastetoggle=<F5> 
 " Toggle list char using F3 key
 nnoremap <F3> :set list!<CR>
+" Toggle spell checker using F2 key
+nnoremap <F2> :set spell!<CR>
 
 " Custom 'macros'
 " Common
