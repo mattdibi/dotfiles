@@ -96,6 +96,15 @@ autocmd Filetype tex inoremap ;v \verb\|\|<Esc>i
 
 " C++ main
 autocmd Filetype cpp inoremap ;m int main(int argc, char *argv[]) {<Enter><Enter><Tab>return 0;<Enter><Esc><<i}<Esc>kkko<Tab>
+" ;g generates the C++ header guard
+autocmd Filetype c,h,hpp,cc,cpp map ;g :call IncludeGuard()<CR>
+fun! IncludeGuard()
+   let basename = substitute(bufname(""), '.*/', '', '')
+   let guard = '_' . substitute(toupper(basename), '\.', '_', "H")
+   call append(0, "#ifndef " . guard)
+   call append(1, "#define " . guard)
+   call append( line("$"), "#endif // for #ifndef " . guard)
+endfun
 
 " Java printline
 autocmd Filetype java inoremap ;p System.out.println();<Esc>hci) 
