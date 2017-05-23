@@ -39,6 +39,7 @@ map <C-l> <C-W>l
 set ignorecase
 set smartcase
 set incsearch         " Start searching before pressing enter
+set nows              " Once hitting the search bottom it stops instead of restarting from the first match
 
 " Center the display line after searches.
 nnoremap n nzz
