@@ -66,6 +66,8 @@ set splitbelow        " Puts new split windows to the bottom of the current
 "Display all characters (use F3 to toggle)
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 
+"Quick save
+map <Esc><Esc> :w<CR>
 
 " Function row mode toggle hotkeys
 " Toggle paste mode using F5 key
