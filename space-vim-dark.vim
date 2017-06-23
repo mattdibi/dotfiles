@@ -120,7 +120,7 @@ call s:hi('Character'   , 75  , '' , 'None' , 'None')
 call s:hi('Number'      , 176 , '' , 'None' , 'None')
 call s:hi('Float'       , 135 , '' , 'None' , 'None')
 call s:hi('String'      , 36  , '' , 'None' , 'None')
-call s:hi('Conditional' , 134 , '' , 'bold' , 'bold')
+call s:hi('Conditional' , 68 , '' , 'bold' , 'bold')
 call s:hi('Constant'    , 135 , '' , 'None' , 'None')
 call s:hi('Debug'       , 225 , '' , 'None' , 'None')
 call s:hi('Define'      , 177 , '' , 'None' , 'None')
@@ -130,7 +130,7 @@ hi Character       guifg=#FF62B0
 hi Number          guifg=#E697E6
 hi Float           guifg=#B7B7FF
 hi String          guifg=#20af81
-hi Conditional     guifg=#a45bad
+hi Conditional     guifg=#4f97d7
 hi Constant        guifg=#7BA7E1
 hi Debug           guifg=#FFC8C8
 hi Define          guifg=#D881ED
@@ -142,7 +142,7 @@ call s:hi('DiffDelete' , 162 , 53  , 'None' , 'None')
 call s:hi('DiffText'   , ''  , 102 , 'None' , 'None')
 
 call s:hi('Directory'  , 67  , ''  , 'bold' , 'bold')
-call s:hi('Exception'  , 137 , ''  , 'bold' , 'bold')
+call s:hi('Exception'  , 203 , ''  , 'bold' , 'bold')
 call s:hi('Function'   , 132 , ''  , 'bold' , 'bold')
 call s:hi('Identifier' , 168 , ''  , 'None' , 'None')
 call s:hi('Ignore'     , 244 , ''  , 'None' , 'None')
@@ -160,6 +160,7 @@ call s:hi('Repeat'    , 68  , '' , 'bold' , 'bold')
 hi PreCondit    guifg=#D698FE
 hi PreProc      guifg=#DD75DD
 hi Question     guifg=#F9BB00
+hi Repeat       guifg=#4f97d7
 
 call s:hi('Keyword' , 68  , '' , 'bold' , 'bold')
 call s:hi('Label'   , 104 , '' , 'None' , 'None')
@@ -210,7 +211,7 @@ hi Warning      guifg=#dc752f guibg=NONE
 hi WarningMsg   guifg=#dc752f guibg=NONE
 
 call s:hi('Error'    , 160 , s:bg , 'bold' , 'bold')
-call s:hi('ErrorMsg' , 196 , '' , 'bold' , 'bold')
+call s:hi('ErrorMsg' , 196 , s:bg , 'bold' , 'bold')
 hi Error        guifg=#e0211d guibg=NONE
 hi ErrorMsg     guifg=#e0211d guibg=NONE
 
@@ -281,6 +282,8 @@ hi link markdownH3 SVDYellowBold
 hi link markdownH4 SVDOrangeBold
 hi link markdownH5 SVDBlue
 hi link markdownH6 SVDGreen
+hi link mkdCode    SVDYellow
+hi link mkdItalic  String
 
 " cpp
 hi cppExceptions       ctermfg=207 guifg=#CC3366 cterm=bold gui=bold
@@ -290,18 +293,28 @@ hi link cppSTLexception cppExceptions
 hi link dotKeyChar Number
 
 " sh
-call s:hi('shFunctionKey' , 68 , '' , 'bold' , 'bold')
+hi link shSet         SVDBlueBold
+hi link shLoop        SVDBlueBold
+hi link shFunctionKey SVDBlueBold
 
 " vimL
-call s:hi('vimLet' , 68 , '' , 'bold' , 'bold')
-hi vimLet guifg=#4f97d7
-hi link vimFuncKey vimLet
-hi link vimCommand vimLet
-hi link vimGroup Directory
+hi link vimLet     SVDBlueBold
+hi link vimFuncKey SVDBlueBold
+hi link vimCommand SVDBlueBold
+hi link vimGroup   Directory
 hi link vimHiGroup Directory
 
 " json
 hi link jsonStringSQError SVDRed
+
+" xml
+hi link xmlTag     Identifier
+hi link xmlEndTag  Identifier
+hi link xmlTagName Identifier
+
+" html
+hi link htmlSpecialTagName Tag
+hi link htmlItalic String
 
 " python-mode
 hi pythonLambdaExpr      ctermfg=105 guifg=#8787ff
@@ -313,8 +326,8 @@ hi pythonBrackets        ctermfg=183 guifg=#d7afff
 hi pythonClassParameters ctermfg=111 guifg=#FF5353
 hi pythonSelf            ctermfg=68  guifg=#5f87d7 cterm=bold gui=bold
 
-call s:hi('pythonOperator' , 68 , '' , 'bold' , 'bold')
-hi pythonOperator guifg=#4f97d7
+hi link pythonOperator  SVDBlueBold
+hi link pythonStatement SVDBlueBold
 
 hi pythonDottedName      ctermfg=74  guifg=#5fafd7
 
@@ -332,9 +345,10 @@ hi pythonException       ctermfg=207 guifg=#CC3366 cterm=bold gui=bold
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""
 "ALE {
-hi link ALEWarningSign  Warning
 hi link ALEErrorSign    Error
+hi link ALEWarningSign  Warning
 "}
+
 " vim-indent-guides {
 let g:indent_guides_auto_colors = 0
 hi IndentGuidesOdd  guibg=#708090 ctermbg=237
@@ -365,8 +379,8 @@ hi link SignifySignDelete SVDRed
 
 " vim-startify {
 hi link StartifyFile    Normal
-hi link StartifySection SVDBlueBold
 hi link StartifyHeader  Define
+hi link StartifySection SVDBlueBold
 " }
 
 " YouCompleteMe {
@@ -375,14 +389,18 @@ hi YcmWarningSection guibg=#5f5f87 guifg=#b2b2b2 ctermbg=60 ctermfg=249
 " }
 
 " vim-leader-guide {
-hi link LeaderGuideDesc SVDNormal
-hi link LeaderGuideKeys Function
+hi link LeaderGuideKeys     Function
+hi link LeaderGuideDesc     SVDNormal
 hi link LeaderGuideBrackets SVDGreen
 " }
 
 " NERDTree {
-hi link NERDTreeDirSlash  Statement
-hi link NERDTreeCWD Function
+hi link NERDTreeCWD       Function
+hi link NERDTreeUp        SVDBlueBold
+hi link NERDTreeDir       SVDBlueBold
+hi link NERDTreeDirSlash  SVDBlueBold
+hi link NERDTreeOpenable  SVDBlueBold
+hi link NERDTreeClosable  SVDBlueBold
 " }
 
 " Tagbar {
