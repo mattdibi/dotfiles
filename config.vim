@@ -22,6 +22,7 @@ set showcmd
 set showmatch
 set cmdheight=2
 set cursorline 
+
 set autoread          " Autoload file changes. You can undo by pressing u.
 set wildmenu          " Visual autocomplete for command menu
 set laststatus=2      " Always diplay status bar
