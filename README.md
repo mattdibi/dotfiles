@@ -10,6 +10,8 @@ Examples:
 "+yw: yanks word in + register and can be pasted in another window
 ```
 
+**Note2:** You need also to install **tmux**
+
 ## Installation
 Simply type these commands on a terminal window:
 
@@ -63,6 +65,17 @@ cs"(: change surrounding " to (
 ds(: delete surrounding (
 After a selection w/ Visual mode: S[symbol] surrounds the selection with [symbol]
 ```
+
+#### vim-tmux-navigator installation
+```sh
+git clone https://github.com/christoomey/vim-tmux-navigator.git ~/.vim/bundle
+```
+**Use:** 
+- `<ctrl-h>` => Left
+- `<ctrl-j>` => Down
+- `<ctrl-k>` => Up
+- `<ctrl-l>` => Right
+- `<ctrl-\>` => Previous split
 
 #### Vimrc installation
 ```sh
