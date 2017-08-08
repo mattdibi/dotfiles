@@ -98,10 +98,12 @@ call s:hi('LineNr'       , 238+s:bias , s:bg0 , 'None' , 'None' )
 call s:hi('CursorLine'   , ''  , s:bg0 , 'None' , 'None' )
 call s:hi('CursorLineNr' , 134 , s:bg0 , 'None' , 'None' )
 call s:hi('CursorColumn' , ''  , s:bg0 , 'None' , 'None')
+call s:hi('ColorColumn' , ''  , s:bg0 , 'None' , 'None')
 hi LineNr       guifg=#44505c guibg=#212026
 hi CursorLine                 guibg=#212026
 hi CursorLineNr               guibg=#212026
 hi CursorColumn               guibg=#212026
+hi ColorColumn               guibg=#212026
 
 " bug. opposite here.
 call s:hi('StatusLine'   , 140 , s:bg2 , 'None' , 'None')
@@ -124,7 +126,7 @@ call s:hi('Conditional' , 68 , '' , 'bold' , 'bold')
 call s:hi('Constant'    , 135 , '' , 'None' , 'None')
 call s:hi('Debug'       , 225 , '' , 'None' , 'None')
 call s:hi('Define'      , 177 , '' , 'None' , 'None')
-call s:hi('Delimiter'   , 241 , '' , 'None' , 'None')
+call s:hi('Delimiter'   , 151 , '' , 'None' , 'None')
 hi Boolean         guifg=#FF68DD
 hi Character       guifg=#FF62B0
 hi Number          guifg=#E697E6
@@ -143,7 +145,7 @@ call s:hi('DiffText'   , ''  , 102 , 'None' , 'None')
 
 call s:hi('Directory'  , 67  , ''  , 'bold' , 'bold')
 call s:hi('Exception'  , 203 , ''  , 'bold' , 'bold')
-call s:hi('Function'   , 132 , ''  , 'bold' , 'bold')
+call s:hi('Function'   , 169 , ''  , 'bold' , 'bold')
 call s:hi('Identifier' , 168 , ''  , 'None' , 'None')
 call s:hi('Ignore'     , 244 , ''  , 'None' , 'None')
 call s:hi('Operator'   , 67  , ''  , 'None' , 'None')
@@ -165,7 +167,6 @@ hi Repeat       guifg=#4f97d7
 call s:hi('Keyword' , 68  , '' , 'bold' , 'bold')
 call s:hi('Label'   , 104 , '' , 'None' , 'None')
 call s:hi('Macro'   , 110 , '' , 'None' , 'None')
-hi keyword      guifg=#E469FE
 hi Label        guifg=#DFB0FF
 hi Macro        guifg=#8C8CFF
 
@@ -215,7 +216,7 @@ call s:hi('ErrorMsg' , 196 , s:bg , 'bold' , 'bold')
 hi Error        guifg=#e0211d guibg=NONE
 hi ErrorMsg     guifg=#e0211d guibg=NONE
 
-call s:hi('Special'        , 175 , '' , 'None' , 'None')
+call s:hi('Special'        , 169 , '' , 'None' , 'None')
 call s:hi('SpecialKey'     , 59  , '' , 'None' , 'None')
 call s:hi('SpecialChar'    , 171 , '' , 'bold' , 'bold')
 call s:hi('SpecialComment' , 245 , '' , 'bold' , 'bold')
@@ -233,11 +234,11 @@ call s:hi('SpellRare'  , 218 , '' , 'underline'    , 'undercurl')
 call s:hi('Tag'          , 161 , ''  , 'None' , 'None')
 call s:hi('Title'        , 176 , ''  , 'None' , 'None')
 call s:hi('Structure'    , 68  , ''  , 'bold' , 'bold')
-call s:hi('StorageClass' , 170 , ''  , 'None' , 'None')
+call s:hi('StorageClass' , 178 , ''  , 'bold' , 'bold')
 hi Tag          guifg=#E469FE
 hi Title        guifg=#DD75DD
 hi Structure    guifg=#4f97d7
-hi StorageClass guifg=#a45bad
+hi StorageClass guifg=#d1951d
 
 call s:hi('Visual'    , '' , s:bg3 , 'None' , 'None')
 call s:hi('VisualNOS' , '' , 238      , 'None' , 'None')
@@ -285,12 +286,20 @@ hi link markdownH6 SVDGreen
 hi link mkdCode    SVDYellow
 hi link mkdItalic  String
 
+" c
+hi link cConstant  SVDOrange
+
 " cpp
 hi cppExceptions       ctermfg=207 guifg=#CC3366 cterm=bold gui=bold
 hi link cppSTLexception cppExceptions
 
+" css
+hi link cssTagName SVDBlueBold
+hi link cssProp    Function
+
 " dot
 hi link dotKeyChar Number
+hi link dotType StorageClass
 
 " sh
 hi link shSet         SVDBlueBold
@@ -304,6 +313,11 @@ hi link vimCommand SVDBlueBold
 hi link vimGroup   Directory
 hi link vimHiGroup Directory
 
+" rust
+hi link rustKeyword SVDBlueBold
+call s:hi('rustTrait'       , 168 , '' , 'bold'      , 'bold')
+hi Type         guifg=#ce537a
+
 " json
 hi link jsonStringSQError SVDRed
 
@@ -312,6 +326,19 @@ hi link xmlTag     Identifier
 hi link xmlEndTag  Identifier
 hi link xmlTagName Identifier
 
+" java
+hi link javaScopeDecl keyword
+hi link javaClassDecl Function
+
+" scala
+hi link scalaKeyword SVDBlueBold
+hi link scalaNameDefinition SVDBlueBold
+
+" ruby
+hi link rubyClass SVDBlueBold
+hi link rubyDefine SVDBlueBold
+hi link rubyInterpolationDelimiter Number
+
 " html
 hi link htmlSpecialTagName Tag
 hi link htmlItalic String
@@ -319,9 +346,9 @@ hi link htmlItalic String
 " python-mode
 hi pythonLambdaExpr      ctermfg=105 guifg=#8787ff
 hi pythonInclude         ctermfg=68  guifg=#5f87d7 cterm=bold gui=bold
-hi pythonClass           ctermfg=167 guifg=#FF62B0 cterm=bold gui=bold
+hi pythonClass           ctermfg=207 guifg=#FF62B0 cterm=bold gui=bold
 hi pythonParameters      ctermfg=147 guifg=#AAAAFF
-hi pythonParam           ctermfg=175 guifg=#67b11d
+hi pythonParam           ctermfg=108 guifg=#67b11d
 hi pythonBrackets        ctermfg=183 guifg=#d7afff
 hi pythonClassParameters ctermfg=111 guifg=#FF5353
 hi pythonSelf            ctermfg=68  guifg=#5f87d7 cterm=bold gui=bold
@@ -339,7 +366,7 @@ hi pythonBuiltinType     ctermfg=170  guifg=#D54FD5 cterm=bold gui=bold
 hi pythonBuiltinObj      ctermfg=71  guifg=#5faf5f cterm=bold gui=bold
 hi pythonBuiltinFunc     ctermfg=169 guifg=#d75faf cterm=bold gui=bold
 
-hi pythonException       ctermfg=207 guifg=#CC3366 cterm=bold gui=bold
+hi pythonException       ctermfg=161 guifg=#CC3366 cterm=bold gui=bold
 
 """""""""""""""""""""""""""""""""""""""""""
 " Plugins
