@@ -15,13 +15,18 @@ bind-key -T copy-mode-vi C-k select-pane -U
 bind-key -T copy-mode-vi C-l select-pane -R
 bind-key -T copy-mode-vi C-\ select-pane -l
 
+# Panes
+set -g pane-border-bg colour235
+set -g pane-border-fg colour238
+set -g pane-active-border-bg colour236
+set -g pane-active-border-fg colour51
+
 # Status bar theme
 set -g status-bg 'colour235'
 set -g message-command-fg 'colour222'
 set -g status-justify 'centre'
 set -g status-left-length '100'
 set -g status 'on'
-set -g pane-active-border-fg 'colour154'
 set -g message-bg 'colour238'
 set -g status-right-length '100'
 set -g status-right-attr 'none'
@@ -29,7 +34,6 @@ set -g message-fg 'colour222'
 set -g message-command-bg 'colour238'
 set -g status-attr 'none'
 set -g status-utf8 'on'
-set -g pane-border-fg 'colour238'
 set -g status-left-attr 'none'
 setw -g window-status-fg 'colour121'
 setw -g window-status-attr 'none'
