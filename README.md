@@ -66,6 +66,12 @@ ds(: delete surrounding (
 After a selection w/ Visual mode: S[symbol] surrounds the selection with [symbol]
 ```
 
+#### AutoClose
+```sh
+cd ~/.vim/bundle
+git clone https://github.com/vim-scripts/AutoClose.git
+```
+
 #### vim-tmux-navigator installation
 ```sh
 git clone https://github.com/christoomey/vim-tmux-navigator.git ~/.vim/bundle
