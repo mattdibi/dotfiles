@@ -20,7 +20,7 @@ set number
 set relativenumber
 set showcmd
 set showmatch
-set cmdheight=2
+set cmdheight=1       " Command line height
 set cursorline 
 
 set autoread          " Autoload file changes. You can undo by pressing u.
