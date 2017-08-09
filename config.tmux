@@ -1,4 +1,5 @@
 set -g default-terminal "screen-256color"
+set -g mouse on
 
 # Smart pane switching with awareness of Vim splits.
 # See: https://github.com/christoomey/vim-tmux-navigator
@@ -60,9 +61,8 @@ set-option -g visual-silence off
 set-window-option -g monitor-activity off
 set-option -g bell-action none
 
-set -g default-terminal "screen-256color"
-
 # The modes {
+
 setw -g clock-mode-colour colour135
 setw -g mode-attr bold
 setw -g mode-fg colour196
