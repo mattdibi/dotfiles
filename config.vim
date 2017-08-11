@@ -79,6 +79,8 @@ autocmd Filetype tex nnoremap <F4> :LatexTOCToggle<CR>
 nnoremap <F3> :set list!<CR>
 " Toggle spell checker using F2 key
 nnoremap <F2> :set spell!<CR>
+" Nerdtree toogle
+map <C-n> :NERDTreeToggle<CR>
 
 " Custom 'macros'
 " Common
