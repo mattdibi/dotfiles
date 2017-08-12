@@ -35,6 +35,11 @@ git clone https://github.com/vim-scripts/java_getset.vim.git ~/.vim/bundle/getse
 git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
 ```
 
+#### Nerdtree installation
+```sh
+git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
+```
+
 #### LaTex-Box installation
 ```sh
 cd ~/.vim/bundle
