@@ -14,7 +14,7 @@ rofi.color-window:                   argb:f22d303b, #7c8389, #1d1f21
 ! Separator style (none, dash, solid)
 rofi.separator-style:                solid
 ! Enabled modi
-rofi.modi:                           window,drun,ssh
+rofi.modi:                           window,drun,run
 
 
 ! Window opacity
@@ -240,4 +240,4 @@ rofi.key-window:                     F2
 ! Keybinding
 rofi.key-drun:                       F3
 ! Keybinding
-rofi.key-ssh:                        F4
+! rofi.key-ssh:                        F4
