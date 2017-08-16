@@ -96,7 +96,7 @@ rofi.levenshtein-sort:               false
 ! Set case-sensitivity
 rofi.case-sensitive:                 false
 ! Enable sidebar-mode
-rofi.sidebar-mode:                   false
+rofi.sidebar-mode:                   true
 ! Set lazy filter limit
 rofi.lazy-filter-limit:              15000
 ! Row height (in chars)
@@ -128,7 +128,7 @@ rofi.markup-rows:                    false
 ! Fullscreen
 rofi.fullscreen:                     false
 ! Fake transparency
-rofi.fake-transparency:              false
+rofi.fake-transparency:              true
 ! DPI
 rofi.dpi:                            -1
 ! Pidfile location
