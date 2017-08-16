@@ -10,7 +10,7 @@ Examples:
 "+yw: yanks word in + register and can be pasted in another window
 ```
 
-**Note2:** You need also to install **tmux**
+**Note2:** You need also to install **tmux** and **rofi**
 
 ## Installation
 Simply type these commands on a terminal window:
