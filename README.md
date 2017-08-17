@@ -1,16 +1,18 @@
-# Mattdibi's vimrc
-This is my vimrc. I need to add it to version tracking because I'm probably going to modify it a lot.
+# Mattdibi's dotfiles
+These are my configuration files. I need to add it to version tracking because I'm probably going to modify them a lot.
+
+
+## Programs
+- Vim:  [https://github.com/vim](https://github.com/vim)
+- Tmux: [https://github.com/tmux/tmux](https://github.com/tmux/tmux)
+- Rofi: [https://github.com/DaveDavenport/rofi](https://github.com/DaveDavenport/rofi)
 
 **Note:** You need to install **vim-gnome** or **vim-gtk**, depending on your system configuration, to be able to effectively
 copy and paste from the system clipboard.
 The clipboard registers are " and *  
 Examples:
-```sh
-"+p : pastes from system clipboard
-"+yw: yanks word in + register and can be pasted in another window
-```
-
-**Note2:** You need also to install **tmux** and **rofi**
+- `"+p` => pastes from system clipboard
+- `"+yw` => yanks word in + register and can be pasted in another window
 
 ## Installation
 Simply type these commands on a terminal window:
@@ -64,12 +66,10 @@ cd ~/.vim/bundle
 git clone git://github.com/tpope/vim-surround.git
 ```
 **Use:** 
-```sh
-ysiw": surrounds word with "
-cs"(: change surrounding " to (
-ds(: delete surrounding (
-After a selection w/ Visual mode: S[symbol] surrounds the selection with [symbol]
-```
+- `ysiw"` => surrounds word with `"`
+- `cs"(` => change surrounding `"` to `(`
+- `ds(` => delete surrounding `(`
+After a selection w/ Visual mode: `S[symbol]` surrounds the selection with `[symbol]`
 
 #### AutoClose
 ```sh
@@ -88,8 +88,8 @@ git clone https://github.com/christoomey/vim-tmux-navigator.git ~/.vim/bundle
 - `<ctrl-l>` => Right
 - `<ctrl-\>` => Previous split
 
-#### Vimrc installation
+## Dotfiles installation
 ```sh
-$ cd vimrc/ 
-$ sh install_vimrc.sh
+$ cd matt_dotfiles/ 
+$ sh install_dotfiles.sh
 ```
