@@ -14,7 +14,7 @@ rofi.color-window:                   argb:f22d303b, #7c8389, #1d1f21
 ! Separator style (none, dash, solid)
 rofi.separator-style:                solid
 ! Enabled modi
-rofi.modi:                           window,drun,ssh
+rofi.modi:                           window,drun,fb:/home/mattia/Scrivania/dotfiles/rofi-file-browser.sh,ssh
 
 
 ! Window opacity
