@@ -5,7 +5,6 @@ These are my configuration files. I need to add it to version tracking because I
 ## Programs
 - Vim:  [https://github.com/vim](https://github.com/vim)
 - Tmux: [https://github.com/tmux/tmux](https://github.com/tmux/tmux)
-- Rofi: [https://github.com/DaveDavenport/rofi](https://github.com/DaveDavenport/rofi)
 
 **Note:** You need to install **vim-gnome** or **vim-gtk**, depending on your system configuration, to be able to effectively
 copy and paste from the system clipboard.
