@@ -73,32 +73,20 @@ map <Esc><Esc> :w<CR>
 " Function row mode toggle hotkeys
 " Toggle paste mode using F5 key
 set pastetoggle=<F5> 
-" Plugins settings
-autocmd Filetype tex nnoremap <F4> :LatexTOCToggle<CR>
 " Toggle list char using F3 key
 nnoremap <F3> :set list!<CR>
 " Toggle spell checker using F2 key
 nnoremap <F2> :set spell!<CR>
 " Nerdtree toogle
 map <C-n> :NERDTreeToggle<CR>
+" Tagbar toogle
+nmap <F8> :TagbarToggle<CR>
 
 " Custom 'macros'
 " Common
 inoremap ;f for(int i = 0; i < size; i++) {<Enter>}<Esc>ko<Tab>
 inoremap ;i if() {<Enter>}<Esc>kf(ci)
 inoremap ;c {<Enter>}<Esc>ko<Tab>
-
-" Latex accented characters
-autocmd Filetype tex inoremap è \`e
-autocmd Filetype tex inoremap é \'e
-autocmd Filetype tex inoremap ò \`o
-autocmd Filetype tex inoremap à \`a
-autocmd Filetype tex inoremap ù \`u
-autocmd Filetype tex inoremap ì \`\i\
-" Latex page interrupt
-autocmd Filetype tex inoremap ;<Enter> %% Interruzione di pagina<Enter>\newpage<Enter>
-" Latex verbatim
-autocmd Filetype tex inoremap ;v \verb\|\|<Esc>i
 
 " C++ main
 autocmd Filetype cpp inoremap ;m int main(int argc, char *argv[]) {<Enter><Enter><Tab>return 0;<Enter><Esc><<i}<Esc>kkko<Tab>

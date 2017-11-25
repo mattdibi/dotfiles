@@ -20,44 +20,15 @@ Simply type these commands on a terminal window:
 $ git clone https://github.com/mattdibi/vimrc.git
 ```
 
+### Plugin management
+
 #### Pathogen installation
 ```sh
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 ```
 
-#### Java GetSet
-```sh
-git clone https://github.com/vim-scripts/java_getset.vim.git ~/.vim/bundle/getset
-```
-
-#### Airline installation
-```sh
-git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
-```
-
-#### Nerdtree installation
-```sh
-git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
-```
-
-#### LaTex-Box installation
-```sh
-cd ~/.vim/bundle
-git clone https://github.com/LaTeX-Box-Team/LaTeX-Box.git
-```
-
-**Use:**
-```
-:LatexTOC = Open a table of contents. Use Enter to navigate to selected entry.
-```
-
-#### Gitgutter installation
-**Note**: Removed because caused system crash (?)
-```sh
-cd ~/.vim/bundle
-git clone git://github.com/airblade/vim-gitgutter.git
-```
+### General purpose
 
 #### Vim-Surround installation
 ```sh
@@ -70,10 +41,31 @@ git clone git://github.com/tpope/vim-surround.git
 - `ds(` => delete surrounding `(`
 After a selection w/ Visual mode: `S[symbol]` surrounds the selection with `[symbol]`
 
-#### AutoClose
+### Status display
+
+#### Gitgutter installation
 ```sh
 cd ~/.vim/bundle
-git clone https://github.com/vim-scripts/AutoClose.git
+git clone git://github.com/airblade/vim-gitgutter.git
+```
+
+#### Airline installation
+```sh
+git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
+```
+
+### Project navigation
+
+#### Tagbar installation 
+```sh
+git clone https://github.com/majutsushi/tagbar.git ~/.vim/bundle
+```
+
+**Note**: Prerequisite exuberant-ctags. Install with `sudo apt-get install exuberant-ctags`.
+
+#### Nerdtree installation
+```sh
+git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 ```
 
 #### vim-tmux-navigator installation
