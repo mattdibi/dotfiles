@@ -82,6 +82,16 @@ map <C-n> :NERDTreeToggle<CR>
 " Tagbar toogle
 nmap <F8> :TagbarToggle<CR>
 
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 " Custom 'macros'
 " Common
 inoremap ;f for(int i = 0; i < size; i++) {<Enter>}<Esc>ko<Tab>
