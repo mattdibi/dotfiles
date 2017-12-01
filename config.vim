@@ -69,28 +69,18 @@ set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 
 "Quick save
 map <Esc><Esc> :w<CR>
+" Switch between source and header file
+map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
 " Function row mode toggle hotkeys
 " Toggle paste mode using F5 key
 set pastetoggle=<F5> 
 " Toggle list char using F3 key
 nnoremap <F3> :set list!<CR>
-" Toggle spell checker using F2 key
-nnoremap <F2> :set spell!<CR>
 " Nerdtree toogle
 map <C-n> :NERDTreeToggle<CR>
 " Tagbar toogle
 nmap <F8> :TagbarToggle<CR>
-
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " Custom 'macros'
 " Common
