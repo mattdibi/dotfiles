@@ -64,32 +64,25 @@ set nojoinspaces      " Prevents inserting two spaces after punctuation on a joi
 set splitright        " Puts new vsplit windows to the right of the current
 set splitbelow        " Puts new split windows to the bottom of the current
 
-"Display all characters (use F3 to toggle)
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
+" Function row mode toggle hotkeys
 
-"Quick save
-map <Esc><Esc> :w<CR>
-" Switch between source and header file
+" F3: Toggle list char
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
+nnoremap <F3> :set list!<CR>
+
+" F4: Switch between source and header file
 map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
-" Function row mode toggle hotkeys
-" Toggle paste mode using F5 key
+" F5: Toggle paste mode
 set pastetoggle=<F5> 
-" Toggle list char using F3 key
-nnoremap <F3> :set list!<CR>
-" Nerdtree toogle
-map <C-n> :NERDTreeToggle<CR>
-" Tagbar toogle
+
+" F8: Toggle tagbar
 nmap <F8> :TagbarToggle<CR>
 
-" Custom 'macros'
-" Common
-inoremap ;f for(int i = 0; i < size; i++) {<Enter>}<Esc>ko<Tab>
-inoremap ;i if() {<Enter>}<Esc>kf(ci)
-inoremap ;c {<Enter>}<Esc>ko<Tab>
+" <C-n>: Toggle NERDTree
+map <C-n> :NERDTreeToggle<CR>
 
-" C++ main
-autocmd Filetype cpp inoremap ;m int main(int argc, char *argv[]) {<Enter><Enter><Tab>return 0;<Enter><Esc><<i}<Esc>kkko<Tab>
+" C++
 " ;g generates the C++ header guard
 autocmd Filetype c,h,hpp,cc,cpp map ;g :call IncludeGuard()<CR>
 fun! IncludeGuard()
@@ -99,9 +92,3 @@ fun! IncludeGuard()
    call append(1, "#define " . guard)
    call append( line("$"), "#endif // for #ifndef " . guard)
 endfun
-
-" Java printline
-autocmd Filetype java inoremap ;p System.out.println();<Esc>hci) 
-" Java exception
-autocmd Filetype java inoremap ;e try {<Enter><Enter>} catch (Exception e) {<Enter>System.out.println( e );<Esc>>>o}<Esc><<
-
