@@ -30,6 +30,16 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 ### General purpose
 
+#### Vim-Dispatch installation
+```sh
+cd ~/.vim/bundle
+git clone git://github.com/tpope/vim-dispatch.git
+```
+**Use:**
+- `:Make`
+- `:Make!`
+- `:Start`
+
 #### Vim-Surround installation
 ```sh
 cd ~/.vim/bundle
