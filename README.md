@@ -30,6 +30,12 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 ### General purpose
 
+#### Vim-Minisnip
+```sh
+cd ~/.vim/bundle
+https://github.com/joereynolds/vim-minisnip
+```
+
 #### Vim-Dispatch installation
 ```sh
 cd ~/.vim/bundle

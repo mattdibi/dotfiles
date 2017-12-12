@@ -1,0 +1,9 @@
+switch ({{+expression+}}) {
+
+    case {{+case+}}: 
+        {{++}}
+        break;
+
+    default: 
+        break;
+}
