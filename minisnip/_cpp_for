@@ -1,3 +1,3 @@
-for(int {{+index+}} = 0; {{+index+}} < {{+condition+}}; {{+index+}}++) {
+for(int {{+index+}} = 0; {{+~\~1+}} < {{+condition+}}; {{+~\~2+}}++) {
     {{++}}
 }
