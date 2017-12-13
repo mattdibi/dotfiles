@@ -1,0 +1,5 @@
+/** @file {{+~expand("%:t:r")+}}.cpp
+ *  @brief Cpp file della classe {{+~\~1+}}
+ *
+ *  {{++}}
+ * */ 
