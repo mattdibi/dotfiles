@@ -64,8 +64,15 @@ set nojoinspaces      " Prevents inserting two spaces after punctuation on a joi
 set splitright        " Puts new vsplit windows to the right of the current
 set splitbelow        " Puts new split windows to the bottom of the current
 
-" Function row mode toggle hotkeys
+"Remember folds
+augroup AutoSaveFolds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent loadview
+augroup END
 
+" Function row mode toggle hotkeys
+"
 " F3: Toggle list char
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 nnoremap <F3> :set list!<CR>
