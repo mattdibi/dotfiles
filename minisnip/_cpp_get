@@ -1,0 +1,1 @@
+{{+type+}} get{{+VarName+}} const { return {{+var_name+}}; };
