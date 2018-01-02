@@ -64,14 +64,6 @@ set nojoinspaces      " Prevents inserting two spaces after punctuation on a joi
 set splitright        " Puts new vsplit windows to the right of the current
 set splitbelow        " Puts new split windows to the bottom of the current
 
-" Highlight trailing whitespaces
-highlight ExtraWhitespace ctermbg=darkgreen guibg=lightgreen
-match ExtraWhitespace /\s\+\%#\@<!$/
-" Fix memory leak for successive match calls
-if version >= 702
-    autocmd BufWinLeave * call clearmatches()
-endif
-
 "Remember folds
 augroup AutoSaveFolds
   autocmd!
