@@ -66,7 +66,7 @@ set splitbelow        " Puts new split windows to the bottom of the current
 
 " Highlight trailing whitespaces
 highlight ExtraWhitespace ctermbg=darkgreen guibg=lightgreen
-match ExtraWhitespace /\s\+$/
+match ExtraWhitespace /\s\+\%#\@<!$/
 " Fix memory leak for successive match calls
 if version >= 702
     autocmd BufWinLeave * call clearmatches()
