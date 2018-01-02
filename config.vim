@@ -9,7 +9,7 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 try
-    colorscheme space-vim-dark 
+    colorscheme space-vim-dark
 catch
 endtry
 
@@ -21,7 +21,7 @@ set relativenumber
 set showcmd
 set showmatch
 set cmdheight=1       " Command line height
-set cursorline 
+set cursorline
 
 set autoread          " Autoload file changes. You can undo by pressing u.
 set wildmenu          " Visual autocomplete for command menu
@@ -64,6 +64,14 @@ set nojoinspaces      " Prevents inserting two spaces after punctuation on a joi
 set splitright        " Puts new vsplit windows to the right of the current
 set splitbelow        " Puts new split windows to the bottom of the current
 
+" Highlight trailing whitespaces
+highlight ExtraWhitespace ctermbg=darkgreen guibg=lightgreen
+match ExtraWhitespace /\s\+$/
+" Fix memory leak for successive match calls
+if version >= 702
+    autocmd BufWinLeave * call clearmatches()
+endif
+
 "Remember folds
 augroup AutoSaveFolds
   autocmd!
@@ -72,7 +80,7 @@ augroup AutoSaveFolds
 augroup END
 
 " Function row mode toggle hotkeys
-"
+
 " F3: Toggle list char
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 nnoremap <F3> :set list!<CR>
@@ -81,7 +89,7 @@ nnoremap <F3> :set list!<CR>
 map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
 " F5: Toggle paste mode
-set pastetoggle=<F5> 
+set pastetoggle=<F5>
 
 " F8: Toggle tagbar
 nmap <F8> :TagbarToggle<CR>
