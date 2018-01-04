@@ -156,4 +156,6 @@ bar {
         tray_output primary
 
         position top
+
+        font pango:DejaVu Sans Mono 10
 }
