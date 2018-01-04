@@ -5,6 +5,7 @@ These are my configuration files. I need to add it to version tracking because I
 ## Programs
 - Vim:  [https://github.com/vim](https://github.com/vim)
 - Tmux: [https://github.com/tmux/tmux](https://github.com/tmux/tmux)
+- i3-wm: [https://i3wm.org/](https://i3wm.org/)
 
 **Note:** You need to install **vim-gnome** or **vim-gtk**, depending on your system configuration, to be able to effectively
 copy and paste from the system clipboard.
@@ -13,11 +14,17 @@ Examples:
 - `"+p` => pastes from system clipboard
 - `"+yw` => yanks word in + register and can be pasted in another window
 
+**Note: i3 installation**
+```sh
+sudo apt-get install i3-wm i3status
+```
+
 ## Installation
 Simply type these commands on a terminal window:
 
 ```sh
-$ git clone https://github.com/mattdibi/vimrc.git
+$ git clone https://github.com/mattdibi/dotfiles.git
+$ sh install_dotfiles.sh
 ```
 
 ### Plugin management
