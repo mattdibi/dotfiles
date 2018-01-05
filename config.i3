@@ -199,3 +199,4 @@ exec_always --no-startup-id xautolock -time 1  -locker "i3lock-fancy -- scrot -z
 #Startup application
 exec --no-startup-id dropbox start
 exec --no-startup-id nm-applet
+exec --no-startup-id numlockx on
