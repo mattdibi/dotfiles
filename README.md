@@ -16,8 +16,14 @@ Examples:
 
 **Note: i3 installation**
 ```sh
-sudo apt-get install i3-wm i3status
+sudo apt-get install i3-wm i3status dmenu
 gsettings set org.gnome.desktop.background show-desktop-icons false
+```
+
+or use
+
+```sh
+sudo apt-get install i3
 ```
 Run the second command to disable drawing of the desktop by Nautilus.
 
