@@ -8,11 +8,13 @@
 
 general {
         colors = true
-        interval = 1
+        interval = 2
 
         color_good     = "#4286f4"
         color_bad      = "#f442b9"
-        color_degraded = "#427df4"
+        color_degraded = "#cb4b16"
+
+        output_format = "i3bar"
 }
 
 order += "ethernet _first_"
@@ -34,7 +36,7 @@ ethernet _first_ {
 }
 
 battery 0 {
-        format = "%status %percentage %remaining"
+        format = "↯ %status %percentage %remaining"
 }
 
 tztime local {
