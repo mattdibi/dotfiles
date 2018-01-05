@@ -14,7 +14,7 @@ rofi.color-window:                   argb:f22d303b, #7c8389, #1d1f21
 ! Separator style (none, dash, solid)
 rofi.separator-style:                solid
 ! Enabled modi
-rofi.modi:                           drun
+rofi.modi:                           drun,run
 
 
 ! Window opacity
