@@ -151,7 +151,18 @@ bar {
 
         position top
 
-        font pango:Roboto 10
+        font pango:DejaVu Sans Mono 10
+
+        colors {
+                background #222222
+                statusline #eeeeee
+                separator #666666
+                #                  border  backgr. text
+                focused_workspace  #4c7899 #35cc8a #000000
+                active_workspace   #333333 #5f676a #ffffff
+                inactive_workspace #333333 #222222 #888888
+                urgent_workspace   #2f343a #900000 #ffffff
+        }
 }
 
 # Colors
@@ -187,3 +198,4 @@ exec_always --no-startup-id xautolock -time 1  -locker "i3lock-fancy -- scrot -z
 
 #Startup application
 exec --no-startup-id dropbox start
+exec --no-startup-id nm-applet
