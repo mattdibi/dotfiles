@@ -39,11 +39,11 @@ bindsym $mod+Shift+q kill
 # Start drun rofi
 bindsym $mod+d exec rofi -modi drun -show drun -lines 3 -eh 2 -fullscreen -padding 200 -opacity "85" -bw 0 -bg "#132122" -fg "#1f7590" -font "System San Francisco Display 18"
 
-# Start run rofi
-bindsym $mod+Shift+d exec rofi -show run -lines 3 -eh 2 -fullscreen -padding 200 -opacity "85" -bw 0 -bg "#132122" -fg "#37d69c" -hlfg "#000000" -hlbg "#37d69c" -font "System San Francisco Display 18"
-
 # Start drun sudo rofi
-bindsym $mod+Control+d exec --no-startup-id "rofi -modi drun -show drun -lines 3 -eh 2 -fullscreen -padding 200 -opacity '85' -bw 0 -bg '#132122' -fg '#d63c36' -hlbg '#d63c36' -font 'System San Francisco Display 18' -run-command 'gksudo {cmd}'"
+bindsym $mod+Shift+d exec --no-startup-id "rofi -modi drun -show drun -lines 3 -eh 2 -fullscreen -padding 200 -opacity '85' -bw 0 -bg '#132122' -fg '#d63c36' -hlbg '#d63c36' -font 'System San Francisco Display 18' -run-command 'gksudo {cmd}'"
+
+# Start run rofi
+bindsym $mod+Control+d exec rofi -show run -lines 3 -eh 2 -fullscreen -padding 200 -opacity "85" -bw 0 -bg "#132122" -fg "#37d69c" -hlfg "#000000" -hlbg "#37d69c" -font "System San Francisco Display 18"
 
 # change focus
 bindsym $mod+h focus left
@@ -166,7 +166,7 @@ bar {
         colors {
                 background #222222
                 statusline #eeeeee
-                separator #666666
+                separator  #666666
                 #                  border  backgr. text
                 focused_workspace  #4c7899 #35cc8a #000000
                 active_workspace   #333333 #5f676a #ffffff
@@ -183,30 +183,24 @@ client.unfocused          #231417 #17212a #68685b #4F4F4F #101107
 client.urgent             #23181a #4a3d31 #6c777a #1A1A1A #1f1515
 client.background         #23141
 
-# client.focused          #1A1A1A #8C8587 #1A1A1A #8C8587
-# client.focused_inactive #1A1A1A #1A1A1A #1A1A1A #1A1A1A
-# client.unfocused        #1A1A1A #1A1A1A #77438F #1A1A1A
-# client.urgent           #3B89B5 #3B89B5 #a5a5a5 #1A1A1A
-# client.background       #1A1A1A
-
 # Common apps
 bindsym $mod+i exec --no-startup-id google-chrome
 bindsym $mod+n exec nautilus
 
 # Powermode
 set $power_mode "(p)oweroff, (r)eboot, (l)ock, (q)uit, (h)ibernate, (s)leep"
-bindsym Control+Shift+q      mode $power_mode
+bindsym $mod+Escape      mode $power_mode
 mode $power_mode {
 
         bindsym p        exec systemctl poweroff
-		bindsym r        exec systemctl reboot 
-		bindsym l        exec i3lock-fancy -- scrot -z
-		bindsym q        exec --no-startup-id i3-msg exit, mode "default"
-		bindsym h        exec systemctl hibernate 
-		bindsym s        exec systemctl hybrid-sleep 
+        bindsym r        exec systemctl reboot
+        bindsym l        exec i3lock
+        bindsym q        exec --no-startup-id i3-msg exit, mode "default"
+        bindsym h        exec systemctl hibernate
+        bindsym s        exec systemctl hybrid-sleep
 
-		bindsym Return    mode "default"
-		bindsym Escape    mode "default"
+        bindsym Return    mode "default"
+        bindsym Escape    mode "default"
 }
 
 #Startup application
