@@ -31,8 +31,8 @@ wireless _first_ {
 
 ethernet _first_ {
         # if you use %speed, i3status requires root privileges
-        format_up = " [%ip]"
-        format_down = " down"
+        format_up = " [%ip]"
+        format_down = " down"
 }
 
 battery 0 {
