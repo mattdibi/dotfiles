@@ -35,11 +35,15 @@ bindsym $mod+Shift+q kill
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# Program launcher
 # Start drun rofi
-bindsym $mod+d exec rofi -modi drun -show drun -lines 3 -eh 2 -fullscreen -padding 200 -opacity "85" -bw 0 -bg "#132122" -fg "#1f7590" -border "#832757" -bgSelect "#1d282f" -fgSelect "#a3d3b0" -font "System San Francisco Display 18"
+bindsym $mod+d exec rofi -modi drun -show drun -lines 3 -eh 2 -fullscreen -padding 200 -opacity "85" -bw 0 -bg "#132122" -fg "#1f7590" -font "System San Francisco Display 18"
 
 # Start run rofi
-bindsym $mod+Shift+d exec rofi -show run -lines 3 -eh 2 -fullscreen -padding 200 -opacity "85" -bw 0 -bg "#132122" -fg "#37d69c" -border "#832757" -bgSelect "#37d69c" -fgSelect "#5f676a" -font "System San Francisco Display 18"
+bindsym $mod+Shift+d exec rofi -show run -lines 3 -eh 2 -fullscreen -padding 200 -opacity "85" -bw 0 -bg "#132122" -fg "#37d69c" -hlfg "#000000" -hlbg "#37d69c" -font "System San Francisco Display 18"
+
+# Start drun sudo rofi
+bindsym $mod+Control+d exec --no-startup-id "rofi -modi drun -show drun -lines 3 -eh 2 -fullscreen -padding 200 -opacity '85' -bw 0 -bg '#132122' -fg '#d63c36' -hlbg '#d63c36' -font 'System San Francisco Display 18' -run-command 'gksudo {cmd}'"
 
 # change focus
 bindsym $mod+h focus left
