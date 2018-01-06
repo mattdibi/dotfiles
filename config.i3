@@ -185,12 +185,11 @@ bindsym $mod+i exec --no-startup-id google-chrome
 bindsym $mod+n exec nautilus
 
 # Powermode
-set $fisical Control
 set $power_mode "(p)oweroff, (r)eboot, (l)ock, (q)uit, (h)ibernate, (s)leep"
-bindsym $fisical+Shift+q      mode $power_mode
+bindsym Control+Shift+q      mode $power_mode
 mode $power_mode {
 
-	bindsym p        exec systemctl poweroff
+        bindsym p        exec systemctl poweroff
 		bindsym r        exec systemctl reboot 
 		bindsym l        exec i3lock-fancy -- scrot -z
 		bindsym q        exec --no-startup-id i3-msg exit, mode "default"
@@ -200,9 +199,6 @@ mode $power_mode {
 		bindsym Return    mode "default"
 		bindsym Escape    mode "default"
 }
-
-#i3lock autolock
-exec_always --no-startup-id xautolock -time 1  -locker "i3lock-fancy -- scrot -z  && sleep 1"-killtime 10 -killer "systemctl suspend"  -detectsleep 
 
 #Startup application
 exec --no-startup-id dropbox start
