@@ -34,7 +34,7 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -fullscreen -padding 200 -opacity "85" -bw 0 -bg "#132122" -fg "#1f7590" -border "#832757" -bgSelect "#1d282f" -fgSelect "#a3d3b0" -font "System San Francisco Display 18"
 
 # change focus
 bindsym $mod+h focus left
@@ -167,11 +167,18 @@ bar {
 }
 
 # Colors
-client.focused          #1A1A1A #8C8587 #1A1A1A #8C8587
-client.focused_inactive #1A1A1A #1A1A1A #1A1A1A #1A1A1A
-client.unfocused        #1A1A1A #1A1A1A #77438F #1A1A1A
-client.urgent           #3B89B5 #3B89B5 #a5a5a5 #1A1A1A
-client.background       #1A1A1A
+#                         border  bg      text    indicat child_border
+client.focused            #231417 #281d2a #848474 #4F4F4F #101110
+client.focused_inactive   #231417 #141d24 #636357 #121212 #101110
+client.unfocused          #231417 #17212a #68685b #4F4F4F #101107
+client.urgent             #23181a #4a3d31 #6c777a #1A1A1A #1f1515
+client.background         #23141
+
+# client.focused          #1A1A1A #8C8587 #1A1A1A #8C8587
+# client.focused_inactive #1A1A1A #1A1A1A #1A1A1A #1A1A1A
+# client.unfocused        #1A1A1A #1A1A1A #77438F #1A1A1A
+# client.urgent           #3B89B5 #3B89B5 #a5a5a5 #1A1A1A
+# client.background       #1A1A1A
 
 # Common apps
 bindsym $mod+i exec --no-startup-id google-chrome
