@@ -34,7 +34,7 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -fullscreen -padding 200 -opacity "85" -bw 0 -bg "#132122" -fg "#1f7590" -border "#832757" -bgSelect "#1d282f" -fgSelect "#a3d3b0" -font "System San Francisco Display 18"
+bindsym $mod+d exec rofi -modi drun -show drun -lines 3 -eh 2 -fullscreen -padding 200 -opacity "85" -bw 0 -bg "#132122" -fg "#1f7590" -border "#832757" -bgSelect "#1d282f" -fgSelect "#a3d3b0" -font "System San Francisco Display 18"
 
 # change focus
 bindsym $mod+h focus left
