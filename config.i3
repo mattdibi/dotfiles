@@ -194,7 +194,7 @@ mode $power_mode {
 
         bindsym p        exec systemctl poweroff
         bindsym r        exec systemctl reboot
-        bindsym l        exec i3lock, mode "default"
+        bindsym l        exec "i3lock -d -c 000000", mode "default"
         bindsym q        exec --no-startup-id i3-msg exit, mode "default"
         bindsym h        exec systemctl hibernate, mode "default"
         bindsym s        exec systemctl suspend, mode "default"
@@ -202,6 +202,8 @@ mode $power_mode {
         bindsym Return    mode "default"
         bindsym Escape    mode "default"
 }
+
+exec --no-startup-id xautolock -time 1 -locker 'i3lock -d -c 000000' &
 
 #Startup application
 exec --no-startup-id dropbox start
