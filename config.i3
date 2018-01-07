@@ -45,6 +45,9 @@ bindsym $mod+Shift+d exec --no-startup-id "rofi -modi drun -show drun -lines 3 -
 # Start run rofi
 bindsym $mod+Control+d exec rofi -show run -lines 3 -eh 2 -fullscreen -padding 200 -opacity "85" -bw 0 -bg "#132122" -fg "#37d69c" -hlfg "#000000" -hlbg "#37d69c" -font "System San Francisco Display 18"
 
+# Follow mouse
+focus_follows_mouse no
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
