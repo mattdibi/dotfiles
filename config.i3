@@ -162,7 +162,7 @@ bar {
         tray_padding 3
         tray_output primary
 
-        position bottom
+        position top
 
         font pango:DejaVu Sans Mono 10
 
