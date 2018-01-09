@@ -211,3 +211,4 @@ exec --no-startup-id xautolock -time 1 -locker 'dm-tool lock' &
 exec --no-startup-id dropbox start
 exec --no-startup-id nm-applet
 exec --no-startup-id numlockx on
+exec --no-startup-id feh --bg-scale /home/mattia/Immagini/Wallpapers/DAE.png
