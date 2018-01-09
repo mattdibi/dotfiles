@@ -77,6 +77,11 @@ git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
 
 ### Project navigation
 
+#### Comfortable motions
+```sh
+git clone https://github.com/yuttie/comfortable-motion.vim.git ~/.vim/bundle
+```
+
 #### Tagbar installation 
 ```sh
 git clone https://github.com/majutsushi/tagbar.git ~/.vim/bundle
