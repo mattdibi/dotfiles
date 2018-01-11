@@ -101,7 +101,8 @@ fun! IncludeGuard()
 endfun
 
 " Latex :make command
-autocmd Filetype tex set makeprg=pdflatex\ %
+autocmd Filetype tex set makeprg=pdflatex\ %\ \-file\-line\-error\ \-interaction=nonstopmode
+autocmd Filetype tex set errorformat=%f:%l:\ %m
 " Latex accented characters
 autocmd Filetype tex inoremap è \`e
 autocmd Filetype tex inoremap é \'e
