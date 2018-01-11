@@ -100,6 +100,8 @@ fun! IncludeGuard()
    call append( line("$"), "#endif // for #ifndef " . guard)
 endfun
 
+" Latex :make command
+autocmd Filetype tex set makeprg=pdflatex\ %
 " Latex accented characters
 autocmd Filetype tex inoremap è \`e
 autocmd Filetype tex inoremap é \'e
