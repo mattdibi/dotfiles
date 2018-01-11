@@ -99,3 +99,15 @@ fun! IncludeGuard()
    call append(1, "#define " . guard)
    call append( line("$"), "#endif // for #ifndef " . guard)
 endfun
+
+" Latex accented characters
+autocmd Filetype tex inoremap è \`e
+autocmd Filetype tex inoremap é \'e
+autocmd Filetype tex inoremap ò \`o
+autocmd Filetype tex inoremap à \`a
+autocmd Filetype tex inoremap ù \`u
+autocmd Filetype tex inoremap ì \`\i\
+" Latex page interrupt
+autocmd Filetype tex inoremap ;<Enter> %% Interruzione di pagina<Enter>\newpage<Enter>
+" Latex verbatim
+autocmd Filetype tex inoremap ;v \verb\|\|<Esc>i
