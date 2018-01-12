@@ -1,0 +1,6 @@
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{{{+filename+}}}
+\caption{{{+caption+}}}
+\label{fig:{{+label+}}}
+\end{figure}
