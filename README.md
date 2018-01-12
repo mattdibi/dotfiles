@@ -16,7 +16,7 @@ Examples:
 
 **Note: i3 installation**
 ```sh
-sudo apt-get install i3-wm i3status dmenu rofi gksudo feh
+sudo apt-get install i3-wm i3status dmenu rofi gksudo feh numlockx
 gsettings set org.gnome.desktop.background show-desktop-icons false
 ```
 
