@@ -187,6 +187,8 @@ client.background       #1A1A1A
 
 # Common apps
 bindsym $mod+i exec --no-startup-id google-chrome
+bindsym $mod+m exec --no-startup-id google-chrome https://mail.google.com/mail/
+bindsym $mod+Shift+m exec --no-startup-id google-chrome https://outlook.office365.com/owa/?realm=eurotech.com&exsvurl=1&ll-cc=1040&modurl=0
 bindsym $mod+n exec nautilus
 
 # Powermode
