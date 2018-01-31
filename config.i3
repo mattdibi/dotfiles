@@ -207,8 +207,6 @@ mode $power_mode {
         bindsym Escape    mode "default"
 }
 
-# exec --no-startup-id xautolock -time 5 -locker 'dm-tool lock' &
-
 #Startup application
 exec --no-startup-id dropbox start
 exec --no-startup-id nm-applet
