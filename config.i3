@@ -189,7 +189,7 @@ client.background       #1A1A1A
 bindsym $mod+i exec --no-startup-id google-chrome
 bindsym $mod+m exec --no-startup-id google-chrome https://mail.google.com/mail/
 bindsym $mod+Shift+m exec --no-startup-id google-chrome https://outlook.office365.com/owa/?realm=eurotech.com&exsvurl=1&ll-cc=1040&modurl=0
-bindsym $mod+n exec nautilus
+bindsym $mod+n exec nautilus -w ~/Scrivania
 
 # Powermode
 set $power_mode "(p)oweroff, (r)eboot, (l)ock, (q)uit, (h)ibernate, (s)leep"
