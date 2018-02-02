@@ -56,7 +56,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 "Formatting
-" set breakindent       " Wrap lines without changing the amount of indent. VIM 8 only!
+set breakindent       " Wrap lines without changing the amount of indent. VIM 8 only!
 set autoindent        " Auto indentation. To paste use paste mode: :set paste
 set wrap              " Wrap long lines
 set shiftwidth=4      " Use indents of 4 spaces
