@@ -15,6 +15,7 @@ endtry
 
 " Common
 syntax enable
+set nocompatible      " be iMproved
 set noswapfile        " Do not create swap files
 set number
 set relativenumber
