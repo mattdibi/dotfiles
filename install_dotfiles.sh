@@ -33,4 +33,6 @@ cat config.bash     > ~/.bashrc
 
 cp minisnip/* ~/.vim/minisnip/
 
-echo "Installation complete. Enjoy =D"
+echo ""
+echo "Installation complete!"
+echo "Run ':PluginUpdate' inside vim to complete setup."
