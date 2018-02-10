@@ -14,6 +14,7 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
+Plugin 'liuchengxu/space-vim-dark'
 Plugin 'joereynolds/vim-minisnip'
 Plugin 'tpope/vim-surround'
 Plugin 'airblade/vim-gitgutter'
