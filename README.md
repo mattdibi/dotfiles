@@ -7,17 +7,12 @@ These are my configuration files. I need to add it to version tracking because I
 - Tmux: [https://github.com/tmux/tmux](https://github.com/tmux/tmux)
 - i3-wm: [https://i3wm.org/](https://i3wm.org/)
 
-**Note:** You need to install **vim-gnome** or **vim-gtk**, depending on your system configuration, to be able to effectively
-copy and paste from the system clipboard.
-The clipboard registers are " and *  
-Examples:
-- `"+p` => pastes from system clipboard
-- `"+yw` => yanks word in + register and can be pasted in another window
+**Note: clipboard support** You need to install **vim-gnome** or **vim-gtk**, depending on your system configuration, to be able to effectively copy and paste from the system clipboard. The clipboard registers are `+` and `*`  
 
 **Note: i3 installation**
 ```sh
-sudo apt-get install i3-wm i3status dmenu rofi gksu feh numlockx xautolock
-gsettings set org.gnome.desktop.background show-desktop-icons false
+$ sudo apt-get install i3-wm i3status dmenu rofi gksu feh numlockx xautolock
+$ gsettings set org.gnome.desktop.background show-desktop-icons false
 ```
 Run the second command to disable drawing of the desktop by Nautilus.
 
