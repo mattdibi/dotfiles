@@ -32,81 +32,13 @@ Simply type these commands on a terminal window:
 
 ```sh
 $ git clone https://github.com/mattdibi/dotfiles.git
+$ cd dotfiles/
 $ sh install_dotfiles.sh
 ```
 
 ### Plugin management
 
-#### Pathogen installation
+#### Vundle manual installation
 ```sh
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-```
-
-### General purpose
-
-#### Vim-Minisnip installation
-```sh
-cd ~/.vim/bundle
-https://github.com/joereynolds/vim-minisnip
-```
-
-#### Vim-Surround installation
-```sh
-cd ~/.vim/bundle
-git clone git://github.com/tpope/vim-surround.git
-```
-**Use:** 
-- `ysiw"` => surrounds word with `"`
-- `cs"(` => change surrounding `"` to `(`
-- `ds(` => delete surrounding `(`
-After a selection w/ Visual mode: `S[symbol]` surrounds the selection with `[symbol]`
-
-### Status display
-
-#### Gitgutter installation
-```sh
-cd ~/.vim/bundle
-git clone git://github.com/airblade/vim-gitgutter.git
-```
-
-#### Airline installation
-```sh
-git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
-```
-
-### Project navigation
-
-#### Comfortable motions
-```sh
-git clone https://github.com/yuttie/comfortable-motion.vim.git ~/.vim/bundle
-```
-
-#### Tagbar installation 
-```sh
-git clone https://github.com/majutsushi/tagbar.git ~/.vim/bundle
-```
-
-**Note**: Prerequisite exuberant-ctags. Install with `sudo apt-get install exuberant-ctags`.
-
-#### Nerdtree installation
-```sh
-git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
-```
-
-#### vim-tmux-navigator installation
-```sh
-git clone https://github.com/christoomey/vim-tmux-navigator.git ~/.vim/bundle
-```
-**Use:** 
-- `<ctrl-h>` => Left
-- `<ctrl-j>` => Down
-- `<ctrl-k>` => Up
-- `<ctrl-l>` => Right
-- `<ctrl-\>` => Previous split
-
-## Dotfiles installation
-```sh
-$ cd matt_dotfiles/ 
-$ sh install_dotfiles.sh
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
