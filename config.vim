@@ -40,13 +40,8 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " Colorscheme
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
-try
-    colorscheme space-vim-dark
-catch
-endtry
+colorscheme space-vim-dark
+set termguicolors
 
 " Common
 syntax enable
