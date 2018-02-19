@@ -211,6 +211,6 @@ mode $power_mode {
 exec --no-startup-id dropbox start
 exec --no-startup-id nm-applet
 exec --no-startup-id numlockx on
-exec --no-startup-id feh --bg-scale /home/mattia/Immagini/Wallpapers/HYPERBEAST.jpg
+# exec --no-startup-id feh --bg-scale /home/mattia/Immagini/Wallpapers/HYPERBEAST.jpg
 # Dual monitor wallpapers
-# exec --no-startup-id feh --bg-fill path/l --bg-fill path/r
+exec --no-startup-id feh --bg-fill /home/mattia/Immagini/Wallpapers/HYPERSOLDIER.jpg --bg-fill /home/mattia/Immagini/Wallpapers/HYPERBEAST.jpg
