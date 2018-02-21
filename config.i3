@@ -213,4 +213,4 @@ exec --no-startup-id nm-applet
 exec --no-startup-id numlockx on
 # exec --no-startup-id feh --bg-scale /home/mattia/Immagini/Wallpapers/HYPERBEAST.jpg
 # Dual monitor wallpapers
-exec --no-startup-id feh --bg-fill /home/mattia/Immagini/Wallpapers/HYPERSOLDIER.jpg --bg-fill /home/mattia/Immagini/Wallpapers/HYPERBEAST.jpg
+exec --no-startup-id feh --bg-fill /home/mattia/Immagini/Wallpapers/HYPERWARRIOR.jpg --bg-fill /home/mattia/Immagini/Wallpapers/HYPERBEAST.jpg
