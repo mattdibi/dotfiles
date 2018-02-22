@@ -121,6 +121,9 @@ nmap <F8> :TagbarToggle<CR>
 " <C-n>: Toggle NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
+" Key for snippets expansions
+let g:minisnip_trigger = '<F9>'
+
 " C++
 " ;g generates the C++ header guard
 autocmd Filetype c,h,hpp,cc,cpp map ;g :call IncludeGuard()<CR>
