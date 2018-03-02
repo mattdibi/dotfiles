@@ -18,7 +18,7 @@ Plugin 'liuchengxu/space-vim-dark'
 Plugin 'joereynolds/vim-minisnip'
 Plugin 'tpope/vim-surround'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'vim-airline/vim-airline'
+Plugin 'itchyny/lightline.vim'
 Plugin 'yuttie/comfortable-motion.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
@@ -44,6 +44,10 @@ filetype plugin indent on    " required
 colorscheme space-vim-dark
 set termguicolors
 
+let g:lightline = {
+    \ 'colorscheme': 'Dracula',
+    \ }
+
 " Common
 syntax enable
 set noswapfile        " Do not create swap files
@@ -57,6 +61,7 @@ set cursorline
 set autoread          " Autoload file changes. You can undo by pressing u.
 set wildmenu          " Visual autocomplete for command menu
 set laststatus=2      " Always diplay status bar
+set noshowmode        " Don't show current vim mode
 set updatetime=250    " Update time 250ms
 
 set backspace=indent,eol,start " Backspace through lines
