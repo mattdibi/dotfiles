@@ -101,6 +101,12 @@ set nojoinspaces      " Prevents inserting two spaces after punctuation on a joi
 set splitright        " Puts new vsplit windows to the right of the current
 set splitbelow        " Puts new split windows to the bottom of the current
 
+" MatchIt
+" Installation for Vim 8
+packadd! matchit
+" Installation for Vim 7 and older
+" runtime macros/matchit.vim
+
 "Remember folds
 augroup AutoSaveFolds
   autocmd!
