@@ -15,6 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'liuchengxu/space-vim-dark'
+Plugin 'challenger-deep-theme/vim'
 Plugin 'joereynolds/vim-minisnip'
 Plugin 'tpope/vim-surround'
 Plugin 'airblade/vim-gitgutter'
@@ -41,12 +42,17 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " Colorscheme
-colorscheme space-vim-dark
-set termguicolors
+if has('nvim') || has('termguicolors')
+  set termguicolors
+endif
 
-let g:lightline = {
-    \ 'colorscheme': 'Dracula',
-    \ }
+" Challenger deep
+colorscheme challenger_deep
+let g:lightline = { 'colorscheme': 'challenger_deep'}
+
+" Space vim dark
+" colorscheme space-vim-dark
+" let g:lightline = { 'colorscheme': 'Dracula' }
 
 " Common
 syntax enable
