@@ -84,14 +84,6 @@ set smartcase
 set incsearch         " Start searching before pressing enter
 set nows              " Once hitting the search bottom it stops instead of restarting from the first match
 
-" Center the display line after searches.
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-nnoremap g* g*zz
-nnoremap g# g#zz
-
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
 vnoremap > >gv
