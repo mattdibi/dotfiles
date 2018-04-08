@@ -55,10 +55,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -67,10 +67,10 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+o split h
@@ -154,6 +154,12 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# Smart resize
+bindsym $mod+Left resize shrink width 10 px or 10 ppt
+bindsym $mod+Down resize grow height 10 px or 10 ppt
+bindsym $mod+Up resize shrink height 10 px or 10 ppt
+bindsym $mod+Right resize grow width 10 px or 10 ppt
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
