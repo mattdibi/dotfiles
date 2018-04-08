@@ -78,6 +78,12 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" Smart resize
+nnoremap <Up>    :resize +5<CR>
+nnoremap <Down>  :resize -5<CR>
+nnoremap <Left>  :vertical resize -5<CR>
+nnoremap <Right> :vertical resize +5<CR>
+
 " Search
 set ignorecase
 set smartcase
