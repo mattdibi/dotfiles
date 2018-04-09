@@ -23,7 +23,8 @@ font pango:DejaVu Sans Mono 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+t exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -219,4 +220,4 @@ exec --no-startup-id nm-applet
 exec --no-startup-id numlockx on
 # exec --no-startup-id feh --bg-scale /home/mattia/Immagini/Wallpapers/HYPERBEAST.jpg
 # Dual monitor wallpapers
-exec --no-startup-id feh --bg-fill /home/mattia/Immagini/Wallpapers/HYPERKRAKEN.jpg --bg-fill /home/mattia/Immagini/Wallpapers/HYPERBEAST.jpg
+exec --no-startup-id feh --bg-fill /home/mattia/Immagini/Wallpapers/HYPERBEAST.jpg --bg-fill /home/mattia/Immagini/Wallpapers/HYPERKRAKEN.jpg 
