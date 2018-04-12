@@ -111,13 +111,6 @@ packadd! matchit
 " Installation for Vim 7 and older
 " runtime macros/matchit.vim
 
-"Remember folds
-augroup AutoSaveFolds
-  autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent loadview
-augroup END
-
 " Function row mode toggle hotkeys
 
 " F3: Toggle list char
