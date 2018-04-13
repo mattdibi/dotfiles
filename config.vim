@@ -72,6 +72,12 @@ set updatetime=250    " Update time 250ms
 
 set backspace=indent,eol,start " Backspace through lines
 
+" Uncomment the following to have Vim jump to the last position when ropening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
+
 " Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
