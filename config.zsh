@@ -102,10 +102,12 @@ bindkey -v
 export EDITOR=/usr/bin/vim
 
 # Theme customization
+# Only show current directory, not full path
 prompt_dir() {
       prompt_segment blue black "${PWD##*/}"
 }
 
+# Only show current user, not current machine
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
