@@ -68,6 +68,7 @@ cat config.tmux     > ~/.tmux.conf
 cat config.i3       > ~/.i3/config
 cat config.i3status > ~/.i3status.conf
 cat config.bash     > ~/.bashrc
+cat config.zsh      > ~/.zshrc
 cp minisnip/* ~/.vim/minisnip/
 
 # Full install management
