@@ -50,11 +50,11 @@ if ! [ -e ~/.vim/bundle/Vundle.vim ]; then
 fi
 echo "Vundle: OK"
 
-if ! [ -d  ~/.vim/minisnip ]; then
-  echo "Creating ~/.vim/minisnip directory..."
-  mkdir ~/.vim/minisnip 
+if ! [ -d  ~/.vim/snippets ]; then
+  echo "Creating ~/.vim/snippets directory..."
+  mkdir ~/.vim/snippets 
 fi
-echo "Minisnip: OK"
+echo "Snippets: OK"
 
 if ! [ -d  ~/.i3 ]; then
   echo "Creating ~/.i3 directory..."
