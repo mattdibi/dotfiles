@@ -1,1 +1,0 @@
-void set{{+VarName+}}({{+type+}} {{+new_val+}}) { {{+var_name+}} = {{+~\~2+}}; };

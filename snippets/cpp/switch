@@ -1,7 +1,7 @@
-switch ({{+expression+}}) {
+switch (${1:expression}) {
 
-    case {{+case+}}: 
-        {{++}}
+    case ${2:case}:
+        ${3: /* case body */}
         break;
 
     default: 
