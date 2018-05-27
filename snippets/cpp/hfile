@@ -1,5 +1,7 @@
 /** @file ${1!substitute(substitute(substitute(expand('%:t'), '\v(<.)(.*)', '\u\1\2', 'g'), '\v\..*', '', 'g'), '\v_(\w)', '\u\1', 'g')}.h
- *  @brief $1's class header file.
+ *  @author ${2!git config user.name}
+ *  @date   ${3!date +%d/%m/%Y}
+ *  @brief  $1's class header file.
  *
- *  ${2: Description}
+ *  ${4:Description}
  * */
