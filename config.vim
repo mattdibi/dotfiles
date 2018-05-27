@@ -14,16 +14,24 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
+
+" Eye-candy plugins
 Plugin 'liuchengxu/space-vim-dark'
 Plugin 'challenger-deep-theme/vim'
-Plugin 'joereynolds/vim-minisnip'
-Plugin 'tpope/vim-surround'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'itchyny/lightline.vim'
-Plugin 'majutsushi/tagbar'
+Plugin 'airblade/vim-gitgutter'
+
+" Navigation
 Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
 Plugin 'christoomey/vim-tmux-navigator'
+
+" Autocompletion and snippets
 Plugin 'valloric/youcompleteme'
+Plugin 'joereynolds/vim-minisnip'
+
+" Basics
+Plugin 'tpope/vim-surround'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -134,8 +142,10 @@ nmap <F8> :TagbarToggle<CR>
 " <C-n>: Toggle NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
-" Key for snippets expansions
-let g:minisnip_trigger = '<F9>'
+" Make YCM compatible with minisnips
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 
 " C++
 " ;g generates the C++ header guard
