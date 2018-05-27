@@ -28,7 +28,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 
 " Autocompletion and snippets
 Plugin 'valloric/youcompleteme'
-Plugin 'joereynolds/vim-minisnip'
+Plugin 'andreyorst/SimpleSnippets.vim'
 
 " Basics
 Plugin 'tpope/vim-surround'
@@ -146,6 +146,10 @@ map <C-n> :NERDTreeToggle<CR>
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+
+" SimpleSnippet
+let g:SimpleSnippetsExpandOrJumpTrigger = "<Tab>"
+let g:SimpleSnippetsJumpBackwardTrigger = "<S-Tab>"
 
 " C++
 " ;g generates the C++ header guard
