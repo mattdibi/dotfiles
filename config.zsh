@@ -91,6 +91,7 @@ alias lsl='ls -l'
 alias pcn='cd /home/mattia/Scrivania/pcn_v2/PCN'
 alias nope='nautilus . & disown'
 alias new='gnome-terminal . & disown'
+alias cmakeclean='rm -rf CMakeCache.txt CMakeFiles cmake_install.cmake Makefile'
 
 # Vi mode
 bindkey -v
