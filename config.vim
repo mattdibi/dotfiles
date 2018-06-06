@@ -20,7 +20,6 @@ Plugin 'liuchengxu/space-vim-dark'
 Plugin 'challenger-deep-theme/vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'octol/vim-cpp-enhanced-highlight'
 
 " Navigation
 Plugin 'scrooloose/nerdtree'
