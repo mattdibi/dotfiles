@@ -150,6 +150,7 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 " SimpleSnippet
 let g:SimpleSnippetsExpandOrJumpTrigger = "<Tab>"
 let g:SimpleSnippetsJumpBackwardTrigger = "<S-Tab>"
+let g:SimpleSnippetsJumpToLastTrigger = "<leader>j"
 
 " C++
 " ;g generates the C++ header guard
