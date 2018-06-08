@@ -64,12 +64,15 @@ let g:lightline = { 'colorscheme': 'challenger_deep'}
 " Common
 syntax enable
 set noswapfile        " Do not create swap files
-set number
-set relativenumber
-set showcmd
-set showmatch
+set number            " Display line numbers
+set relativenumber    " Line numbers are relative to current line
+set showcmd           " Show typed commands
+set showmatch         " Show matching parenthesis
 set cmdheight=1       " Command line height
-set cursorline
+set cursorline        " Highlight current line
+
+set undofile          " Maintain undo history between sessions
+set undodir=~/.vim/undodir
 
 set autoread          " Autoload file changes. You can undo by pressing u.
 set wildmenu          " Visual autocomplete for command menu

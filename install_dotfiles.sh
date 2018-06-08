@@ -50,6 +50,12 @@ if ! [ -e ~/.vim/bundle/Vundle.vim ]; then
 fi
 echo "Vundle: OK"
 
+if ! [ -d  ~/.vim/undodir ]; then
+  echo "Creating ~/.vim/undodir directory..."
+  mkdir ~/.vim/undodir 
+fi
+echo "Undodir: OK"
+
 if ! [ -d  ~/.vim/snippets ]; then
   echo "Creating ~/.vim/snippets directory..."
   mkdir ~/.vim/snippets 
