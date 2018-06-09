@@ -1,0 +1,5 @@
+class ${1:TestSuite} : public ::testing::Test {
+  protected:
+    ${2: /* test body */}
+};
+

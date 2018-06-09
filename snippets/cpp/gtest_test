@@ -1,0 +1,3 @@
+TEST(${1:TestSuite}, ${2:FunctionWorks}) {
+    ${3: /* test body */}
+}
