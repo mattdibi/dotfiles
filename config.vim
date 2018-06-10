@@ -176,7 +176,3 @@ autocmd Filetype tex inoremap ò \`o
 autocmd Filetype tex inoremap à \`a
 autocmd Filetype tex inoremap ù \`u
 autocmd Filetype tex inoremap ì \`\i\
-" Latex page interrupt
-autocmd Filetype tex inoremap ;<Enter> %% Interruzione di pagina<Enter>\newpage<Enter>
-" Latex verbatim
-autocmd Filetype tex inoremap ;v \verb\|\|<Esc>i
