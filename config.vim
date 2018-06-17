@@ -11,24 +11,23 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
 
 " Eye-candy plugins
-Plugin 'liuchengxu/space-vim-dark'
-Plugin 'challenger-deep-theme/vim'
-Plugin 'itchyny/lightline.vim'
-Plugin 'airblade/vim-gitgutter'
+Plugin 'liuchengxu/space-vim-dark' " Colorscheme
+Plugin 'challenger-deep-theme/vim' " Colorscheme
+Plugin 'itchyny/lightline.vim'     " Stylish statusline
+Plugin 'airblade/vim-gitgutter'    " In-editor git diffs
 
 " Navigation
-Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
-Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'simnalamburt/vim-mundo'         " Undo tree navigation
+Plugin 'scrooloose/nerdtree'            " Filesystem navigation
+Plugin 'majutsushi/tagbar'              " Tags navigation
+Plugin 'christoomey/vim-tmux-navigator' " Tmux splits navigation
 
-" Autocompletion and snippets
-Plugin 'valloric/youcompleteme'
-Plugin 'andreyorst/SimpleSnippets.vim'
+" Autocompletion
+Plugin 'valloric/youcompleteme'        " Code autocompletion
+Plugin 'andreyorst/SimpleSnippets.vim' " Snippets engine
 
 " Basics
 Plugin 'tpope/vim-surround'
@@ -128,7 +127,6 @@ packadd! matchit
 " runtime macros/matchit.vim
 
 " Function row mode toggle hotkeys
-
 " F3: Toggle list char
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 nnoremap <F3> :set list!<CR>
@@ -139,11 +137,18 @@ map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 " F5: Toggle paste mode
 set pastetoggle=<F5>
 
+" F7: Toggle tagbar
+nmap <F7> :MundoToggle<CR>
+
 " F8: Toggle tagbar
 nmap <F8> :TagbarToggle<CR>
 
-" <C-n>: Toggle NERDTree
-map <C-n> :NERDTreeToggle<CR>
+" F9: Toggle NERDTree
+nmap <F9> :NERDTreeToggle<CR>
+
+" Mundo
+let g:mundo_width = 60
+let g:mundo_right = 1
 
 " Make YCM compatible with minisnips
 let g:ycm_autoclose_preview_window_after_completion=1
