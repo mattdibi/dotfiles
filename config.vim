@@ -148,6 +148,7 @@ nmap <F9> :NERDTreeToggle<CR>
 
 " Mundo
 let g:mundo_width = 60
+let g:mundo_preview_height = 20
 let g:mundo_right = 1
 
 " Make YCM compatible with minisnips
