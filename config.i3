@@ -185,11 +185,11 @@ bar {
 }
 
 # Color class           border  bg      text    indicator
-client.focused          #1A1A1A #8C8587 #1A1A1A #8C8587
-client.focused_inactive #1A1A1A #1A1A1A #1A1A1A #1A1A1A
-client.unfocused        #1A1A1A #1A1A1A #77438F #1A1A1A
-client.urgent           #3B89B5 #3B89B5 #a5a5a5 #1A1A1A
-client.background       #1A1A1A
+client.focused          #101010 #3b8099 #ffffff
+client.focused_inactive #101010 #191919 #999999
+client.unfocused        #101010 #191919 #999999
+client.urgent           #cd989a #cd989a #2e3436
+client.background       #1d1d1d
 
 # Common apps
 bindsym $mod+i exec --no-startup-id google-chrome
