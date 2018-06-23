@@ -190,6 +190,7 @@ client.focused_inactive #101010 #191919 #999999
 client.unfocused        #101010 #191919 #999999
 client.urgent           #cd989a #cd989a #2e3436
 client.background       #1d1d1d
+hide_edge_borders both
 
 # Common apps
 bindsym $mod+i exec --no-startup-id google-chrome
