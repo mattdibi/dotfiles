@@ -191,10 +191,6 @@ client.unfocused        #101010 #191919 #999999
 client.urgent           #cd989a #cd989a #2e3436
 client.background       #1d1d1d
 
-smart_borders on
-new_window pixel 4
-new_float pixel 4
-
 # i3-gaps configuration
 # smart_gaps on
 # gaps inner 20
@@ -227,4 +223,4 @@ exec --no-startup-id nm-applet
 exec --no-startup-id numlockx on
 # exec --no-startup-id feh --bg-scale /home/mattia/Immagini/Wallpapers/HYPERBEAST.jpg
 # Dual monitor wallpapers
-exec --no-startup-id feh --bg-fill /home/mattia/Immagini/Wallpapers/HYPERBEAST.jpg --bg-fill /home/mattia/Immagini/Wallpapers/HYPERKRAKEN.jpg 
+exec --no-startup-id feh --bg-fill /home/mattia/Immagini/Wallpapers/DAE.png --bg-fill /home/mattia/Immagini/Wallpapers/DAE.png
