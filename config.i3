@@ -192,6 +192,8 @@ client.urgent           #cd989a #cd989a #2e3436
 client.background       #1d1d1d
 
 # i3-gaps configuration
+# new_window pixel 4
+# new_float pixel 4
 # smart_gaps on
 # gaps inner 20
 
