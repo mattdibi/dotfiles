@@ -88,10 +88,13 @@ fi
 # For a full list of active aliases, run `alias`.
 
 alias lsl='ls -l'
-alias pcn='cd /home/mattia/Scrivania/pcn_v2/PCN'
 alias nope='nautilus . & disown'
 alias new='gnome-terminal . & disown'
 alias cmakeclean='rm -rf CMakeCache.txt CMakeFiles cmake_install.cmake Makefile'
+
+# Workstation shortcuts
+alias pcn='cd /home/mattia/Scrivania/pcn_v2/PCN'
+alias janus='cd /home/mattia/Scrivania/janus-gateway && ./janus -F /opt/janus/etc/janus'
 
 # Vi mode
 bindkey -v
