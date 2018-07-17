@@ -32,6 +32,7 @@ Plugin 'andreyorst/SimpleSnippets.vim' " Snippets engine
 
 " Basics
 Plugin 'tpope/vim-surround'
+Plugin 'rhysd/vim-clang-format'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -161,6 +162,9 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SimpleSnippetsExpandOrJumpTrigger = "<Tab>"
 let g:SimpleSnippetsJumpBackwardTrigger = "<S-Tab>"
 let g:SimpleSnippetsJumpToLastTrigger = "<leader>j"
+
+" Clang-format
+let g:clang_format#code_style = "google"
 
 " C++
 " ;g generates the C++ header guard
