@@ -1,5 +1,7 @@
-/**
-    @class ${1:Name}
-    @brief ${2:Description}
-*/
+/*!
+ *  @class ${1:Name}
+ *  @brief ${2:Brief description}
+ *
+ *  ${3:Detailed description}
+ */
 

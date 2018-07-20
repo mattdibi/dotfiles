@@ -1,13 +1,11 @@
-/**
-    ${1:Brief description}
-
-    ${2:Full description}
-
-    @param  ...
-
-    @return ...
-
-    @throws ...
-
-*/
+/*!
+ *  ${1:Brief description}
+ *  ${2:Detailed description}
+ *
+ *  @param  ...
+ *
+ *  @return ...
+ *
+ *  @throws ...
+ */
 
