@@ -3,5 +3,5 @@
  *  @date   ${3!date +%d/%m/%Y}
  *  @brief $1's class cpp file.
  *
- *  ${4:Detailed description}
+ *  @details ${4:Detailed description}
  */
