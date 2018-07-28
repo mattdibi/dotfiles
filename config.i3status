@@ -12,7 +12,7 @@ general {
 
         color_good     = "#4286f4"
         color_bad      = "#f442b9"
-        color_degraded = "#cb4b16"
+        color_degraded = "#7f16cb"
 
         output_format = "i3bar"
 }
