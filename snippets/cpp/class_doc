@@ -1,5 +1,0 @@
-/*! @class ${1!substitute(substitute(substitute(expand('%:t'), '\v(<.)(.*)', '\u\1\2', 'g'), '\v\..*', '', 'g'), '\v_(\w)', '\u\1', 'g')}
- *  @brief ${2:Brief description}
- *
- *  ${3:Detailed description}
- */

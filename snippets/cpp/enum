@@ -1,4 +1,0 @@
-enum class ${1:Identifier} {
-    ${2:Enumerator},
-    // ...
-};

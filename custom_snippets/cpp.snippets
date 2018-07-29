@@ -1,0 +1,155 @@
+priority -50
+
+snippet func_doc "Function/Method doxygen documentation"
+/*! @brief ${1:Brief description}
+ *
+ *  ${2:Detailed description}
+ *
+ *  @param  ...
+ *  @return ...
+ *  @throws ...
+ */
+endsnippet
+
+snippet class_doc "Class doxygen documentation"
+/*! @class ${1:ClassName}
+ *  @brief ${2:Brief description}
+ *
+ *  ${3:Detailed description}
+ */
+endsnippet
+
+snippet cfile ".cpp file doxygen documentation"
+/*! @file   ${1:ClassName}.cpp
+ *  @author `git config user.name`
+ *  @date   `date +%d/%m/%Y`
+ *  @brief  $1's class cpp file.
+ *
+ *  @details ${4:Detailed description}
+ */
+endsnippet
+
+snippet hfile ".h file doxygen documentation"
+/*! @file   ${1:ClassName}.h
+ *  @author `git config user.name`
+ *  @date   `date +%d/%m/%Y`
+ *  @brief  $1's class header file.
+ *
+ *  @details ${4:Detailed description}
+ */
+endsnippet
+
+snippet if "if() (if)"
+if (${1:/* condition */}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet for "for loop (for)"
+for (${2:i} = 0; $2 < ${1:count}; ${3:++$2}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet while "while loop (while)"
+while(${1:condition}) {
+	${2:/* while body */}
+}
+endsnippet
+
+snippet print "print debug"
+std::cout << "${1:${VISUAL:var}} = " << $1 << "\n";
+endsnippet
+
+snippet enum "enum (enum)"
+enum class ${1:Identifier} {
+	${2:Enumerator},
+};
+endsnippet
+
+snippet struct "struct (struct)"
+struct ${0:Name} {
+	${1:/* fields */}
+};
+endsnippet
+
+snippet switch "switch (switch)"
+switch (${1:expression}) {
+
+	case ${2:case}:
+		${3:/* case body */}
+		break;
+
+	default: 
+		break;
+}
+endsnippet
+
+snippet try "try (try)"
+try {
+	${VISUAL}$0
+} catch(${1:/* exception */}) {
+
+}
+endsnippet
+
+snippet opencv_inc "#include opencv"
+#include <opencv2/opencv.hpp>
+endsnippet
+
+snippet class "class (class)"
+/*!
+ *  @class ${1:Name}
+ *  @brief ${2:Brief description}
+ *
+ *  ${3:Detailed description}
+ */
+class $1 {
+
+  public:
+	$1(){};
+
+  private:
+	${3:/* data */}
+};
+endsnippet
+
+snippet main "main() (main)"
+int main(int argc, char *argv[]) {
+	${VISUAL}$0
+
+	return 0;
+}
+endsnippet
+
+snippet gtest "gtest (test)"
+TEST(${1:TestSuite}, ${2:FunctionWorks}) {
+	${3:/* test body */}
+}
+endsnippet
+
+snippet gtest_suite "gtest (suite)"
+class ${1:TestSuite} : public ::testing::Test {
+  protected:
+	${2:/* test body */}
+};
+endsnippet
+
+snippet gtest_main "gtest() (main)"
+#include <gtest/gtest.h>
+
+int main(int argc, char *argv[]) {
+	::testing::InitGoogleTest(&argc, argv);
+	return RUN_ALL_TESTS();
+}
+endsnippet
+
+snippet gmock_main "gmock() (main)"
+#include <gtest/gtest.h>
+#include <gmock/gmock.h>
+
+int main(int argc, char *argv[]) {
+	::testing::InitGoogleMock(&argc, argv);
+	return RUN_ALL_TESTS();
+}
+endsnippet

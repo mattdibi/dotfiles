@@ -56,9 +56,9 @@ if ! [ -d  ~/.vim/undodir ]; then
 fi
 echo "Undodir: OK"
 
-if ! [ -d  ~/.vim/snippets ]; then
-  echo "Creating ~/.vim/snippets directory..."
-  mkdir ~/.vim/snippets 
+if ! [ -d  ~/.vim/custom_snippets ]; then
+  echo "Creating ~/.vim/custom_snippets directory..."
+  mkdir ~/.vim/custom_snippets 
 fi
 echo "Snippets: OK"
 
@@ -75,7 +75,7 @@ cat config.i3       > ~/.i3/config
 cat config.i3status > ~/.i3status.conf
 cat config.bash     > ~/.bashrc
 cat config.zsh      > ~/.zshrc
-cp -r snippets/ ~/.vim/
+cp -r custom_snippets/ ~/.vim/
 
 # Full install management
 if [ "$full_install" = true ] ; then

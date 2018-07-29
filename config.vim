@@ -27,8 +27,8 @@ Plugin 'majutsushi/tagbar'              " Tags navigation
 Plugin 'christoomey/vim-tmux-navigator' " Tmux splits navigation
 
 " Autocompletion
-Plugin 'valloric/youcompleteme'        " Code autocompletion
-Plugin 'andreyorst/SimpleSnippets.vim' " Snippets engine
+Plugin 'valloric/youcompleteme' " Code autocompletion
+Plugin 'SirVer/ultisnips'       " Snippets engine
 
 " Basics
 Plugin 'tpope/vim-surround'
@@ -158,10 +158,16 @@ let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 
-" SimpleSnippet
-let g:SimpleSnippetsExpandOrJumpTrigger = "<Tab>"
-let g:SimpleSnippetsJumpBackwardTrigger = "<S-Tab>"
-let g:SimpleSnippetsJumpToLastTrigger = "<leader>j"
+" Ultisnips configuration
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" Ultisnips folder
+let g:UltiSnipsSnippetDirectories=["custom_snippets"] " ~/.vim/custom_snippets
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 " Clang-format
 let g:clang_format#code_style = "google"
