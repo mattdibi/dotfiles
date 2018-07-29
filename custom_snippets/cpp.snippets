@@ -1,5 +1,17 @@
 priority -50
 
+global !p
+
+import random, string
+
+def getClassNameFromFilename():
+	filename_splt = snip.fn.split('.')[0].split('_')
+	filename_splt = [splitted_strings.capitalize() for splitted_strings in filename_splt]
+	class_name = ''.join(filename_splt)
+	return class_name
+
+endglobal
+
 snippet func_doc "Function/Method doxygen documentation"
 /*! @brief ${1:Brief description}
  *
@@ -12,30 +24,30 @@ snippet func_doc "Function/Method doxygen documentation"
 endsnippet
 
 snippet class_doc "Class doxygen documentation"
-/*! @class ${1:ClassName}
- *  @brief ${2:Brief description}
+/*! @class `!p snip.rv = getClassNameFromFilename()`
+ *  @brief ${1:Brief description}
  *
- *  ${3:Detailed description}
+ *  ${2:Detailed description}
  */
 endsnippet
 
 snippet cfile ".cpp file doxygen documentation"
-/*! @file   ${1:ClassName}.cpp
+/*! @file   `!v expand('%:t')`
  *  @author `git config user.name`
  *  @date   `date +%d/%m/%Y`
- *  @brief  $1's class cpp file.
+ *  @brief  `!p snip.rv = getClassNameFromFilename()`'s class cpp file.
  *
  *  @details ${4:Detailed description}
  */
 endsnippet
 
 snippet hfile ".h file doxygen documentation"
-/*! @file   ${1:ClassName}.h
+/*! @file   `!v expand('%:t')`
  *  @author `git config user.name`
  *  @date   `date +%d/%m/%Y`
- *  @brief  $1's class header file.
+ *  @brief  `!p snip.rv = getClassNameFromFilename()`'s class header file.
  *
- *  @details ${4:Detailed description}
+ *  @details ${1:Detailed description}
  */
 endsnippet
 
@@ -99,10 +111,10 @@ endsnippet
 
 snippet class "class (class)"
 /*!
- *  @class ${1:Name}
- *  @brief ${2:Brief description}
+ *  @class `!p snip.rv = getClassNameFromFilename()`
+ *  @brief ${1:Brief description}
  *
- *  ${3:Detailed description}
+ *  ${2:Detailed description}
  */
 class $1 {
 
