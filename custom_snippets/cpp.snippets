@@ -73,6 +73,12 @@ snippet print "print debug"
 std::cout << "${1:${VISUAL:var}} = " << $1 << "\n";
 endsnippet
 
+snippet show "show debug"
+cv::namedWindow("${1:${VISUAL:mat}}",cv::WINDOW_NORMAL);
+cv::resizeWindow("$1", 640, 480);
+cv::imshow("$1", $1);
+endsnippet
+
 snippet enum "enum (enum)"
 enum class ${1:Identifier} {
 	${2:Enumerator},
