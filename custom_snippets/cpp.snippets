@@ -24,7 +24,7 @@ snippet func_doc "Function/Method doxygen documentation"
 endsnippet
 
 snippet class_doc "Class doxygen documentation"
-/*! @class `!v expand('%:r')`
+/*! @class `!v expand('%:t:r')`
  *  @brief ${1:Brief description}
  *
  *  ${2:Detailed description}
@@ -35,7 +35,7 @@ snippet cfile ".cpp file doxygen documentation"
 /*! @file   `!v expand('%:t')`
  *  @author `git config user.name`
  *  @date   `date +%d/%m/%Y`
- *  @brief  `!v expand('%:r')`'s class cpp file.
+ *  @brief  `!v expand('%:t:r')`'s class cpp file.
  *
  *  @details ${4:Detailed description}
  */
@@ -45,7 +45,7 @@ snippet hfile ".h file doxygen documentation"
 /*! @file   `!v expand('%:t')`
  *  @author `git config user.name`
  *  @date   `date +%d/%m/%Y`
- *  @brief  `!v expand('%:r')`'s class header file.
+ *  @brief  `!v expand('%:t:r')`'s class header file.
  *
  *  @details ${1:Detailed description}
  */
@@ -116,7 +116,7 @@ snippet opencv_inc "#include opencv"
 endsnippet
 
 snippet class "class (class)"
-/*! @class ${0:`!v expand('%:r')`}
+/*! @class ${0:`!v expand('%:t:r')`}
  *  @brief ${1:Brief description}
  *
  *  ${2:Detailed description}
