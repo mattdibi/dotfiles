@@ -91,6 +91,7 @@ alias lsl='ls -l'
 alias nope='nautilus . & disown'
 alias new='gnome-terminal . & disown'
 alias cmakeclean='rm -rf CMakeCache.txt CMakeFiles cmake_install.cmake Makefile'
+alias clion='/home/mattia/clion-2018.2.4/bin/clion.sh & disown'
 
 # Workstation shortcuts
 alias pcn='cd /home/mattia/Scrivania/pcn_v2/PCN'
