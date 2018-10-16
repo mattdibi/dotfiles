@@ -4,54 +4,26 @@ snippet cmake "cmake (cmake)"
 cmake_minimum_required(VERSION 3.6)
 project( ${1:ProjectName} )
 
-# Generate compilation database (needed for autocompletion)
-set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
-
-# Options
-option(CPPCHECK "Enable cppcheck static analysis" ON)
-option(CLANG_TIDY "Enable clang_tidy static analysis" OFF)
-option(IWYU "Enable include-what-you-use and link-what-you-use static analysis" OFF)
-
-# Static analysis tools
-message("")
-# Cppcheck integration
-find_program(CMAKE_CXX_CPPCHECK NAMES cppcheck)
-if (CMAKE_CXX_CPPCHECK)
-    message("-- Static analysis: cppcheck - found.")
-    if(CPPCHECK)
-        message("   cppcheck - ENABLED.")
-        list(
-            APPEND CMAKE_CXX_CPPCHECK
-            "--enable=warning,performance"
-            "--inconclusive"
-            "--force"
-            "--inline-suppr"
-            )
-    endif()
+# Disable in-source builds to prevent source tree corruption.
+if(" ${CMAKE_SOURCE_DIR}" STREQUAL " ${CMAKE_BINARY_DIR}")
+    message(FATAL_ERROR "
+    FATAL: In-source builds are not allowed.
+    You should create separate directory for build files.
+    ")
 endif()
 
-# Clang-tidy integration
-find_program(CXX_CLANG_TIDY NAMES clang-tidy)
-if (CXX_CLANG_TIDY)
-    message("-- Static analysis: clang-tidy - found.")
-    if(CLANG_TIDY)
-        message("   clang-tidy - ENABLED.")
-        set(CMAKE_CXX_CLANG_TIDY "clang-tidy;-checks=*,clang-analyzer-*,-clang-analyzer-cplusplus*")
-    endif()
-endif()
+set( CMAKE_CXX_STANDARD 14 )
+set( CMAKE_CXX_STANDARD_REQUIRED ON )
+set( CMAKE_CXX_EXTENSIONS OFF )
 
-# include-what-you-use integration
-find_program(CXX_INCLUDE_WHAT_YOU_USE NAMES include-what-you-use iwyu)
-if(CXX_INCLUDE_WHAT_YOU_USE)
-    message("-- Static analysis: include-what-you-use - found.")
-    if(IWYU)
-        message("   include-what-you-use - ENABLED.")
-        set(CMAKE_CXX_INCLUDE_WHAT_YOU_USE "iwyu;-Xiwyu;any;-Xiwyu;iwyu;-Xiwyu;args")
-        set(CMAKE_LINK_WHAT_YOU_USE)
-    endif()
-endif()
+set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall" )
+set( CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -ggdb -fno-omit-frame-pointer" )
+set( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2" )
 
-message("")
+if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+    message(STATUS "Setting build type to 'Release' as no build type was specified")
+    set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose the build type (Debug/Release)" FORCE)
+endif()
 
 add_executable( $1 main.cpp )
 endsnippet
@@ -63,55 +35,28 @@ project( ${1:ProjectName} )
 # Generate compilation database (needed for autocompletion)
 set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 
-# Options
-option(CPPCHECK "Enable cppcheck static analysis" ON)
-option(CLANG_TIDY "Enable clang_tidy static analysis" OFF)
-option(IWYU "Enable include-what-you-use and link-what-you-use static analysis" OFF)
-
-# Static analysis tools
-message("")
-# Cppcheck integration
-find_program(CMAKE_CXX_CPPCHECK NAMES cppcheck)
-if (CMAKE_CXX_CPPCHECK)
-    message("-- Static analysis: cppcheck - found.")
-    if(CPPCHECK)
-        message("   cppcheck - ENABLED.")
-        list(
-            APPEND CMAKE_CXX_CPPCHECK
-            "--enable=warning,performance"
-            "--inconclusive"
-            "--force"
-            "--inline-suppr"
-            )
-    endif()
+# Disable in-source builds to prevent source tree corruption.
+if(" ${CMAKE_SOURCE_DIR}" STREQUAL " ${CMAKE_BINARY_DIR}")
+    message(FATAL_ERROR "
+    FATAL: In-source builds are not allowed.
+    You should create separate directory for build files.
+    ")
 endif()
 
-# Clang-tidy integration
-find_program(CXX_CLANG_TIDY NAMES clang-tidy)
-if (CXX_CLANG_TIDY)
-    message("-- Static analysis: clang-tidy - found.")
-    if(CLANG_TIDY)
-        message("   clang-tidy - ENABLED.")
-        set(CMAKE_CXX_CLANG_TIDY "clang-tidy;-checks=*,clang-analyzer-*,-clang-analyzer-cplusplus*")
-    endif()
-endif()
+set( CMAKE_CXX_STANDARD 14 )
+set( CMAKE_CXX_STANDARD_REQUIRED ON )
+set( CMAKE_CXX_EXTENSIONS OFF )
 
-# include-what-you-use integration
-find_program(CXX_INCLUDE_WHAT_YOU_USE NAMES include-what-you-use iwyu)
-if(CXX_INCLUDE_WHAT_YOU_USE)
-    message("-- Static analysis: include-what-you-use - found.")
-    if(IWYU)
-        message("   include-what-you-use - ENABLED.")
-        set(CMAKE_CXX_INCLUDE_WHAT_YOU_USE "iwyu;-Xiwyu;any;-Xiwyu;iwyu;-Xiwyu;args")
-        set(CMAKE_LINK_WHAT_YOU_USE)
-    endif()
-endif()
+set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall" )
+set( CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -ggdb -fno-omit-frame-pointer" )
+set( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2" )
 
-message("")
+if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+    message(STATUS "Setting build type to 'Release' as no build type was specified")
+    set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose the build type (Debug/Release)" FORCE)
+endif()
 
 find_package( OpenCV REQUIRED )
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pthread -fPIC -O2 -DPLAT_LINUX -std=gnu++0x")
 
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 add_executable( $1 main.cpp )
