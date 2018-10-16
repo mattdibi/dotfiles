@@ -4,6 +4,9 @@ snippet cmake "cmake (cmake)"
 cmake_minimum_required(VERSION 3.6)
 project( ${1:ProjectName} )
 
+# Generate compilation database (needed for autocompletion)
+set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
+
 # Disable in-source builds to prevent source tree corruption.
 if(" ${CMAKE_SOURCE_DIR}" STREQUAL " ${CMAKE_BINARY_DIR}")
     message(FATAL_ERROR "
