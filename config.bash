@@ -126,15 +126,3 @@ alias xpn='xdg-open'
 alias nope='nautilus . & disown'
 alias dotf='cd /home/mattia/Scrivania/dotfiles'
 alias new='gnome-terminal & disown'
-
-# Safe rm
-alias rm="echo Use 'del', or the full path i.e. '/bin/rm'"
-
-TRASHPATH=/home/mattia/.local/share/Trash/files
-function del()
-{
-for i in $*
-do
-mv $i $TRASHPATH/$i
-done
-}
