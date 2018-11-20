@@ -225,4 +225,4 @@ exec --no-startup-id nm-applet
 exec --no-startup-id numlockx on
 # exec --no-startup-id feh --bg-scale /home/mattia/Immagini/Wallpapers/HYPERBEAST.jpg
 # Dual monitor wallpapers
-exec --no-startup-id feh --bg-fill /home/mattia/Immagini/Wallpapers/DAE.png --bg-fill /home/mattia/Immagini/Wallpapers/DAE.png
+exec --no-startup-id feh --bg-fill /home/mattia/Immagini/Wallpapers/left.* --bg-fill /home/mattia/Immagini/Wallpapers/right.*
