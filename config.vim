@@ -21,7 +21,6 @@ Plugin 'airblade/vim-gitgutter'    " In-editor git diffs
 Plugin 'markonm/traces.vim'        " Range, pattern and substitute preview (requires 8.0.1206+)
 
 " Navigation
-Plugin 'simnalamburt/vim-mundo'         " Undo tree navigation
 Plugin 'scrooloose/nerdtree'            " Filesystem navigation
 Plugin 'majutsushi/tagbar'              " Tags navigation
 Plugin 'christoomey/vim-tmux-navigator' " Tmux splits navigation
@@ -193,6 +192,9 @@ function! CopyMatches(reg)
     execute 'let @'.reg.' = join(hits, "\n") . "\n"'
 endfunction
 command! -register CopyMatches call CopyMatches(<q-reg>)
+
+" make
+autocmd Filetype c,h,hpp,cc,cpp set makeprg=make\ -C\ ~/Scrivania/pcn_v2/PCN/build
 
 " Latex :make command
 autocmd Filetype tex set makeprg=pdflatex\ %\ \-file\-line\-error\ \-interaction=nonstopmode
