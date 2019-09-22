@@ -206,3 +206,6 @@ autocmd Filetype tex inoremap ò \`o
 autocmd Filetype tex inoremap à \`a
 autocmd Filetype tex inoremap ù \`u
 autocmd Filetype tex inoremap ì \`\i\
+
+" Run current python file
+autocmd Filetype python map <F2> :!python3 %<CR>
