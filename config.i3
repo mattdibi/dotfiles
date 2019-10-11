@@ -219,6 +219,8 @@ mode $power_mode {
         bindsym Escape    mode "default"
 }
 
+#Monitor positions
+#exec --no-startup-id xrandr --output DVI-D-0 --right-of HDMI-0 --auto
 #Startup application
 exec --no-startup-id dropbox start
 exec --no-startup-id nm-applet
