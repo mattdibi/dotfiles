@@ -26,8 +26,10 @@ Plugin 'majutsushi/tagbar'              " Tags navigation
 Plugin 'christoomey/vim-tmux-navigator' " Tmux splits navigation
 
 " Autocompletion
-Plugin 'valloric/youcompleteme' " Code autocompletion
-Plugin 'SirVer/ultisnips'       " Snippets engine
+Plugin 'valloric/youcompleteme'  " Code autocompletion
+"Plugin 'zxqfl/tabnine-vim'       " Deep learning code autocompletion
+Plugin 'SirVer/ultisnips'        " Snippets engine
+Plugin 'tpope/vim-projectionist' " Project navigation
 
 " Basics
 Plugin 'tpope/vim-surround'
