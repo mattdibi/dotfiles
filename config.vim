@@ -21,15 +21,13 @@ Plugin 'airblade/vim-gitgutter'    " In-editor git diffs
 Plugin 'markonm/traces.vim'        " Range, pattern and substitute preview (requires 8.0.1206+)
 
 " Navigation
-Plugin 'scrooloose/nerdtree'            " Filesystem navigation
-Plugin 'majutsushi/tagbar'              " Tags navigation
-Plugin 'christoomey/vim-tmux-navigator' " Tmux splits navigation
+Plugin 'scrooloose/nerdtree'       " Filesystem navigation
+Plugin 'tpope/vim-projectionist'   " Project navigation
 
 " Autocompletion
 Plugin 'valloric/youcompleteme'  " Code autocompletion
 "Plugin 'zxqfl/tabnine-vim'       " Deep learning code autocompletion
 Plugin 'SirVer/ultisnips'        " Snippets engine
-Plugin 'tpope/vim-projectionist' " Project navigation
 
 " Basics
 Plugin 'tpope/vim-surround'
@@ -141,19 +139,8 @@ map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 " F5: Toggle paste mode
 set pastetoggle=<F5>
 
-" F7: Toggle NERDTree
-nmap <F7> :NERDTreeToggle<CR>
-
-" F8: Toggle tagbar
-nmap <F8> :TagbarToggle<CR>
-
-" F9: Toggle Mundo
-nmap <F9> :MundoToggle<CR>
-
-" Mundo
-let g:mundo_width = 60
-let g:mundo_preview_height = 20
-let g:mundo_right = 1
+" F6: Toggle NERDTree
+nmap <F6> :NERDTreeToggle<CR>
 
 " Make YCM compatible with minisnips
 let g:ycm_autoclose_preview_window_after_completion=1
