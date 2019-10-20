@@ -21,7 +21,7 @@ Plugin 'airblade/vim-gitgutter'    " In-editor git diffs
 Plugin 'markonm/traces.vim'        " Range, pattern and substitute preview (requires 8.0.1206+)
 
 " Navigation
-Plugin 'scrooloose/nerdtree'       " Filesystem navigation
+Plugin 'tpope/vim-vinegar'         " Netwr enchancer
 Plugin 'tpope/vim-projectionist'   " Project navigation
 
 " Autocompletion
