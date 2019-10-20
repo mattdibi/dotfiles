@@ -153,7 +153,7 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Ultisnips folder
-let g:UltiSnipsSnippetDirectories=["custom_snippets"] " ~/.vim/custom_snippets
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/custom_snippets/']
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
