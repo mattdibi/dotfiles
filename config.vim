@@ -141,9 +141,6 @@ map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 " F5: Toggle paste mode
 set pastetoggle=<F5>
 
-" F6: Toggle NERDTree
-nmap <F6> :NERDTreeToggle<CR>
-
 " Make YCM compatible with minisnips
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
