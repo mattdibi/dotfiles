@@ -19,6 +19,8 @@ Plugin 'challenger-deep-theme/vim' " Colorscheme
 Plugin 'itchyny/lightline.vim'     " Stylish statusline
 Plugin 'airblade/vim-gitgutter'    " In-editor git diffs
 Plugin 'markonm/traces.vim'        " Range, pattern and substitute preview (requires 8.0.1206+)
+Plugin 'camspiers/animate.vim'     " Window animation library
+Plugin 'camspiers/lens.vim'        " Automatic resize of active window (integrates with animate.vim)
 
 " Navigation
 Plugin 'tpope/vim-vinegar'         " Netwr enchancer
@@ -73,7 +75,7 @@ set cmdheight=1       " Command line height
 set cursorline        " Highlight current line
 
 set undofile          " Maintain undo history between sessions
-set undodir=~/.vim/undodir
+set undodir=~/.vim/undodir " Undo history directory
 
 set autoread          " Autoload file changes. You can undo by pressing u.
 set wildmenu          " Visual autocomplete for command menu
