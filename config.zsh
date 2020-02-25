@@ -94,8 +94,7 @@ alias cmakeclean='rm -rf CMakeCache.txt CMakeFiles cmake_install.cmake Makefile'
 alias clion='/home/mattia/clion-2018.2.4/bin/clion.sh & disown'
 
 # Workstation shortcuts
-alias pcn='cd /home/mattia/Scrivania/pcn_v2/PCN'
-alias janus='cd /home/mattia/Scrivania/janus-gateway && ./janus -F /opt/janus/etc/janus'
+alias pcn='cd /home/mattia/Scrivania/pcn_v2'
 
 # Vi mode
 bindkey -v
@@ -115,3 +114,8 @@ prompt_context() {
     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
   fi
 }
+
+# Sonar aliases
+# WARNING: Auth token is embedded here
+#alias sonar-build='/home/mattia/Scrivania/sonar/build-wrapper-linux-x86/build-wrapper-linux-x86-64 --out-dir bw-output make clean all -j8'
+#alias sonar-scan='/home/mattia/Scrivania/sonar/sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner -Dsonar.projectKey=<PROJECT_KEY> -Dsonar.organization=<ORGANIZATION> -Dsonar.login=<TOKEN> -Dsonar.cfamily.build-wrapper-output=build/bw-output -Dsonar.cfamily.threads=8 -Dsonar.sources=src -Dsonar.tests=test -Dsonar.projectBaseDir=./ -Dsonar.cfamily.gcov.reportsPath=build/Testing/CoverageInfo -Dsonar.branch.name=<BRANCH_NAME>'
