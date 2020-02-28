@@ -201,7 +201,7 @@ client.background       #1d1d1d
 bindsym $mod+i exec --no-startup-id google-chrome
 bindsym $mod+m exec --no-startup-id google-chrome https://mail.google.com/mail/
 bindsym $mod+Shift+m exec --no-startup-id google-chrome https://outlook.office365.com/owa/?realm=eurotech.com&exsvurl=1&ll-cc=1040&modurl=0
-bindsym $mod+n exec nautilus -w ~/Scrivania
+bindsym $mod+n exec nautilus -w ~/Desktop
 
 # Powermode
 set $power_mode "(p)oweroff, (r)eboot, (l)ock, (q)uit, (h)ibernate, (s)leep"
@@ -227,4 +227,4 @@ exec --no-startup-id nm-applet
 exec --no-startup-id numlockx on
 # exec --no-startup-id feh --bg-scale /home/mattia/Immagini/Wallpapers/HYPERBEAST.jpg
 # Dual monitor wallpapers
-exec --no-startup-id feh --bg-fill /home/mattia/Immagini/Wallpapers/left.* --bg-fill /home/mattia/Immagini/Wallpapers/right.*
+exec --no-startup-id feh --bg-fill /home/mattia/Pictures/Wallpapers/left.* --bg-fill /home/mattia/Pictures/Wallpapers/right.*
