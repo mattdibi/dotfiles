@@ -120,9 +120,9 @@ set -o vi
 
 alias sl='ls'
 alias lsl='ls -l'
-alias desk='cd /home/mattia/Scrivania'
-alias pcn='cd /home/mattia/Scrivania/pcn_v2/PCN'
+alias desk='cd /home/mattia/Desktop'
+alias pcn='cd /home/mattia/Desktop/pcn_v2'
 alias xpn='xdg-open'
 alias nope='nautilus . & disown'
-alias dotf='cd /home/mattia/Scrivania/dotfiles'
+alias dotf='cd /home/mattia/Desktop/dotfiles'
 alias new='gnome-terminal & disown'
