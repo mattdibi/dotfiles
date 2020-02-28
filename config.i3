@@ -210,7 +210,7 @@ mode $power_mode {
 
         bindsym p        exec systemctl poweroff
         bindsym r        exec systemctl reboot
-        bindsym l        exec --no-startup-id i3lock, mode "default"
+        bindsym l        exec --no-startup-id i3lock -c 000000 -p default, mode "default"
         bindsym q        exec --no-startup-id i3-msg exit, mode "default"
         bindsym h        exec systemctl hibernate, mode "default"
         bindsym s        exec systemctl suspend, mode "default"
