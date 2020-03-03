@@ -116,5 +116,5 @@ prompt_context() {
 
 # Sonar aliases
 # WARNING: Auth token is embedded here
-#alias sonar-build='/home/mattia/Scrivania/sonar/build-wrapper-linux-x86/build-wrapper-linux-x86-64 --out-dir bw-output make clean all -j8'
-#alias sonar-scan='/home/mattia/Scrivania/sonar/sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner -Dsonar.projectKey=<PROJECT_KEY> -Dsonar.organization=<ORGANIZATION> -Dsonar.login=<TOKEN> -Dsonar.cfamily.build-wrapper-output=build/bw-output -Dsonar.cfamily.threads=8 -Dsonar.sources=src -Dsonar.tests=test -Dsonar.projectBaseDir=./ -Dsonar.cfamily.gcov.reportsPath=build/Testing/CoverageInfo -Dsonar.branch.name=<BRANCH_NAME>'
+# alias sonar-build='/opt/build-wrapper-linux-x86/build-wrapper-linux-x86-64 --out-dir bw-output make clean all -j8'
+# alias sonar-scan='/opt/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner -Dsonar.projectKey=<PROJECT_KEY> -Dsonar.organization=<ORGANIZATION> -Dsonar.login=<TOKEN> -Dsonar.cfamily.build-wrapper-output=build/bw-output -Dsonar.cfamily.threads=8 -Dsonar.sources=src -Dsonar.tests=test -Dsonar.projectBaseDir=./ -Dsonar.cfamily.gcov.reportsPath=build/Testing/CoverageInfo -Dsonar.branch.name=<BRANCH_NAME>'
