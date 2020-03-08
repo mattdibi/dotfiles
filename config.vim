@@ -85,6 +85,10 @@ set updatetime=250    " Update time 250ms
 
 set backspace=indent,eol,start " Backspace through lines
 
+" <Space> and \ are now leader keys, this way
+" something will pop up in the showcmd corner.
+map <Space> <leader>
+
 " Uncomment the following to have Vim jump to the last position when ropening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
