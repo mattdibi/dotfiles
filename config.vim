@@ -141,10 +141,17 @@ map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 " F5: Toggle paste mode
 set pastetoggle=<F5>
 
-" Make YCM compatible with minisnips
+" YCM configuration
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+
+nnoremap <leader>g  :YcmCompleter GoTo<CR>
+nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>t  :YcmCompleter GetType<CR>
+nnoremap <leader>d  :YcmCompleter GetDoc<CR>
+nnoremap <leader>fi :YcmCompleter FixIt<CR>
+nnoremap <leader>r  :YcmForceCompileAndDiagnostics<CR>
 
 " Ultisnips configuration
 let g:UltiSnipsExpandTrigger = "<tab>"
