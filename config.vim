@@ -19,8 +19,6 @@ Plugin 'challenger-deep-theme/vim' " Colorscheme
 Plugin 'itchyny/lightline.vim'     " Stylish statusline
 Plugin 'airblade/vim-gitgutter'    " In-editor git diffs
 Plugin 'markonm/traces.vim'        " Range, pattern and substitute preview (requires 8.0.1206+)
-Plugin 'camspiers/animate.vim'     " Window animation library
-Plugin 'camspiers/lens.vim'        " Automatic resize of active window (integrates with animate.vim)
 
 " Navigation
 Plugin 'tpope/vim-vinegar'         " Netwr enchancer
