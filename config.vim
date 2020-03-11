@@ -147,11 +147,12 @@ set pastetoggle=<F5>
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:ycm_goto_buffer_command = 'split'
 
-nnoremap <leader>g  :YcmCompleter GoTo<CR>
-nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>t  :YcmCompleter GetType<CR>
-nnoremap <leader>d  :YcmCompleter GetDoc<CR>
+nnoremap <leader>g  :botright vertical YcmCompleter GoTo<CR>
+nnoremap <leader>gd :botright vertical YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>t  :botright vertical YcmCompleter GetType<CR>
+nnoremap <leader>d  :botright vertical YcmCompleter GetDoc<CR>
 nnoremap <leader>fi :YcmCompleter FixIt<CR>
 nnoremap <leader>r  :YcmForceCompileAndDiagnostics<CR>
 
