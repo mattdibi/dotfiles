@@ -220,7 +220,8 @@ mode $power_mode {
 }
 
 #Monitor positions
-#exec --no-startup-id xrandr --output DVI-D-0 --right-of HDMI-0 --auto
+#exec --no-startup-id xrandr --output DVI-D-0 --right-of HDMI-0 --auto # workstation
+exec --no-startup-id xrandr --output HDMI-0 --right-of DP-0 --auto # home office
 #Startup application
 exec --no-startup-id dropbox start
 exec --no-startup-id nm-applet
