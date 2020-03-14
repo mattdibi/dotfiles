@@ -87,6 +87,7 @@ set backspace=indent,eol,start " Backspace through lines
 set guioptions -=m " removes menubar
 set guioptions -=T " removes toolbar
 set guioptions -=r " removes scrollbar
+set guioptions -=L " removes left scrollbar
 
 " <Space> and \ are now leader keys, this way
 " something will pop up in the showcmd corner.
