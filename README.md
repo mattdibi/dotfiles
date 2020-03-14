@@ -31,6 +31,12 @@ $ mkdir ~/.config/regolith/i3
 $ cp config.i3 ~/.config/regolith/i3/
 ```
 
+24h format i3xrocks
+```sh
+$ sudo vim /etc/regolith/styles/i2xrocks
+> i3xrocks.date.format:       + %d/%m/%y %H:%M
+```
+
 ### Plugin management
 
 #### Vundle manual installation
