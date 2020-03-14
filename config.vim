@@ -83,6 +83,11 @@ set updatetime=250    " Update time 250ms
 
 set backspace=indent,eol,start " Backspace through lines
 
+"Gvim
+set guioptions -=m " removes menubar
+set guioptions -=T " removes toolbar
+set guioptions -=r " removes scrollbar
+
 " <Space> and \ are now leader keys, this way
 " something will pop up in the showcmd corner.
 map <Space> <leader>
