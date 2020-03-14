@@ -24,6 +24,13 @@ $ cd dotfiles/
 $ sh install_dotfiles.sh
 ```
 
+Then for the i3 customizations:
+
+```sh
+$ mkdir ~/.config/regolith/i3
+$ cp config.i3 ~/.config/regolith/i3/
+```
+
 ### Plugin management
 
 #### Vundle manual installation
