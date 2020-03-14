@@ -4,17 +4,16 @@ These are my configuration files. I need to add it to version tracking because I
 
 ## Programs
 - Vim:  [https://github.com/vim](https://github.com/vim)
-- Tmux: [https://github.com/tmux/tmux](https://github.com/tmux/tmux)
 - i3-wm: [https://i3wm.org/](https://i3wm.org/)
+- regolith-desktop: [https://regolith.com/](https://www.omgubuntu.co.uk/2019/06/install-regolith-linux-i3-gaps-ubuntu)
 
 **Note: clipboard support** You need to install **vim-gnome** or **vim-gtk**, depending on your system configuration, to be able to effectively copy and paste from the system clipboard. The clipboard registers are `+` and `*`  
 
-**Note: i3 installation**
+**Note: Regolith-desktop installation**
 ```sh
-$ sudo apt-get install i3-wm i3status dmenu rofi gksu feh numlockx xautolock
-$ gsettings set org.gnome.desktop.background show-desktop-icons false
+$ sudo add-apt-repository ppa:kgilmer/regolith-stable
+$ sudo apt install regolith-desktop
 ```
-Run the second command to disable drawing of the desktop by Nautilus.
 
 ## Installation
 Simply type these commands on a terminal window:
