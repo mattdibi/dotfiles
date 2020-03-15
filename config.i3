@@ -238,7 +238,7 @@ new_window pixel 1
 new_float pixel 1
 
 # Gaps (i3-gaps)
-gaps inner 5
+gaps inner 7
 gaps outer 0
 
 # Only enable gaps on a workspace when there is at least one container
