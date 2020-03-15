@@ -5,7 +5,7 @@ These are my configuration files. I need to add it to version tracking because I
 ## Programs
 - Vim:  [https://github.com/vim](https://github.com/vim)
 - i3-wm: [https://i3wm.org/](https://i3wm.org/)
-- regolith-desktop: [https://regolith.com/](https://www.omgubuntu.co.uk/2019/06/install-regolith-linux-i3-gaps-ubuntu)
+- regolith-desktop: [https://regolith-linux.org/](config/regolith/i3/config) ([Installation tutorial.](https://www.omgubuntu.co.uk/2019/06/install-regolith-linux-i3-gaps-ubuntu))
 
 **Note: clipboard support** You need to install **vim-gnome** or **vim-gtk**, depending on your system configuration, to be able to effectively copy and paste from the system clipboard. The clipboard registers are `+` and `*`  
 
