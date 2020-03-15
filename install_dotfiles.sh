@@ -46,6 +46,7 @@ while getopts ":t:fh" opt; do
   esac
 done
 
+# Checking accepted targets
 if ! [[ "$target" = "all" || "$target" = "i3" || "$target" = "zsh" || "$target" = "vim" ]]; then
     echo "Uknown target \"$target\". Abort."
     exit 1
