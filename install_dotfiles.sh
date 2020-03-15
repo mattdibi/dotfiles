@@ -38,11 +38,8 @@ done
 
 # Checking requirements
 command -v git >/dev/null 2>&1 || { echo >&2 "I require git but it's not installed.  Aborting."; exit 1; }
-
-command -v vim      >/dev/null 2>&1 || { echo >&2 "Vim is not installed.  Aborting."; exit 1; }
-command -v tmux     >/dev/null 2>&1 || { echo >&2 "WARNING: tmux is not installed."; }
-command -v i3       >/dev/null 2>&1 || { echo >&2 "WARNING: i3-wm is not installed."; }
-command -v i3status >/dev/null 2>&1 || { echo >&2 "WARNING: i3status is not installed."; }
+command -v i3  >/dev/null 2>&1 || { echo >&2 "WARNING: i3-wm is not installed."; }
+command -v vim >/dev/null 2>&1 || { echo >&2 "Vim is not installed.  Aborting."; exit 1; }
 
 if ! [ -e ~/.vim/bundle/Vundle.vim ]; then
   echo "Installing Vundle plugin manager..."
@@ -62,20 +59,17 @@ if ! [ -d  ~/.vim/custom_snippets ]; then
 fi
 echo "Snippets: OK"
 
-if ! [ -d  ~/.i3 ]; then
+if ! [ -d  ~/.config/regolith/i3 ]; then
   echo "Creating ~/.i3 directory..."
-  mkdir ~/.i3
+  mkdir -p ~/.config/regolith/i3
 fi
 echo "i3-wm: OK"
 
 # Dotfiles installation
-cat config.vim      > ~/.vimrc
-cat config.tmux     > ~/.tmux.conf
-cat config.i3       > ~/.i3/config
-cat config.i3status > ~/.i3status.conf
-cat config.bash     > ~/.bashrc
-cat config.zsh      > ~/.zshrc
 cp -r custom_snippets/ ~/.vim/
+cat config.vim      > ~/.vimrc
+cat config.i3       > ~/.config/regolith/i3/config
+cat config.zsh      > ~/.zshrc
 
 # Full install management
 if [ "$full_install" = true ] ; then
