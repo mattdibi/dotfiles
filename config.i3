@@ -44,8 +44,7 @@ floating_modifier $mod
 hide_edge_borders smart
 
 # start a terminal
-# bindsym $mod+Return exec $terminal_path
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec $terminal_path
 
 # start a web browser
 bindsym $mod+Shift+Return exec /usr/bin/sensible-browser
@@ -59,12 +58,6 @@ set_from_resource $rofiTheme rofi.theme "regolith-theme"
 bindsym $mod+space exec rofi -show drun -theme $rofiTheme
 bindsym $mod+Shift+space exec rofi -show run -theme $rofiTheme
 bindsym $mod+Ctrl+space exec rofi -show window -theme $rofiTheme
-
-# change focus
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -233,6 +226,12 @@ mode "Resize Mode" {
         bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "Resize Mode"
+
+# Smart resize
+bindsym $mod+Left resize shrink width 10 px or 10 ppt
+bindsym $mod+Down resize grow height 10 px or 10 ppt
+bindsym $mod+Up resize shrink height 10 px or 10 ppt
+bindsym $mod+Right resize grow width 10 px or 10 ppt
 
 # Disable titlebar
 new_window pixel 1
