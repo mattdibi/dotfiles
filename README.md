@@ -37,10 +37,10 @@ $ sudo vim /etc/regolith/styles/i2xrocks
 > i3xrocks.date.format:       + %d/%m/%y %H:%M
 ```
 
-24h format i3xrocks
+Terminal font size
 ```sh
 $ sudo vim /etc/regolith/styles/typeface-sourcecodepro
-> #define typeface_terminal   Source Code Pro:pixelsize=15:antialias=true:autohint=true
+> #define typeface_terminal   Source Code Pro:pixelsize=14:antialias=true:autohint=true
 ```
 
 ### Plugin management
