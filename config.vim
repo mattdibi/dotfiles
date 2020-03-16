@@ -88,6 +88,7 @@ set guioptions -=m " removes menubar
 set guioptions -=T " removes toolbar
 set guioptions -=r " removes scrollbar
 set guioptions -=L " removes left scrollbar
+set mouse=         " disable mouse entirely
 
 " <Space> and \ are now leader keys, this way
 " something will pop up in the showcmd corner.
