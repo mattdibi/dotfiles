@@ -89,7 +89,7 @@ fi
 
 alias lsl='ls -l'
 alias nope='nautilus . & disown'
-alias new='gnome-terminal . & disown'
+alias new='/usr/bin/st sh -c "zsh" . & disown'
 alias cmakeclean='rm -rf CMakeCache.txt CMakeFiles cmake_install.cmake Makefile'
 
 # Workstation shortcuts
