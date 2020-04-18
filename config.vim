@@ -17,8 +17,12 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'liuchengxu/space-vim-dark' " Colorscheme
 Plugin 'challenger-deep-theme/vim' " Colorscheme
 Plugin 'itchyny/lightline.vim'     " Stylish statusline
-Plugin 'airblade/vim-gitgutter'    " In-editor git diffs
 Plugin 'markonm/traces.vim'        " Range, pattern and substitute preview (requires 8.0.1206+)
+if has('nvim') || has('patch-8.0.902')
+  Plugin 'mhinz/vim-signify'       " In-editor git diffs
+else
+  Plugin 'mhinz/vim-signify', { 'branch': 'legacy' }
+endif
 
 " Navigation
 Plugin 'tpope/vim-vinegar'         " Netwr enchancer
@@ -83,12 +87,18 @@ set updatetime=250    " Update time 250ms
 
 set backspace=indent,eol,start " Backspace through lines
 
-"Gvim
+" Gvim
 set guioptions -=m " removes menubar
 set guioptions -=T " removes toolbar
 set guioptions -=r " removes scrollbar
 set guioptions -=L " removes left scrollbar
 set mouse=         " disable mouse entirely
+
+" Signify
+highlight link SignifySignAdd             DiffAdd
+highlight link SignifySignChange          DiffChange
+highlight link SignifySignDelete          DiffDelete
+highlight link SignifySignDeleteFirstLine SignifySignDelete
 
 " <Space> and \ are now leader keys, this way
 " something will pop up in the showcmd corner.
