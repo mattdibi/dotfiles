@@ -18,6 +18,7 @@ Plugin 'liuchengxu/space-vim-dark' " Colorscheme
 Plugin 'challenger-deep-theme/vim' " Colorscheme
 Plugin 'itchyny/lightline.vim'     " Stylish statusline
 Plugin 'markonm/traces.vim'        " Range, pattern and substitute preview (requires 8.0.1206+)
+Plugin 'mbbill/undotree'           " Visualizes undo history
 if has('nvim') || has('patch-8.0.902')
   Plugin 'mhinz/vim-signify'       " In-editor git diffs
 else
@@ -99,6 +100,11 @@ highlight link SignifySignAdd             DiffAdd
 highlight link SignifySignChange          DiffChange
 highlight link SignifySignDelete          DiffDelete
 highlight link SignifySignDeleteFirstLine SignifySignDelete
+
+" Undotree
+nnoremap <leader>u  :UndotreeToggle<CR>
+let g:undotree_SetFocusWhenToggle = 1
+let g:undotree_HighlightChangedWithSign = 0
 
 " <Space> and \ are now leader keys, this way
 " something will pop up in the showcmd corner.
@@ -207,9 +213,6 @@ function! CopyMatches(reg)
     execute 'let @'.reg.' = join(hits, "\n") . "\n"'
 endfunction
 command! -register CopyMatches call CopyMatches(<q-reg>)
-
-" make
-autocmd Filetype c,h,hpp,cc,cpp set makeprg=make\ -C\ ~/Scrivania/pcn_v2/PCN/build
 
 " Latex :make command
 autocmd Filetype tex set makeprg=pdflatex\ %\ \-file\-line\-error\ \-interaction=nonstopmode
