@@ -29,9 +29,8 @@ Plugin 'tpope/vim-vinegar'         " Netwr enchancer
 Plugin 'tpope/vim-projectionist'   " Project navigation
 
 " Autocompletion
-Plugin 'valloric/youcompleteme'  " Code autocompletion
-"Plugin 'zxqfl/tabnine-vim'       " Deep learning code autocompletion
-Plugin 'SirVer/ultisnips'        " Snippets engine
+Plugin 'valloric/youcompleteme'    " Code autocompletion
+Plugin 'SirVer/ultisnips'          " Snippets engine
 
 " Basics
 Plugin 'tpope/vim-surround'
@@ -95,6 +94,7 @@ set guioptions -=L " removes left scrollbar
 set mouse=         " disable mouse entirely
 
 " Signify
+let g:signify_sign_change = '~'
 highlight link SignifySignAdd             DiffAdd
 highlight link SignifySignChange          DiffChange
 highlight link SignifySignDelete          DiffDelete
