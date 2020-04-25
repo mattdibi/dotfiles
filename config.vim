@@ -2,19 +2,13 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" Keep Plugin commands between vundle#begin/end.
-
 " Eye-candy plugins
-Plugin 'liuchengxu/space-vim-dark' " Colorscheme
 Plugin 'challenger-deep-theme/vim' " Colorscheme
 Plugin 'itchyny/lightline.vim'     " Stylish statusline
 Plugin 'markonm/traces.vim'        " Range, pattern and substitute preview (requires 8.0.1206+)
@@ -38,11 +32,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'rhysd/vim-clang-format'
 
-" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -53,6 +44,10 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+""""""""""""
+" SETTINGS "
+""""""""""""
+
 " Colorscheme
 if has('nvim') || has('termguicolors')
   set termguicolors
@@ -61,10 +56,6 @@ endif
 " Challenger deep
 colorscheme challenger_deep
 let g:lightline = { 'colorscheme': 'challenger_deep'}
-
-" Space vim dark
-" colorscheme space-vim-dark
-" let g:lightline = { 'colorscheme': 'Dracula' }
 
 " Common
 syntax enable
@@ -88,33 +79,36 @@ set updatetime=250    " Update time 250ms
 set backspace=indent,eol,start " Backspace through lines
 
 " Gvim
-set guioptions -=m " removes menubar
-set guioptions -=T " removes toolbar
-set guioptions -=r " removes scrollbar
-set guioptions -=L " removes left scrollbar
-set mouse=         " disable mouse entirely
+set guioptions -=m    " Removes menubar
+set guioptions -=T    " Removes toolbar
+set guioptions -=r    " Removes scrollbar
+set guioptions -=L    " Removes left scrollbar
+set mouse=            " Disable mouse entirely
 
-" Signify
-let g:signify_sign_change = '~'
-highlight link SignifySignAdd             DiffAdd
-highlight link SignifySignChange          DiffChange
-highlight link SignifySignDelete          DiffDelete
-highlight link SignifySignDeleteFirstLine SignifySignDelete
+" Search
+set ignorecase        " The case of normal letters is ignored.
+set smartcase         " Ignore case when the pattern contains lowercase letters only.
+set incsearch         " Start searching before pressing enter
+set nows              " Once hitting the search bottom it stops instead of restarting from the first match
 
-" Undotree
-nnoremap <leader>u  :UndotreeToggle<CR>
-let g:undotree_SetFocusWhenToggle = 1
-let g:undotree_HighlightChangedWithSign = 0
+"Formatting
+set breakindent       " Wrap lines without changing the amount of indent. VIM 8 only!
+set autoindent        " Auto indentation. To paste use paste mode: :set paste
+set wrap              " Wrap long lines
+set shiftwidth=4      " Use indents of 4 spaces
+set expandtab         " Tabs are spaces, not tabs
+set tabstop=4         " An indentation every four columns
+set nojoinspaces      " Prevents inserting two spaces after punctuation on a join (J)
+set splitright        " Puts new vsplit windows to the right of the current
+set splitbelow        " Puts new split windows to the bottom of the current
+
+""""""""""""
+" MAPPINGS "
+""""""""""""
 
 " <Space> and \ are now leader keys, this way
 " something will pop up in the showcmd corner.
 map <Space> <leader>
-
-" Uncomment the following to have Vim jump to the last position when ropening a file
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g'\"" | endif
-endif
 
 " This mapping makes Y work from the cursor to the end of line
 " (which is more logical, but not Vi-compatible).
@@ -132,43 +126,30 @@ nnoremap <Down>  :resize -5<CR>
 nnoremap <Left>  :vertical resize -5<CR>
 nnoremap <Right> :vertical resize +5<CR>
 
-" Search
-set ignorecase
-set smartcase
-set incsearch         " Start searching before pressing enter
-set nows              " Once hitting the search bottom it stops instead of restarting from the first match
-
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
 vnoremap > >gv
-
-"Formatting
-set breakindent       " Wrap lines without changing the amount of indent. VIM 8 only!
-set autoindent        " Auto indentation. To paste use paste mode: :set paste
-set wrap              " Wrap long lines
-set shiftwidth=4      " Use indents of 4 spaces
-set expandtab         " Tabs are spaces, not tabs
-set tabstop=4         " An indentation every four columns
-set nojoinspaces      " Prevents inserting two spaces after punctuation on a join (J)
-set splitright        " Puts new vsplit windows to the right of the current
-set splitbelow        " Puts new split windows to the bottom of the current
-
-" MatchIt
-" Installation for Vim 8
-packadd! matchit
-" Installation for Vim 7 and older
-" runtime macros/matchit.vim
 
 " Function row mode toggle hotkeys
 " F3: Toggle list char
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 nnoremap <F3> :set list!<CR>
 
-" F4: Switch between source and header file
-map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+"""""""""""""""""""""""""
+" PLUGIN CONFIGURATIONS "
+"""""""""""""""""""""""""
 
-" F5: Toggle paste mode
-set pastetoggle=<F5>
+" Signify configuration
+let g:signify_sign_change = '~'
+highlight link SignifySignAdd             DiffAdd
+highlight link SignifySignChange          DiffChange
+highlight link SignifySignDelete          DiffDelete
+highlight link SignifySignDeleteFirstLine SignifySignDelete
+
+" Undotree configuration
+nnoremap <leader>u  :UndotreeToggle<CR>
+let g:undotree_SetFocusWhenToggle = 1
+let g:undotree_HighlightChangedWithSign = 0
 
 " YCM configuration
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -187,20 +168,32 @@ nnoremap <leader>r  :YcmForceCompileAndDiagnostics<CR>
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-" Ultisnips folder
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/custom_snippets/']
-
-" If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-" Clang-format
+" Clang-format configuration
 let g:clang_format#code_style = "google"
+
+"""""""""""""
+" FUNCTIONS "
+"""""""""""""
+
+" MatchIt
+" Installation for Vim 8
+packadd! matchit
+" Installation for Vim 7 and older
+" runtime macros/matchit.vim
+
+" Jump to the last position when ropening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
 
 " C++
 " ;g generates the C++ header guard
 autocmd Filetype c,h,hpp,cc,cpp map ;g :call IncludeGuard()<CR>
-fun! IncludeGuard()
+function! IncludeGuard()
    let basename = substitute(bufname(""), '.*/', '', '')
    let guard = '_' . substitute(toupper(basename), '\.', '_', "H")
    call append(0, "#ifndef " . guard)
