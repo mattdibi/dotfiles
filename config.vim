@@ -20,6 +20,7 @@ else
 endif
 
 " Navigation
+Plugin 'chrisbra/matchit'          " Improved % matching
 Plugin 'tpope/vim-vinegar'         " Netwr enchancer
 Plugin 'tpope/vim-projectionist'   " Project navigation
 
@@ -177,12 +178,6 @@ let g:clang_format#code_style = "google"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => FUNCTIONS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" MatchIt
-" Installation for Vim 8
-packadd! matchit
-" Installation for Vim 7 and older
-" runtime macros/matchit.vim
 
 " Jump to the last position when ropening a file
 if has("autocmd")
