@@ -44,9 +44,9 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-""""""""""""
-" SETTINGS "
-""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => SETTINGS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Colorscheme
 if has('nvim') || has('termguicolors')
@@ -102,9 +102,9 @@ set nojoinspaces      " Prevents inserting two spaces after punctuation on a joi
 set splitright        " Puts new vsplit windows to the right of the current
 set splitbelow        " Puts new split windows to the bottom of the current
 
-""""""""""""
-" MAPPINGS "
-""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => MAPPINGS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " <Space> and \ are now leader keys, this way
 " something will pop up in the showcmd corner.
@@ -135,9 +135,9 @@ vnoremap > >gv
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 nnoremap <F3> :set list!<CR>
 
-"""""""""""""""""""""""""
-" PLUGIN CONFIGURATIONS "
-"""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => PLUGIN CONFIGURATIONS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Signify configuration
 let g:signify_sign_change = '~'
@@ -174,9 +174,9 @@ let g:UltiSnipsEditSplit="vertical"
 " Clang-format configuration
 let g:clang_format#code_style = "google"
 
-"""""""""""""
-" FUNCTIONS "
-"""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => FUNCTIONS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " MatchIt
 " Installation for Vim 8
