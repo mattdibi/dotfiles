@@ -139,17 +139,26 @@ nnoremap <F3> :set list!<CR>
 " => STATUS LINE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Function: display errors from Youcompleteme in statusline
-function! LinterStatus() abort
+function! YCMErrors() abort
     if !exists(':Ycm*')
         return ''
     endif
     let l:errors = youcompleteme#GetErrorCount()
-    let l:warnings = youcompleteme#GetWarningCount()
-    let l:total_count = l:errors + l:warnings
-    return l:total_count == 0 ? '' : printf(
-        \ 'W:%d E:%d',
-        \ l:warnings,
+    return l:errors == 0 ? '' : printf(
+        \ '  E:%d ',
         \ l:errors
+        \)
+endfunction
+
+" Function: display warnings from Youcompleteme in statusline
+function! YCMWarnings() abort
+    if !exists(':Ycm*')
+        return ''
+    endif
+    let l:warnings = youcompleteme#GetWarningCount()
+    return l:warnings == 0 ? '' : printf(
+        \ '  W:%d ',
+        \ l:warnings
         \)
 endfunction
 
@@ -158,12 +167,15 @@ set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
 set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
 set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}
 set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
-set statusline+=%#Visual# " Color
+set statusline+=%#Visual#       " Color
 set statusline+=\ %F
 set statusline+=%m
 set statusline+=%r
 set statusline+=%=
-set statusline+=\ %{LinterStatus()}\ 
+set statusline+=%#Error#        " Color
+set statusline+=%{YCMErrors()}
+set statusline+=%#WarningMsg#   " Color
+set statusline+=%{YCMWarnings()}
 set statusline+=%#CursorColumn# " Color
 set statusline+=\ %y
 set statusline+=\ %p%%
