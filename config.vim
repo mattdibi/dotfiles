@@ -172,16 +172,19 @@ set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}%*
 set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}%*
 set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}%*
 
-set statusline+=%#IncSearch#%{IsCurrentWindow()?expand('%F'):''}%*
-set statusline+=%#Visual#%{IsCurrentWindow()?'':expand('%F')}%*
+set statusline+=%#Cursor#%{IsCurrentWindow()?expand('%F'):''}%*
+set statusline+=%#StatusLineNC#%{IsCurrentWindow()?'':expand('%F')}%*
 
 set statusline+=%m
 set statusline+=%r
+
 set statusline+=%=
+
 set statusline+=%#Error#        " Color
 set statusline+=%{YCMErrors()}
 set statusline+=%#WarningMsg#   " Color
 set statusline+=%{YCMWarnings()}
+
 set statusline+=%#CursorColumn# " Color
 set statusline+=\ %y
 set statusline+=\ %p%%
