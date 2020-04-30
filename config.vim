@@ -162,13 +162,19 @@ function! YCMWarnings() abort
         \)
 endfunction
 
+function! IsCurrentWindow()
+    return getwinvar(winnr(), 'curr')
+endfunction
+
 set statusline=
-set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
-set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
-set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}
-set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
-set statusline+=%#Visual#       " Color
-set statusline+=\ %F
+set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}%*
+set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}%*
+set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}%*
+set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}%*
+
+set statusline+=%#IncSearch#%{IsCurrentWindow()?expand('%F'):''}%*
+set statusline+=%#Visual#%{IsCurrentWindow()?'':expand('%F')}%*
+
 set statusline+=%m
 set statusline+=%r
 set statusline+=%=
@@ -182,6 +188,12 @@ set statusline+=\ %p%%
 set statusline+=\ 
 set statusline+=%#CursorIM#
 set statusline+=\ %-4l\/%-4L:%3c\ 
+
+augroup FancyStatusline
+    autocmd!
+    autocmd WinLeave * call setwinvar(winnr(), 'curr', 0)
+    autocmd WinEnter,BufEnter,BufWinEnter * call setwinvar(winnr(), 'curr', 1)
+augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => PLUGIN CONFIGURATIONS
