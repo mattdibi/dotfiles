@@ -145,7 +145,7 @@ function! YCMErrors() abort
     endif
     let l:errors = youcompleteme#GetErrorCount()
     return l:errors == 0 ? '' : printf(
-        \ '  E:%d ',
+        \ '  ●:%d ',
         \ l:errors
         \)
 endfunction
@@ -157,7 +157,7 @@ function! YCMWarnings() abort
     endif
     let l:warnings = youcompleteme#GetWarningCount()
     return l:warnings == 0 ? '' : printf(
-        \ '  W:%d ',
+        \ '  x:%d ',
         \ l:warnings
         \)
 endfunction
