@@ -10,6 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Eye-candy plugins
 Plugin 'challenger-deep-theme/vim' " Colorscheme
+Plugin 'itchyny/lightline.vim'     " Stylish statusline
 Plugin 'markonm/traces.vim'        " Range, pattern and substitute preview (requires 8.0.1206+)
 Plugin 'mbbill/undotree'           " Visualizes undo history
 if has('nvim') || has('patch-8.0.902')
@@ -134,69 +135,6 @@ vnoremap > >gv
 " F3: Toggle list char
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 nnoremap <F3> :set list!<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => STATUS LINE
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Function: display errors from Youcompleteme in statusline
-function! YCMErrors() abort
-    if !exists(':Ycm*')
-        return ''
-    endif
-    let l:errors = youcompleteme#GetErrorCount()
-    return l:errors == 0 ? '' : printf(
-        \ '  ●:%d ',
-        \ l:errors
-        \)
-endfunction
-
-" Function: display warnings from Youcompleteme in statusline
-function! YCMWarnings() abort
-    if !exists(':Ycm*')
-        return ''
-    endif
-    let l:warnings = youcompleteme#GetWarningCount()
-    return l:warnings == 0 ? '' : printf(
-        \ '  x:%d ',
-        \ l:warnings
-        \)
-endfunction
-
-function! IsCurrentWindow()
-    return getwinvar(winnr(), 'curr')
-endfunction
-
-set statusline=
-set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}%*
-set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}%*
-set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}%*
-set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}%*
-
-set statusline+=%#Cursor#%{IsCurrentWindow()?expand('%F'):''}%*
-set statusline+=%#StatusLineNC#%{IsCurrentWindow()?'':expand('%F')}%*
-
-set statusline+=%m
-set statusline+=%r
-
-set statusline+=%=
-
-set statusline+=%#Error#        " Color
-set statusline+=%{YCMErrors()}
-set statusline+=%#WarningMsg#   " Color
-set statusline+=%{YCMWarnings()}
-
-set statusline+=%#CursorColumn# " Color
-set statusline+=\ %y
-set statusline+=\ %p%%
-set statusline+=\ 
-set statusline+=%#CursorIM#
-set statusline+=\ %-4l\/%-4L:%3c\ 
-
-augroup FancyStatusline
-    autocmd!
-    autocmd WinLeave * call setwinvar(winnr(), 'curr', 0)
-    autocmd WinEnter,BufEnter,BufWinEnter * call setwinvar(winnr(), 'curr', 1)
-augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => PLUGIN CONFIGURATIONS
