@@ -169,6 +169,8 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
+command! MGFiles call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --cached --others', 'options': fzf#vim#with_preview().options}))
+
 " Signify configuration
 let g:signify_sign_change = '~'
 highlight link SignifySignAdd             DiffAdd
