@@ -20,6 +20,8 @@ else
 endif
 
 " Navigation
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
 Plugin 'chrisbra/matchit'          " Improved % matching
 Plugin 'tpope/vim-vinegar'         " Netwr enchancer
 Plugin 'tpope/vim-projectionist'   " Project navigation
@@ -139,6 +141,33 @@ nnoremap <F3> :set list!<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => PLUGIN CONFIGURATIONS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" FZF configuration
+let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+if has('nvim') || has('patch-8.2.191')
+    let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
+endif
+
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
 " Signify configuration
 let g:signify_sign_change = '~'
