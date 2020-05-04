@@ -171,6 +171,8 @@ let g:fzf_colors =
 
 command! MGFiles call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --cached --others', 'options': fzf#vim#with_preview().options}))
 
+nnoremap <C-p>  :MGFiles<CR>
+
 " Signify configuration
 let g:signify_sign_change = '~'
 highlight link SignifySignAdd             DiffAdd
