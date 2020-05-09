@@ -24,7 +24,6 @@ Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'chrisbra/matchit'          " Improved % matching
 Plugin 'tpope/vim-vinegar'         " Netwr enchancer
-Plugin 'tpope/vim-projectionist'   " Project navigation
 
 " Autocompletion
 Plugin 'valloric/youcompleteme'    " Code autocompletion
@@ -211,6 +210,10 @@ let g:clang_format#code_style = "google"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => FUNCTIONS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Jump to alternate C++ file
+command A  e  %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,
+command AV vs %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,
 
 " Jump to the last position when ropening a file
 if has("autocmd")
