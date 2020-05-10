@@ -26,7 +26,7 @@ Plugin 'chrisbra/matchit'          " Improved % matching
 Plugin 'tpope/vim-vinegar'         " Netwr enchancer
 
 " Autocompletion
-Plugin 'valloric/youcompleteme'    " Code autocompletion
+Plugin 'ycm-core/youcompleteme'    " Code autocompletion
 Plugin 'SirVer/ultisnips'          " Snippets engine
 
 " Basics
@@ -168,9 +168,7 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-command! MGFiles call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --cached --others', 'options': fzf#vim#with_preview().options}))
-
-nnoremap <C-p>  :MGFiles<CR>
+nnoremap <C-p>  :GFiles<CR>
 
 " Signify configuration
 let g:signify_sign_change = '~'
