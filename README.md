@@ -45,7 +45,8 @@ $ sudo vim /etc/regolith/styles/typeface-sourcecodepro
 
 ### Plugin management
 
-#### Vundle manual installation
+#### Vim-Plug manual installation
 ```sh
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
