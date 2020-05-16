@@ -50,3 +50,11 @@ $ sudo vim /etc/regolith/styles/typeface-sourcecodepro
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
+
+### Troubleshooting
+
+#### Flickering apps
+
+Issue: [Graphical issues after update](https://github.com/regolith-linux/regolith-desktop/issues/116)
+Other informations: [Regolith Compositors](https://regolith-linux.org/docs/customize/compositors/)
+Solution: **Disable compton**

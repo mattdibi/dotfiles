@@ -330,7 +330,7 @@ bar {
 # Run programs when i3 starts
 
 # Start the composite manager
-exec --no-startup-id compton -f --config $compton_config
+# exec --no-startup-id compton -f --config $compton_config
 
 # Launch the shortcut Conky window on first login
 exec --no-startup-id /usr/bin/regolith-ftue
