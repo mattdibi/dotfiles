@@ -55,6 +55,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 #### Flickering apps
 
-Issue: [Graphical issues after update](https://github.com/regolith-linux/regolith-desktop/issues/116)
-Other informations: [Regolith Compositors](https://regolith-linux.org/docs/customize/compositors/)
-Solution: **Disable compton**
+- Issue: [Graphical issues after update](https://github.com/regolith-linux/regolith-desktop/issues/116)
+- Other informations: [Regolith Compositors](https://regolith-linux.org/docs/customize/compositors/)
+- Solution: **Disable compton**
