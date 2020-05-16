@@ -14,7 +14,7 @@ set $i3xrocks_config /etc/regolith/i3xrocks/config
 set $compton_config /etc/regolith/compton/config
 
 # path to terminal. Override this to specify a custom terminal.
-set $terminal_path /usr/bin/st
+set $terminal_path gnome-terminal
 
 # Color values are defined in ~/.Xresources-regolith
 # These are the labels which define each i3 workspace.
