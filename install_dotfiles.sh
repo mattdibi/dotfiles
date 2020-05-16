@@ -1,13 +1,12 @@
 #! /bin/bash
 
 # Variables
-full_install=false
 target="all"
 
 # Usage info
 show_help() {
 cat << EOF
-Usage: ${0##*/} [-t target] [-hf] ...
+Usage: ${0##*/} [-t target] [-h] ...
 Dotfile installation script. It installs the dotfile
 inside this repository.
 
@@ -18,17 +17,12 @@ inside this repository.
                     - "i3"
                     - "zsh"
                     - "vim"
-    -f          FULL install: it trigger vim plugin
-                installation/update through Vundle.
 EOF
 }
 
 # Option parsing
-while getopts ":t:fh" opt; do
+while getopts ":t:h" opt; do
   case $opt in
-    f)
-      full_install=true
-      ;;
     h)
       show_help
       exit 0
@@ -56,12 +50,6 @@ fi
 command -v git >/dev/null 2>&1 || { echo >&2 "I require git but it's not installed.  Aborting."; exit 1; }
 command -v i3  >/dev/null 2>&1 || { echo >&2 "WARNING: i3-wm is not installed."; }
 command -v vim >/dev/null 2>&1 || { echo >&2 "Vim is not installed.  Aborting."; exit 1; }
-
-if ! [ -e ~/.vim/bundle/Vundle.vim ]; then
-  echo "Installing Vundle plugin manager..."
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-fi
-echo "Vundle: OK"
 
 if ! [ -d  ~/.vim/undodir ]; then
   echo "Creating ~/.vim/undodir directory..."
@@ -97,14 +85,6 @@ fi
 if [[ "$target" = "zsh" ||  "$target" = "all" ]]; then
     echo "Installing ~/.zshrc"
     cat config.zsh      > ~/.zshrc
-fi
-
-# Full install management
-if [ "$full_install" = true ] ; then
-    echo "Plugin update..."
-    vim +PluginUpdate +qall
-else
-    echo "Run ':PluginUpdate' inside vim to complete setup."
 fi
 
 echo ""

@@ -1,54 +1,43 @@
-" Vundle config
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Vim plug
+call plug#begin('~/.vim/plugged')
 
 " Eye-candy plugins
-Plugin 'challenger-deep-theme/vim' " Colorscheme
-Plugin 'itchyny/lightline.vim'     " Stylish statusline
-Plugin 'markonm/traces.vim'        " Range, pattern and substitute preview (requires 8.0.1206+)
-Plugin 'mbbill/undotree'           " Visualizes undo history
+Plug 'challenger-deep-theme/vim' " Colorscheme
+Plug 'itchyny/lightline.vim'     " Stylish statusline
+Plug 'markonm/traces.vim'        " Range, pattern and substitute preview (requires 8.0.1206+)
+Plug 'mbbill/undotree'           " Visualizes undo history
 if has('nvim') || has('patch-8.0.902')
-  Plugin 'mhinz/vim-signify'       " In-editor git diffs
+  Plug 'mhinz/vim-signify'       " In-editor git diffs
 else
-  Plugin 'mhinz/vim-signify', { 'branch': 'legacy' }
+  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 endif
 
 " Navigation
-Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plugin 'junegunn/fzf.vim'
-Plugin 'chrisbra/matchit'          " Improved % matching
-Plugin 'tpope/vim-vinegar'         " Netwr enchancer
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'chrisbra/matchit'          " Improved % matching
+Plug 'tpope/vim-vinegar'         " Netwr enchancer
 
 " Autocompletion
-Plugin 'ycm-core/youcompleteme'    " Code autocompletion
-Plugin 'SirVer/ultisnips'          " Snippets engine
+Plug 'ycm-core/youcompleteme'    " Code autocompletion
+Plug 'SirVer/ultisnips'          " Snippets engine
 
 " Basics
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'rhysd/vim-clang-format'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'rhysd/vim-clang-format'
 
-call vundle#end()            " required
-filetype plugin indent on    " required
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
+" Initialize plugin system
+call plug#end()
+
 " Put your non-Plugin stuff after this line
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => SETTINGS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
 " Colorscheme
 if has('nvim') || has('termguicolors')
