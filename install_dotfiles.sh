@@ -1,13 +1,12 @@
 #! /bin/bash
 
 # Variables
-full_install=false
 target="all"
 
 # Usage info
 show_help() {
 cat << EOF
-Usage: ${0##*/} [-t target] [-hf] ...
+Usage: ${0##*/} [-t target] [-h] ...
 Dotfile installation script. It installs the dotfile
 inside this repository.
 
@@ -22,11 +21,8 @@ EOF
 }
 
 # Option parsing
-while getopts ":t:fh" opt; do
+while getopts ":t:h" opt; do
   case $opt in
-    f)
-      full_install=true
-      ;;
     h)
       show_help
       exit 0
