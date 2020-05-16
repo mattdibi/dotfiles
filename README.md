@@ -24,25 +24,6 @@ $ cd dotfiles/
 $ sh install_dotfiles.sh
 ```
 
-Then for the i3 customizations:
-
-```sh
-$ mkdir ~/.config/regolith/i3
-$ cp config.i3 ~/.config/regolith/i3/
-```
-
-24h format i3xrocks
-```sh
-$ sudo vim /etc/regolith/styles/i2xrocks
-> i3xrocks.date.format:       + %d/%m/%y %H:%M
-```
-
-Terminal font size
-```sh
-$ sudo vim /etc/regolith/styles/typeface-sourcecodepro
-> #define typeface_terminal   Source Code Pro:pixelsize=14:antialias=true:autohint=true
-```
-
 ### Plugin management
 
 #### Vim-Plug manual installation
