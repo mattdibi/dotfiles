@@ -21,6 +21,7 @@ Plug 'tpope/vim-vinegar'         " Netwr enchancer
 " Autocompletion
 Plug 'ycm-core/youcompleteme'    " Code autocompletion
 Plug 'SirVer/ultisnips'          " Snippets engine
+Plug 'vim-syntastic/syntastic'   " Syntax checker
 
 " Basics
 Plug 'tpope/vim-surround'
@@ -183,6 +184,13 @@ nnoremap <leader>t  :botright vertical YcmCompleter GetType<CR>
 nnoremap <leader>d  :botright vertical YcmCompleter GetDoc<CR>
 nnoremap <leader>fi :YcmCompleter FixIt<CR>
 nnoremap <leader>r  :YcmForceCompileAndDiagnostics<CR>
+
+" Syntastic configuration
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_python_checkers = ['python']
 
 " Ultisnips configuration
 let g:UltiSnipsExpandTrigger = "<tab>"
