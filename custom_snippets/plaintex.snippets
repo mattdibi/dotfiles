@@ -33,4 +33,22 @@ snippet fig "Figure environment" b
 \end{figure}
 endsnippet
 
+snippet sec "Section"
+\section{${0:${VISUAL:section name}}}
+endsnippet
+
+snippet sub "Subsection"
+\subsection{${0:${VISUAL:subsection name}}}
+endsnippet
+
+snippet ssub "Subsubsection"
+\subsubsection{${0:${VISUAL:subsubsection name}}}
+endsnippet
+
+snippet lst "Lstlisting"
+\begin{lstlisting}[language=${1:something}]
+	${0:${VISUAL}}
+\end{lstlisting}
+endsnippet
+
 # vim:ft=snippets:
