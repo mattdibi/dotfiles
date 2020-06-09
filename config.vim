@@ -216,7 +216,8 @@ if has("autocmd")
     \| exe "normal! g'\"" | endif
 endif
 
-" C++
+" C++ :make command
+autocmd Filetype c,h,hpp,cc,cpp setl makeprg=make\ \-C\ build/
 " ;g generates the C++ header guard
 autocmd Filetype c,h,hpp,cc,cpp map ;g :call IncludeGuard()<CR>
 function! IncludeGuard()
