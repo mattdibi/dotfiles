@@ -6,9 +6,19 @@ priority -50
 
 #! header
 snippet #! "Shebang header for python scripts" b
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 $0
+endsnippet
+
+snippet main "Main template" b
+#!/usr/bin/env python3
+
+def main():
+	$0
+
+if __name__ == '__main__':
+    main()
 endsnippet
 
 snippet ifmain "ifmain" b
