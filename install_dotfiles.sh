@@ -57,6 +57,12 @@ if ! [ -d  ~/.vim/undodir ]; then
 fi
 echo "Undodir: OK"
 
+if ! [ -d  ~/.vim/sessions ]; then
+  echo "Creating ~/.vim/sessions directory..."
+  mkdir ~/.vim/sessions
+fi
+echo "Sessions: OK"
+
 if ! [ -d  ~/.vim/custom_snippets ]; then
   echo "Creating ~/.vim/custom_snippets directory..."
   mkdir ~/.vim/custom_snippets 
