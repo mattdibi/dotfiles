@@ -206,6 +206,9 @@ let g:clang_format#code_style = "google"
 " => FUNCTIONS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Show commit that introduced current line
+nmap <silent><Leader>b :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
+
 " Jump to alternate C++ file
 command A  e  %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,
 command AV vs %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,
