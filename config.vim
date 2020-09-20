@@ -4,13 +4,12 @@ call plug#begin('~/.vim/plugged')
 " Eye-candy plugins
 Plug 'challenger-deep-theme/vim' " Colorscheme
 Plug 'itchyny/lightline.vim'     " Stylish statusline
-Plug 'markonm/traces.vim'        " Range, pattern and substitute preview (requires 8.0.1206+)
+
+" Visual feedback
 Plug 'mbbill/undotree'           " Visualizes undo history
-if has('nvim') || has('patch-8.0.902')
-  Plug 'mhinz/vim-signify'       " In-editor git diffs
-else
-  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
-endif
+Plug 'markonm/traces.vim'        " Range, pattern and substitute preview
+Plug 'markonm/hlyank.vim'        " Highlight yanked text
+Plug 'mhinz/vim-signify'         " In-editor git diffs
 
 " Navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
