@@ -14,6 +14,19 @@ $ sudo apt install regolith-desktop
 ```
 
 ## Installation
+Install neovim nightly:
+
+```sh
+$ curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+$ chmod u+x nvim.appimage
+$ mv nvim.appimage /usr/bin/nvim
+```
+
+Enable Python support in Neovim
+```sh
+$ pip3 install --user --upgrade neovim
+```
+
 Simply type these commands on a terminal window:
 
 ```sh
