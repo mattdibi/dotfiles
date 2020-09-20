@@ -77,7 +77,9 @@ echo "i3-wm: OK"
 
 # Dotfiles installation
 if [[ "$target" = "vim" ||  "$target" = "all" ]]; then
-    echo "Installing ~/.vimrc"
+    echo "Installing ~/.config/nvim/init.vim"
+    mkdir -p ~/.config/nvim/
+    ln -s $("pwd")/config.nvim ~/.config/nvim/init.vim
     cat config.vim      > ~/.vimrc
     echo "Installing custom snippets"
     cp -r custom_snippets/ ~/.vim/
