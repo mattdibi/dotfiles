@@ -57,12 +57,6 @@ if ! [ -d  ~/.config/nvim/undodir ]; then
 fi
 echo "Undodir: OK"
 
-if ! [ -d  ~/.config/nvim/custom_snippets ]; then
-  echo "Creating ~/.config/nvim/custom_snippets directory..."
-  mkdir ~/.config/nvim/custom_snippets
-fi
-echo "Snippets: OK"
-
 if ! [ -d  ~/.config/regolith/i3 ]; then
   echo "Creating ~/.i3 directory..."
   mkdir -p ~/.config/regolith/i3
@@ -75,7 +69,7 @@ if [[ "$target" = "vim" ||  "$target" = "all" ]]; then
     mkdir -p ~/.config/nvim/
     ln -s $("pwd")/config.vim ~/.config/nvim/init.vim
     echo "Installing custom snippets"
-    cp -r custom_snippets/ ~/.config/nvim/
+    ln -s $("pwd")/custom_snippets/ ~/.config/nvim/
 fi
 
 if [[ "$target" = "i3" ||  "$target" = "all" ]]; then
