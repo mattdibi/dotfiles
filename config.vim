@@ -1,5 +1,5 @@
 " Vim plug
-call plug#begin('~/.vim/plugged')
+call plug#begin()
 
 " Eye-candy plugins
 Plug 'challenger-deep-theme/vim' " Colorscheme
