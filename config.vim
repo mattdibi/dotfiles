@@ -1,53 +1,44 @@
-" Vundle config
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" Keep Plugin commands between vundle#begin/end.
+" Vim plug
+call plug#begin('~/.vim/plugged')
 
 " Eye-candy plugins
-Plugin 'liuchengxu/space-vim-dark' " Colorscheme
-Plugin 'challenger-deep-theme/vim' " Colorscheme
-Plugin 'itchyny/lightline.vim'     " Stylish statusline
-Plugin 'airblade/vim-gitgutter'    " In-editor git diffs
-Plugin 'markonm/traces.vim'        " Range, pattern and substitute preview (requires 8.0.1206+)
+Plug 'challenger-deep-theme/vim' " Colorscheme
+Plug 'itchyny/lightline.vim'     " Stylish statusline
+Plug 'markonm/traces.vim'        " Range, pattern and substitute preview (requires 8.0.1206+)
+Plug 'mbbill/undotree'           " Visualizes undo history
+if has('nvim') || has('patch-8.0.902')
+  Plug 'mhinz/vim-signify'       " In-editor git diffs
+else
+  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+endif
 
 " Navigation
-Plugin 'tpope/vim-vinegar'         " Netwr enchancer
-Plugin 'tpope/vim-projectionist'   " Project navigation
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'chrisbra/matchit'          " Improved % matching
+Plug 'tpope/vim-vinegar'         " Netwr enchancer
 
 " Autocompletion
-Plugin 'valloric/youcompleteme'  " Code autocompletion
-"Plugin 'zxqfl/tabnine-vim'       " Deep learning code autocompletion
-Plugin 'SirVer/ultisnips'        " Snippets engine
+Plug 'ycm-core/youcompleteme'    " Code autocompletion
+Plug 'SirVer/ultisnips'          " Snippets engine
+Plug 'vim-syntastic/syntastic'   " Syntax checker
 
 " Basics
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'rhysd/vim-clang-format'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'rhysd/vim-clang-format'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
+" Initialize plugin system
+call plug#end()
+
 " Put your non-Plugin stuff after this line
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => SETTINGS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
 " Colorscheme
 if has('nvim') || has('termguicolors')
@@ -57,10 +48,6 @@ endif
 " Challenger deep
 colorscheme challenger_deep
 let g:lightline = { 'colorscheme': 'challenger_deep'}
-
-" Space vim dark
-" colorscheme space-vim-dark
-" let g:lightline = { 'colorscheme': 'Dracula' }
 
 " Common
 syntax enable
@@ -83,15 +70,41 @@ set updatetime=250    " Update time 250ms
 
 set backspace=indent,eol,start " Backspace through lines
 
+" Gvim
+set guioptions -=m    " Removes menubar
+set guioptions -=T    " Removes toolbar
+set guioptions -=r    " Removes scrollbar
+set guioptions -=L    " Removes left scrollbar
+set mouse=            " Disable mouse entirely
+
+" Search
+set ignorecase        " The case of normal letters is ignored.
+set smartcase         " Ignore case when the pattern contains lowercase letters only.
+set incsearch         " Start searching before pressing enter
+set nows              " Once hitting the search bottom it stops instead of restarting from the first match
+
+"Formatting
+set breakindent       " Wrap lines without changing the amount of indent. VIM 8 only!
+set autoindent        " Auto indentation. To paste use paste mode: :set paste
+set wrap              " Wrap long lines
+set shiftwidth=4      " Use indents of 4 spaces
+set expandtab         " Tabs are spaces, not tabs
+set tabstop=4         " An indentation every four columns
+set nojoinspaces      " Prevents inserting two spaces after punctuation on a join (J)
+set splitright        " Puts new vsplit windows to the right of the current
+set splitbelow        " Puts new split windows to the bottom of the current
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => MAPPINGS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " <Space> and \ are now leader keys, this way
 " something will pop up in the showcmd corner.
 map <Space> <leader>
 
-" Uncomment the following to have Vim jump to the last position when ropening a file
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g'\"" | endif
-endif
+" This mapping makes Y work from the cursor to the end of line
+" (which is more logical, but not Vi-compatible).
+map Y y$
 
 " Smart way to move between windows
 map <C-j> <C-W>j
@@ -105,43 +118,59 @@ nnoremap <Down>  :resize -5<CR>
 nnoremap <Left>  :vertical resize -5<CR>
 nnoremap <Right> :vertical resize +5<CR>
 
-" Search
-set ignorecase
-set smartcase
-set incsearch         " Start searching before pressing enter
-set nows              " Once hitting the search bottom it stops instead of restarting from the first match
-
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
 vnoremap > >gv
-
-"Formatting
-set breakindent       " Wrap lines without changing the amount of indent. VIM 8 only!
-set autoindent        " Auto indentation. To paste use paste mode: :set paste
-set wrap              " Wrap long lines
-set shiftwidth=4      " Use indents of 4 spaces
-set expandtab         " Tabs are spaces, not tabs
-set tabstop=4         " An indentation every four columns
-set nojoinspaces      " Prevents inserting two spaces after punctuation on a join (J)
-set splitright        " Puts new vsplit windows to the right of the current
-set splitbelow        " Puts new split windows to the bottom of the current
-
-" MatchIt
-" Installation for Vim 8
-packadd! matchit
-" Installation for Vim 7 and older
-" runtime macros/matchit.vim
 
 " Function row mode toggle hotkeys
 " F3: Toggle list char
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 nnoremap <F3> :set list!<CR>
 
-" F4: Switch between source and header file
-map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => PLUGIN CONFIGURATIONS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" F5: Toggle paste mode
-set pastetoggle=<F5>
+" FZF configuration
+let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+if has('nvim') || has('patch-8.2.191')
+    let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
+endif
+
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+nnoremap <C-p>  :GFiles<CR>
+
+" Signify configuration
+let g:signify_sign_change = '~'
+highlight link SignifySignAdd             DiffAdd
+highlight link SignifySignChange          DiffChange
+highlight link SignifySignDelete          DiffDelete
+highlight link SignifySignDeleteFirstLine SignifySignDelete
+
+" Undotree configuration
+nnoremap <leader>u  :UndotreeToggle<CR>
+let g:undotree_SetFocusWhenToggle = 1
+let g:undotree_HighlightChangedWithSign = 0
 
 " YCM configuration
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -156,43 +185,51 @@ nnoremap <leader>d  :botright vertical YcmCompleter GetDoc<CR>
 nnoremap <leader>fi :YcmCompleter FixIt<CR>
 nnoremap <leader>r  :YcmForceCompileAndDiagnostics<CR>
 
+" Syntastic configuration
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_python_checkers = ['python']
+
 " Ultisnips configuration
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-" Ultisnips folder
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/custom_snippets/']
-
-" If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-" Clang-format
+" Clang-format configuration
 let g:clang_format#code_style = "google"
 
-" C++
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => FUNCTIONS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Show commit that introduced current line
+nmap <silent><Leader>b :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
+
+" Jump to alternate C++ file
+command A  e  %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,
+command AV vs %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,
+
+" Jump to the last position when ropening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
+
+" C++ :make command
+autocmd Filetype c,h,hpp,cc,cpp setl makeprg=make\ \-C\ build/
 " ;g generates the C++ header guard
 autocmd Filetype c,h,hpp,cc,cpp map ;g :call IncludeGuard()<CR>
-fun! IncludeGuard()
+function! IncludeGuard()
    let basename = substitute(bufname(""), '.*/', '', '')
    let guard = '_' . substitute(toupper(basename), '\.', '_', "H")
    call append(0, "#ifndef " . guard)
    call append(1, "#define " . guard)
    call append( line("$"), "#endif // for #ifndef " . guard)
 endfun
-
-" Copies search matches inside register
-" :CopyMatches reg
-function! CopyMatches(reg)
-    let hits = []
-    %s//\=len(add(hits, submatch(0))) ? submatch(0) : ''/gne
-    let reg = empty(a:reg) ? '+' : a:reg
-    execute 'let @'.reg.' = join(hits, "\n") . "\n"'
-endfunction
-command! -register CopyMatches call CopyMatches(<q-reg>)
-
-" make
-autocmd Filetype c,h,hpp,cc,cpp set makeprg=make\ -C\ ~/Scrivania/pcn_v2/PCN/build
 
 " Latex :make command
 autocmd Filetype tex set makeprg=pdflatex\ %\ \-file\-line\-error\ \-interaction=nonstopmode

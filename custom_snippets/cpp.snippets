@@ -148,8 +148,81 @@ endsnippet
 snippet gtest_suite "gtest (suite)"
 class ${1:TestSuite} : public ::testing::Test {
   protected:
-	${2:/* test body */}
+	/* data */
 };
+
+TEST_F($1, ${3:FunctionWorks}) {
+	/* test body */
+}
+endsnippet
+
+snippet gtest_suite_full "gtest (suite full)"
+class ${1:TestSuite} : public ::testing::Test {
+  protected:
+    void SetUp() override {
+		/* setup body */
+	}
+
+    void TearDown() override {
+		/* teardown body */
+	}
+	/* data */
+};
+
+TEST_F($1, ${3:FunctionWorks}) {
+	/* test body */
+}
+endsnippet
+
+snippet gtest_value_param "gtest (value param)"
+class ${1:TestSuite} : public ::testing::TestWithParam<${2:Type}> {
+  protected:
+	${6:// You can implement all the usual fixture class members here.
+	// To access the test parameter, call GetParam() from class
+	// TestWithParam<T>.}
+};
+
+TEST_P($1, ${3:FunctionWorks}) {
+	${7:// Inside a test, access the test parameter with the GetParam() method
+	// of the TestWithParam<T> class:
+	EXPECT_TRUE(foo.Blah(GetParam()));
+	...}
+}
+
+INSTANTIATE_TEST_SUITE_P(
+	${4:InstantiationName},
+	$1,
+	::testing::${5:Range(begin, end)/Values(v1, ... vN)/ValuesIn(container)/Bool()/Combine()});
+endsnippet
+
+snippet gtest_typed_test "gtest (typed test)"
+template <typename T>
+class ${1:TestSuite} : public ::testing::Test {
+  protected:
+	/* data */
+};
+
+using ${2:MyTypes} = ::testing::Types<${3:list of types}>;
+
+TYPED_TEST_CASE($1, $2);
+
+TYPED_TEST($1, ${4:FunctionWorks}) {
+	${5:// Inside a test, refer to the special name TypeParam to get the type
+	// parameter.  Since we are inside a derived class template, C++ requires
+	// us to visit the members of FooTest via 'this'.
+	TypeParam n = this->value_;
+
+	// To visit static members of the fixture, add the 'TestFixture::'
+	// prefix.
+	n += TestFixture::shared_;
+
+	// To refer to typedefs in the fixture, add the 'typename TestFixture::'
+	// prefix.  The 'typename' is required to satisfy the compiler.
+	typename TestFixture::List values;
+
+	values.push_back(n);
+	...}
+}
 endsnippet
 
 snippet gtest_main "gtest() (main)"

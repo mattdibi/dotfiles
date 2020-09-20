@@ -1,76 +1,79 @@
-# i3 config file (v4)
+# i3 config file (v4) for Regolith Desktop Environment
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+# This defines which key super maps to on your keyboard.  
+# Alt key is Mod1, and Windows key is Mod4
 set $mod Mod1
+set $alt Mod4
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-# font pango:monospace 8
+# i3xrocks config file
+set $i3xrocks_config /etc/regolith/i3xrocks/config
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 10
+# compton config file
+set $compton_config /etc/regolith/compton/config
 
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
+# path to terminal. Override this to specify a custom terminal.
+set $terminal_path gnome-terminal
+
+# Color values are defined in ~/.Xresources-regolith
+# These are the labels which define each i3 workspace.
+set_from_resource $ws1  i3-wm.workspace.01.name "1"
+set_from_resource $ws2  i3-wm.workspace.02.name "2"
+set_from_resource $ws3  i3-wm.workspace.03.name "3"
+set_from_resource $ws4  i3-wm.workspace.04.name "4"
+set_from_resource $ws5  i3-wm.workspace.05.name "5"
+set_from_resource $ws6  i3-wm.workspace.06.name "6"
+set_from_resource $ws7  i3-wm.workspace.07.name "7"
+set_from_resource $ws8  i3-wm.workspace.08.name "8"
+set_from_resource $ws9  i3-wm.workspace.09.name "9"
+set_from_resource $ws10 i3-wm.workspace.10.name "10"
+set_from_resource $ws11 i3-wm.workspace.11.name "11"
+set_from_resource $ws12 i3-wm.workspace.12.name "12"
+set_from_resource $ws13 i3-wm.workspace.13.name "13"
+set_from_resource $ws14 i3-wm.workspace.14.name "14"
+set_from_resource $ws15 i3-wm.workspace.15.name "15"
+set_from_resource $ws16 i3-wm.workspace.16.name "16"
+set_from_resource $ws17 i3-wm.workspace.17.name "17"
+set_from_resource $ws18 i3-wm.workspace.18.name "18"
+set_from_resource $ws19 i3-wm.workspace.19.name "19"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+hide_edge_borders smart
+
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec $terminal_path
+
+# start a web browser
+bindsym $mod+Shift+Return exec /usr/bin/sensible-browser
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+set_from_resource $rofiTheme rofi.theme "regolith-theme"
 
-# Program launcher
-# Start drun rofi
-bindsym $mod+d exec rofi -modi drun -show drun -lines 3 -eh 2 -fullscreen -padding 200 -opacity "85" -bw 0 -bg "#132122" -fg "#1f7590" -font "System San Francisco Display 18"
+# rofi app and window launchers
+bindsym $mod+space exec rofi -show drun -theme $rofiTheme
+bindsym $mod+Shift+space exec rofi -show run -theme $rofiTheme
+bindsym $mod+Ctrl+space exec rofi -show window -theme $rofiTheme
 
-# Start drun sudo rofi
-bindsym $mod+Shift+d exec --no-startup-id "rofi -modi drun -show drun -lines 3 -eh 2 -fullscreen -padding 200 -opacity '85' -bw 0 -bg '#132122' -fg '#d63c36' -hlbg '#d63c36' -font 'System San Francisco Display 18' -run-command 'gksudo {cmd}'"
-
-# Start run rofi
-bindsym $mod+Control+d exec rofi -show run -lines 3 -eh 2 -fullscreen -padding 200 -opacity "85" -bw 0 -bg "#132122" -fg "#37d69c" -hlfg "#000000" -hlbg "#37d69c" -font "System San Francisco Display 18"
-
-# Follow mouse
-focus_follows_mouse no
-
-# change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-# bindsym $mod+Left focus left
-# bindsym $mod+Down focus down
-# bindsym $mod+Up focus up
-# bindsym $mod+Right focus right
+# move windows in workspaces
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
-# move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
-# bindsym $mod+Shift+Left move left
-# bindsym $mod+Shift+Down move down
-# bindsym $mod+Shift+Up move up
-# bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+o split h
@@ -81,79 +84,148 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# change gaps interactively
+bindsym $mod+minus gaps inner current minus 6
+bindsym $mod+plus gaps inner current plus 6
+
+# show/hide keybindings
+bindsym $mod+Shift+question exec --no-startup-id /usr/bin/conky-toggle
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+f floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+t focus mode_toggle
 
-# focus the parent container
-bindsym $mod+a focus parent
+# toggle tabbed mode
+bindsym $mod+t layout toggle tabbed splith splitv
 
-# focus the child container
-#bindsym $mod+d focus child
+# move to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+bindsym $mod+Ctrl+1 workspace $ws11
+bindsym $mod+Ctrl+2 workspace $ws12
+bindsym $mod+Ctrl+3 workspace $ws13
+bindsym $mod+Ctrl+4 workspace $ws14
+bindsym $mod+Ctrl+5 workspace $ws15
+bindsym $mod+Ctrl+6 workspace $ws16
+bindsym $mod+Ctrl+7 workspace $ws17
+bindsym $mod+Ctrl+8 workspace $ws18
+bindsym $mod+Ctrl+9 workspace $ws19
 
-# switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+# cycle across workspaces
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+Ctrl+1 move container to workspace $ws11
+bindsym $mod+Shift+Ctrl+2 move container to workspace $ws12
+bindsym $mod+Shift+Ctrl+3 move container to workspace $ws13
+bindsym $mod+Shift+Ctrl+4 move container to workspace $ws14
+bindsym $mod+Shift+Ctrl+5 move container to workspace $ws15
+bindsym $mod+Shift+Ctrl+6 move container to workspace $ws16
+bindsym $mod+Shift+Ctrl+7 move container to workspace $ws17
+bindsym $mod+Shift+Ctrl+8 move container to workspace $ws18
+bindsym $mod+Shift+Ctrl+9 move container to workspace $ws19
+
+# move focused container to workspace, move to workspace
+bindsym $mod+$alt+1 move container to workspace $ws1; workspace $ws1  
+bindsym $mod+$alt+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+$alt+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+$alt+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+$alt+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+$alt+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+$alt+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+$alt+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+$alt+9 move container to workspace $ws9; workspace $ws9
+bindsym $mod+$alt+0 move container to workspace $ws10; workspace $ws10
+bindsym $mod+$alt+Ctrl+1 move container to workspace $ws11; workspace $ws11
+bindsym $mod+$alt+Ctrl+2 move container to workspace $ws12; workspace $ws12
+bindsym $mod+$alt+Ctrl+3 move container to workspace $ws13; workspace $ws13
+bindsym $mod+$alt+Ctrl+4 move container to workspace $ws14; workspace $ws14
+bindsym $mod+$alt+Ctrl+5 move container to workspace $ws15; workspace $ws15
+bindsym $mod+$alt+Ctrl+6 move container to workspace $ws16; workspace $ws16
+bindsym $mod+$alt+Ctrl+7 move container to workspace $ws17; workspace $ws17
+bindsym $mod+$alt+Ctrl+8 move container to workspace $ws18; workspace $ws18
+bindsym $mod+$alt+Ctrl+9 move container to workspace $ws19; workspace $ws19
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Logout of session
+bindsym $mod+Shift+e exec /usr/bin/gnome-session-quit --logout
+
+# Reboot computer
+bindsym $mod+Shift+b exec /usr/bin/gnome-session-quit --reboot
+
+# Power off computer
+bindsym $mod+Shift+p exec /usr/bin/gnome-session-quit --power-off
+
+# lock the screen
+bindsym $mod+Escape exec gnome-screensaver-command --lock
+
+# put the system to sleep
+bindsym $mod+Shift+s exec systemctl suspend
+
+# shortcuts for common system configuration tasks
+bindsym $mod+c exec gnome-control-center
+bindsym $mod+w exec gnome-control-center wifi
+bindsym $mod+b exec gnome-control-center bluetooth
+bindsym $mod+d exec gnome-control-center display
+bindsym $mod+n exec gnome-control-center network
+bindsym $mod+p exec gnome-control-center power
+bindsym $mod+s exec gnome-control-center sound
 
 # resize window (you can also use the mouse for that)
-mode "resize" {
+mode "Resize Mode" {
         # These bindings trigger as soon as you enter the resize mode
+        bindsym Left resize shrink width 6 px or 6 ppt
+        bindsym Down resize grow height 6 px or 6 ppt
+        bindsym Up resize shrink height 6 px or 6 ppt
+        bindsym Right resize grow width 6 px or 6 ppt
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym Shift+Left resize shrink width 12 px or 12 ppt
+        bindsym Shift+Down resize grow height 12 px or 12 ppt
+        bindsym Shift+Up resize shrink height 12 px or 12 ppt
+        bindsym Shift+Right resize grow width 12 px or 12 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 6 px or 6 ppt
+        bindsym k resize grow height 6 px or 6 ppt
+        bindsym j resize shrink height 6 px or 6 ppt
+        bindsym l resize grow width 6 px or 6 ppt
+
+        bindsym Shift+h resize shrink width 12 px or 12 ppt
+        bindsym Shift+k resize grow height 12 px or 12 ppt
+        bindsym Shift+j resize shrink height 12 px or 12 ppt
+        bindsym Shift+l resize grow width 12 px or 12 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
 }
-
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode "Resize Mode"
 
 # Smart resize
 bindsym $mod+Left resize shrink width 10 px or 10 ppt
@@ -161,71 +233,118 @@ bindsym $mod+Down resize grow height 10 px or 10 ppt
 bindsym $mod+Up resize shrink height 10 px or 10 ppt
 bindsym $mod+Right resize grow width 10 px or 10 ppt
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# Disable titlebar
+new_window pixel 1
+new_float pixel 1
+
+# Gaps (i3-gaps)
+gaps inner 7
+gaps outer 0
+
+# Only enable gaps on a workspace when there is at least one container
+smart_gaps on
+
+set_from_resource $focused.color.border i3-wm.client.focused.color.border "#002b36"
+set_from_resource $focused.color.background i3-wm.client.focused.color.background "#586e75"
+set_from_resource $focused.color.text i3-wm.client.focused.color.text "#fdf6e3"
+set_from_resource $focused.color.indicator i3-wm.client.focused.color.indicator "#268bd2"
+set_from_resource $focused.color.child_border i3-wm.client.focused.color.child_border
+
+set_from_resource $focused_inactive.color.border i3-wm.client.focused_inactive.color.border "#002b36"
+set_from_resource $focused_inactive.color.background i3-wm.client.focused_inactive.color.background "#073642"
+set_from_resource $focused_inactive.color.text i3-wm.client.focused_inactive.color.text "#839496"
+set_from_resource $focused_inactive.color.indicator i3-wm.client.focused_inactive.color.indicator "#073642"
+set_from_resource $focused_inactive.color.child_border i3-wm.client.focused_inactive.color.child_border 
+
+set_from_resource $unfocused.color.border i3-wm.client.unfocused.color.border "#002b36"
+set_from_resource $unfocused.color.background i3-wm.client.unfocused.color.background "#073642"
+set_from_resource $unfocused.color.text i3-wm.client.unfocused.color.text "#839496"
+set_from_resource $unfocused.color.indicator i3-wm.client.unfocused.color.indicator "#073642"
+set_from_resource $unfocused.color.child_border i3-wm.client.unfocused.color.child_border
+
+set_from_resource $urgent.color.border i3-wm.client.urgent.color.border "#002b36"
+set_from_resource $urgent.color.background i3-wm.client.urgent.color.background "#dc322f"
+set_from_resource $urgent.color.text i3-wm.client.urgent.color.text "#fdf6e3"
+set_from_resource $urgent.color.indicator i3-wm.client.urgent.color.indicator "#002b36"
+set_from_resource $urgent.color.child_border i3-wm.client.urgent.color.child_border
+
+
+# Window Border color
+# class                 border                             background                         text                               indicator                          child_border
+client.focused          $focused.color.border              $focused.color.background          $focused.color.text                $focused.color.indicator           $focused.color.child_border
+client.focused_inactive $focused_inactive.color.border     $focused_inactive.color.background $focused_inactive.color.text       $focused_inactive.color.indicator  $focused_inactive.color.child_border
+client.unfocused        $unfocused.color.border            $unfocused.color.background        $unfocused.color.text              $unfocused.color.indicator         $unfocused.color.child_border
+client.urgent           $urgent.color.border               $urgent.color.background           $urgent.color.text                 $urgent.color.indicator            $urgent.color.child_border
+
+# Enable popup during fullscreen
+popup_during_fullscreen smart
+
+# window focus follows your mouse movements as the mouse crosses window borders
+focus_follows_mouse no
+
+set_from_resource $i3-wm.bar.background.color i3-wm.bar.background.color "#002b36"
+set_from_resource $i3-wm.bar.statusline.color i3-wm.bar.statusline.color "#93a1a1"
+set_from_resource $i3-wm.bar.separator.color i3-wm.bar.separator.color "#268bd2"
+
+set_from_resource $i3-wm.bar.workspace.focused.border.color i3-wm.bar.workspace.focused.border.color "#073642"
+set_from_resource $i3-wm.bar.workspace.focused.background.color i3-wm.bar.workspace.focused.background.color "#073642"
+set_from_resource $i3-wm.bar.workspace.focused.text.color i3-wm.bar.workspace.focused.text.color "#eee8d5"
+
+set_from_resource $i3-wm.bar.workspace.active.border.color i3-wm.bar.workspace.active.border.color "#073642"
+set_from_resource $i3-wm.bar.workspace.active.background.color i3-wm.bar.workspace.active.background.color "#073642"
+set_from_resource $i3-wm.bar.workspace.active.text.color i3-wm.bar.workspace.active.text.color "#586e75"
+
+set_from_resource $i3-wm.bar.workspace.inactive.border.color i3-wm.bar.workspace.inactive.border.color "#002b36"
+set_from_resource $i3-wm.bar.workspace.inactive.background.color i3-wm.bar.workspace.inactive.background.color "#002b36"
+set_from_resource $i3-wm.bar.workspace.inactive.text.color i3-wm.bar.workspace.inactive.text.color "#586e75"
+
+set_from_resource $i3-wm.bar.workspace.urgent.border.color i3-wm.bar.workspace.urgent.border.color "#dc322f"
+set_from_resource $i3-wm.bar.workspace.urgent.background.color i3-wm.bar.workspace.urgent.background.color "#dc322f"
+set_from_resource $i3-wm.bar.workspace.urgent.text.color i3-wm.bar.workspace.urgent.text.color "#fdf6e3"
+
+set_from_resource $i3-wm.bar.font i3-wm.bar.font "pango:Source Code Pro Medium 13, FontAwesome 13"
+
+# Configure the bar
 bar {
-        status_command i3status
-        tray_padding 3
-        tray_output primary
+  font $i3-wm.bar.font
+  separator_symbol " "
+  status_command i3xrocks -c $i3xrocks_config
+  tray_output none
+  strip_workspace_numbers yes
 
-        position top
+  position top
 
-        font pango:DejaVu Sans Mono 10
+  colors {
+      background $i3-wm.bar.background.color
+      statusline $i3-wm.bar.statusline.color
+      separator  $i3-wm.bar.separator.color
 
-        colors {
-                background #222222
-                statusline #eeeeee
-                separator  #666666
-                #                  border  backgr. text
-                focused_workspace  #4c7899 #35cc8a #000000
-                active_workspace   #333333 #5f676a #ffffff
-                inactive_workspace #333333 #222222 #888888
-                urgent_workspace   #2f343a #900000 #ffffff
-        }
+#                        BORDER  BACKGROUND TEXT
+      focused_workspace  $i3-wm.bar.workspace.focused.border.color      $i3-wm.bar.workspace.focused.background.color   $i3-wm.bar.workspace.focused.text.color
+      active_workspace   $i3-wm.bar.workspace.active.border.color       $i3-wm.bar.workspace.active.background.color    $i3-wm.bar.workspace.active.text.color
+      inactive_workspace $i3-wm.bar.workspace.inactive.border.color     $i3-wm.bar.workspace.inactive.background.color  $i3-wm.bar.workspace.inactive.text.color
+      urgent_workspace   $i3-wm.bar.workspace.urgent.border.color       $i3-wm.bar.workspace.urgent.background.color    $i3-wm.bar.workspace.urgent.text.color
+  }
 }
 
-# Color class           border  bg      text    indicator
-client.focused          #101010 #3b8099 #ffffff
-client.focused_inactive #101010 #191919 #999999
-client.unfocused        #101010 #191919 #999999
-client.urgent           #cd989a #cd989a #2e3436
-client.background       #1d1d1d
+# Run programs when i3 starts
 
-# i3-gaps configuration
-# new_window pixel 4
-# new_float pixel 4
-# smart_gaps on
-# gaps inner 20
+# Start the composite manager
+# exec --no-startup-id compton -f --config $compton_config
+
+# Launch the shortcut Conky window on first login
+exec --no-startup-id /usr/bin/regolith-ftue
+
+# Hide the mouse pointer if unused for a duration
+exec --no-startup-id /usr/bin/unclutter -b
+
+# Refresh wallpaper on screen resolution change
+exec --no-startup-id /usr/bin/xeventbind resolution /usr/bin/wallpaper-refresh
 
 # Common apps
 bindsym $mod+i exec --no-startup-id google-chrome
 bindsym $mod+m exec --no-startup-id google-chrome https://mail.google.com/mail/
 bindsym $mod+Shift+m exec --no-startup-id google-chrome https://outlook.office365.com/owa/?realm=eurotech.com&exsvurl=1&ll-cc=1040&modurl=0
-bindsym $mod+n exec nautilus -w ~/Desktop
 
-# Powermode
-set $power_mode "(p)oweroff, (r)eboot, (l)ock, (q)uit, (h)ibernate, (s)leep"
-bindsym $mod+Escape      mode $power_mode
-mode $power_mode {
-
-        bindsym p        exec systemctl poweroff
-        bindsym r        exec systemctl reboot
-        bindsym l        exec --no-startup-id i3lock -c 000000 -p default, mode "default"
-        bindsym q        exec --no-startup-id i3-msg exit, mode "default"
-        bindsym h        exec systemctl hibernate, mode "default"
-        bindsym s        exec systemctl suspend, mode "default"
-
-        bindsym Return    mode "default"
-        bindsym Escape    mode "default"
-}
-
-#Monitor positions
-#exec --no-startup-id xrandr --output DVI-D-0 --right-of HDMI-0 --auto # workstation
-exec --no-startup-id xrandr --output HDMI-0 --right-of DP-0 --auto # home office
-#Startup application
-exec --no-startup-id dropbox start
-exec --no-startup-id nm-applet
-exec --no-startup-id numlockx on
-# exec --no-startup-id feh --bg-scale /home/mattia/Immagini/Wallpapers/HYPERBEAST.jpg
-# Dual monitor wallpapers
-exec --no-startup-id feh --bg-fill /home/mattia/Pictures/Wallpapers/left.* --bg-fill /home/mattia/Pictures/Wallpapers/right.*
+# Microsoft teams notification fix
+for_window [title="Microsoft Teams Notification"] floating enable

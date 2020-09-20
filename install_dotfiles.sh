@@ -1,30 +1,34 @@
 #! /bin/bash
 
 # Variables
-full_install=false
+target="all"
 
 # Usage info
 show_help() {
 cat << EOF
-Usage: ${0##*/} [-hf] ...
+Usage: ${0##*/} [-t target] [-h] ...
 Dotfile installation script. It installs the dotfile
 inside this repository.
 
     -h          display this help and exit.
-    -f          FULL install: it trigger vim plugin
-                installation/update through Vundle.
+    -t          TARGET: selects which application to
+                update. Possibile targets:
+                    - "all" (default)
+                    - "i3"
+                    - "zsh"
+                    - "vim"
 EOF
 }
 
 # Option parsing
-while getopts ":fh" opt; do
+while getopts ":t:h" opt; do
   case $opt in
-    f)
-      full_install=true
-      ;;
     h)
       show_help
       exit 0
+      ;;
+    t)
+      target=${OPTARG}
       ;;
     *)
       show_help >&2
@@ -36,19 +40,16 @@ while getopts ":fh" opt; do
   esac
 done
 
+# Checking accepted targets
+if ! [[ "$target" = "all" || "$target" = "i3" || "$target" = "zsh" || "$target" = "vim" ]]; then
+    echo "Uknown target \"$target\". Abort."
+    exit 1
+fi
+
 # Checking requirements
 command -v git >/dev/null 2>&1 || { echo >&2 "I require git but it's not installed.  Aborting."; exit 1; }
-
-command -v vim      >/dev/null 2>&1 || { echo >&2 "Vim is not installed.  Aborting."; exit 1; }
-command -v tmux     >/dev/null 2>&1 || { echo >&2 "WARNING: tmux is not installed."; }
-command -v i3       >/dev/null 2>&1 || { echo >&2 "WARNING: i3-wm is not installed."; }
-command -v i3status >/dev/null 2>&1 || { echo >&2 "WARNING: i3status is not installed."; }
-
-if ! [ -e ~/.vim/bundle/Vundle.vim ]; then
-  echo "Installing Vundle plugin manager..."
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-fi
-echo "Vundle: OK"
+command -v i3  >/dev/null 2>&1 || { echo >&2 "WARNING: i3-wm is not installed."; }
+command -v vim >/dev/null 2>&1 || { echo >&2 "Vim is not installed.  Aborting."; exit 1; }
 
 if ! [ -d  ~/.vim/undodir ]; then
   echo "Creating ~/.vim/undodir directory..."
@@ -56,33 +57,40 @@ if ! [ -d  ~/.vim/undodir ]; then
 fi
 echo "Undodir: OK"
 
+if ! [ -d  ~/.vim/sessions ]; then
+  echo "Creating ~/.vim/sessions directory..."
+  mkdir ~/.vim/sessions
+fi
+echo "Sessions: OK"
+
 if ! [ -d  ~/.vim/custom_snippets ]; then
   echo "Creating ~/.vim/custom_snippets directory..."
   mkdir ~/.vim/custom_snippets 
 fi
 echo "Snippets: OK"
 
-if ! [ -d  ~/.i3 ]; then
+if ! [ -d  ~/.config/regolith/i3 ]; then
   echo "Creating ~/.i3 directory..."
-  mkdir ~/.i3
+  mkdir -p ~/.config/regolith/i3
 fi
 echo "i3-wm: OK"
 
 # Dotfiles installation
-cat config.vim      > ~/.vimrc
-cat config.tmux     > ~/.tmux.conf
-cat config.i3       > ~/.i3/config
-cat config.i3status > ~/.i3status.conf
-cat config.bash     > ~/.bashrc
-cat config.zsh      > ~/.zshrc
-cp -r custom_snippets/ ~/.vim/
+if [[ "$target" = "vim" ||  "$target" = "all" ]]; then
+    echo "Installing ~/.vimrc"
+    cat config.vim      > ~/.vimrc
+    echo "Installing custom snippets"
+    cp -r custom_snippets/ ~/.vim/
+fi
 
-# Full install management
-if [ "$full_install" = true ] ; then
-    echo "Plugin update..."
-    vim +PluginUpdate +qall
-else
-    echo "Run ':PluginUpdate' inside vim to complete setup."
+if [[ "$target" = "i3" ||  "$target" = "all" ]]; then
+    echo "Installing ~/.config/regolith/i3/config"
+    cat config.i3       > ~/.config/regolith/i3/config
+fi
+
+if [[ "$target" = "zsh" ||  "$target" = "all" ]]; then
+    echo "Installing ~/.zshrc"
+    cat config.zsh      > ~/.zshrc
 fi
 
 echo ""
