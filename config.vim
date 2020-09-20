@@ -17,9 +17,9 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Autocompletion
-"Plug 'SirVer/ultisnips'          " Snippets engine
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
+Plug 'SirVer/ultisnips'          " Snippets engine
+Plug 'neovim/nvim-lspconfig'      " Nvim LSP configurations
+Plug 'nvim-lua/completion-nvim'   " Nvim completion engine
 
 " Basics
 Plug 'tpope/vim-surround'
@@ -147,6 +147,9 @@ nnoremap <leader>gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 autocmd Filetype c,h,hpp,cc,cpp setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
 set completeopt+=preview,menuone,noinsert,noselect
+set shortmess+=c
+
+let g:completion_enable_snippet = 'UltiSnips'
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 lua require'nvim_lsp'.clangd.setup{on_attach=require'completion'.on_attach}
