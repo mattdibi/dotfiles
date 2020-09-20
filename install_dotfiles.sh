@@ -51,21 +51,15 @@ command -v git >/dev/null 2>&1 || { echo >&2 "I require git but it's not install
 command -v i3  >/dev/null 2>&1 || { echo >&2 "WARNING: i3-wm is not installed."; }
 command -v vim >/dev/null 2>&1 || { echo >&2 "Vim is not installed.  Aborting."; exit 1; }
 
-if ! [ -d  ~/.vim/undodir ]; then
-  echo "Creating ~/.vim/undodir directory..."
-  mkdir ~/.vim/undodir 
+if ! [ -d  ~/.config/nvim/undodir ]; then
+  echo "Creating ~/.config/nvim/undodir directory..."
+  mkdir ~/.config/nvim/undodir
 fi
 echo "Undodir: OK"
 
-if ! [ -d  ~/.vim/sessions ]; then
-  echo "Creating ~/.vim/sessions directory..."
-  mkdir ~/.vim/sessions
-fi
-echo "Sessions: OK"
-
-if ! [ -d  ~/.vim/custom_snippets ]; then
-  echo "Creating ~/.vim/custom_snippets directory..."
-  mkdir ~/.vim/custom_snippets 
+if ! [ -d  ~/.config/nvim/custom_snippets ]; then
+  echo "Creating ~/.config/nvim/custom_snippets directory..."
+  mkdir ~/.config/nvim/custom_snippets
 fi
 echo "Snippets: OK"
 
@@ -80,9 +74,8 @@ if [[ "$target" = "vim" ||  "$target" = "all" ]]; then
     echo "Installing ~/.config/nvim/init.vim"
     mkdir -p ~/.config/nvim/
     ln -s $("pwd")/config.vim ~/.config/nvim/init.vim
-    cat config.vim      > ~/.vimrc
     echo "Installing custom snippets"
-    cp -r custom_snippets/ ~/.vim/
+    cp -r custom_snippets/ ~/.config/nvim/
 fi
 
 if [[ "$target" = "i3" ||  "$target" = "all" ]]; then

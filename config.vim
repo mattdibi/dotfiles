@@ -57,7 +57,7 @@ set cmdheight=1       " Command line height
 set cursorline        " Highlight current line
 
 set undofile          " Maintain undo history between sessions
-set undodir=~/.vim/undodir " Undo history directory
+set undodir=~/.config/nvim/undodir " Undo history directory
 
 set autoread          " Autoload file changes. You can undo by pressing u.
 set wildmenu          " Visual autocomplete for command menu
@@ -196,7 +196,7 @@ let g:undotree_HighlightChangedWithSign = 0
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/custom_snippets/']
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/custom_snippets/']
 let g:UltiSnipsEditSplit="vertical"
 
 " Clang-format configuration
