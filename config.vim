@@ -13,9 +13,10 @@ Plug 'mhinz/vim-signify'         " In-editor git diffs
 " Navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-vinegar'         " Netwr enchancer
 
 " Autocompletion
-Plug 'SirVer/ultisnips'          " Snippets engine
+Plug 'SirVer/ultisnips'           " Snippets engine
 Plug 'neovim/nvim-lspconfig'      " Nvim LSP configurations
 Plug 'nvim-lua/completion-nvim'   " Nvim completion engine
 
