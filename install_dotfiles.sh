@@ -79,7 +79,7 @@ echo "i3-wm: OK"
 if [[ "$target" = "vim" ||  "$target" = "all" ]]; then
     echo "Installing ~/.config/nvim/init.vim"
     mkdir -p ~/.config/nvim/
-    ln -s $("pwd")/config.nvim ~/.config/nvim/init.vim
+    ln -s $("pwd")/config.vim ~/.config/nvim/init.vim
     cat config.vim      > ~/.vimrc
     echo "Installing custom snippets"
     cp -r custom_snippets/ ~/.vim/
