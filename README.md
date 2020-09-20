@@ -3,7 +3,7 @@ These are my configuration files. I need to add it to version tracking because I
 
 
 ## Programs
-- Vim:  [https://github.com/vim](https://github.com/vim)
+- Neovim:  [https://neovim.io/](https://neovim.io/)
 - i3-wm: [https://i3wm.org/](https://i3wm.org/)
 - regolith-desktop: [https://regolith-linux.org/](config/regolith/i3/config) ([Installation tutorial.](https://www.omgubuntu.co.uk/2019/06/install-regolith-linux-i3-gaps-ubuntu))
 
@@ -28,8 +28,8 @@ $ sh install_dotfiles.sh
 
 #### Vim-Plug manual installation
 ```sh
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
 
 ### Troubleshooting
