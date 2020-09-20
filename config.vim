@@ -131,16 +131,21 @@ nvim_lsp.clangd.setup{
 }
 END
 
-nnoremap <leader>ge    <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <leader>K     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <leader>gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <leader><c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <leader>1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <leader>gr    <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <leader>g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
-nnoremap <leader>gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <leader>gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <leader>gD    <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <leader>K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <leader>gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <leader><c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <leader>gi    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <leader>gt    <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <leader>gw    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <leader>gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <leader>af    <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <leader>ee    <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
+nnoremap <leader>ar    <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <leader>=     <cmd>lua vim.lsp.buf.formatting()<CR>
+nnoremap <leader>ai    <cmd>lua vim.lsp.buf.incoming_calls()<CR>
+nnoremap <leader>ao    <cmd>lua vim.lsp.buf.outgoing_calls()<CR>
 
 autocmd Filetype c,h,hpp,cc,cpp setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
