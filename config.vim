@@ -7,7 +7,6 @@ Plug 'itchyny/lightline.vim'     " Stylish statusline
 
 " Visual feedback
 Plug 'mbbill/undotree'           " Visualizes undo history
-Plug 'markonm/traces.vim'        " Range, pattern and substitute preview
 Plug 'markonm/hlyank.vim'        " Highlight yanked text
 Plug 'mhinz/vim-signify'         " In-editor git diffs
 
@@ -68,11 +67,12 @@ set updatetime=250    " Update time 250ms
 set backspace=indent,eol,start " Backspace through lines
 
 " Search
-set ignorecase        " The case of normal letters is ignored.
-set smartcase         " Ignore case when the pattern contains lowercase letters only.
-set incsearch         " Start searching before pressing enter
-set nows              " Once hitting the search bottom it stops instead of restarting from the first match
-set nohlsearch        " Disable highlight search
+set ignorecase         " The case of normal letters is ignored.
+set smartcase          " Ignore case when the pattern contains lowercase letters only.
+set incsearch          " Start searching before pressing enter
+set nows               " Once hitting the search bottom it stops instead of restarting from the first match
+set nohlsearch         " Disable highlight search
+set inccommand=nosplit " Shows the effects of a command incrementally, as you type.
 
 "Formatting
 set breakindent       " Wrap lines without changing the amount of indent. VIM 8 only!
