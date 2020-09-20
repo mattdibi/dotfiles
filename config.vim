@@ -122,9 +122,6 @@ nnoremap <F3> :set list!<CR>
 " => PLUGIN CONFIGURATIONS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Deoplete configuration
-let g:deoplete#enable_at_startup = 1
-
 " LSP configuration
 :lua << END
 local nvim_lsp = require'nvim_lsp'
