@@ -140,6 +140,7 @@ nnoremap <leader>gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <leader>g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <leader>gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <leader>gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <leader>af    <cmd>lua vim.lsp.buf.code_action()<CR>
 
 autocmd Filetype c,h,hpp,cc,cpp setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
