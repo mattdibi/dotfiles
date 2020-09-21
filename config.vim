@@ -154,6 +154,7 @@ set shortmess+=c
 
 let g:completion_enable_snippet = 'UltiSnips'
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+let g:completion_trigger_keyword_length = 3
 
 lua require'nvim_lsp'.clangd.setup{on_attach=require'completion'.on_attach}
 
