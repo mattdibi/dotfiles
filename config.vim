@@ -19,6 +19,7 @@ Plug 'tpope/vim-vinegar'         " Netwr enchancer
 Plug 'SirVer/ultisnips'           " Snippets engine
 Plug 'neovim/nvim-lspconfig'      " Nvim LSP configurations
 Plug 'nvim-lua/completion-nvim'   " Nvim completion engine
+Plug 'nvim-lua/diagnostic-nvim'   " Nvim diagnostic engine
 
 " Basics
 Plug 'tpope/vim-surround'
@@ -124,13 +125,6 @@ nnoremap <F3> :set list!<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " LSP configuration
-:lua << END
-local nvim_lsp = require'nvim_lsp'
-nvim_lsp.clangd.setup{
-    cmd = {"clangd", "--background-index" }
-}
-END
-
 nnoremap <leader>gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <leader>gD    <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <leader>K     <cmd>lua vim.lsp.buf.hover()<CR>
@@ -156,7 +150,16 @@ let g:completion_enable_snippet = 'UltiSnips'
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:completion_trigger_keyword_length = 3
 
-lua require'nvim_lsp'.clangd.setup{on_attach=require'completion'.on_attach}
+let g:diagnostic_enable_virtual_text = 1 " Enable virtual text display
+let g:diagnostic_insert_delay = 1        " Don't show diagnostics while in insert mode
+
+lua << EOF
+local on_attach_vim = function(client)
+    require'completion'.on_attach(client)
+    require'diagnostic'.on_attach(client)
+end
+require'nvim_lsp'.clangd.setup{on_attach=on_attach_vim}
+EOF
 
 " FZF configuration
 let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
