@@ -141,14 +141,11 @@ nnoremap <leader>=     <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap <leader>ai    <cmd>lua vim.lsp.buf.incoming_calls()<CR>
 nnoremap <leader>ao    <cmd>lua vim.lsp.buf.outgoing_calls()<CR>
 
-autocmd Filetype c,h,hpp,cc,cpp setlocal omnifunc=v:lua.vim.lsp.omnifunc
-
 set completeopt+=menuone,noinsert,noselect
 set completeopt-=preview " Don't open scratchpad for documentation
 set shortmess+=c
 
 let g:completion_enable_snippet = 'UltiSnips'
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:completion_trigger_keyword_length = 3
 
 let g:diagnostic_enable_virtual_text = 1 " Enable virtual text display
@@ -161,6 +158,9 @@ local on_attach_vim = function(client)
 end
 require'nvim_lsp'.clangd.setup{on_attach=on_attach_vim}
 EOF
+
+" Use completion-nvim in every buffer
+autocmd BufEnter * lua require'completion'.on_attach()
 
 " FZF configuration
 let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
