@@ -143,7 +143,8 @@ nnoremap <leader>ao    <cmd>lua vim.lsp.buf.outgoing_calls()<CR>
 
 autocmd Filetype c,h,hpp,cc,cpp setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
-set completeopt+=preview,menuone,noinsert,noselect
+set completeopt+=menuone,noinsert,noselect
+set completeopt-=preview " Don't open scratchpad for documentation
 set shortmess+=c
 
 let g:completion_enable_snippet = 'UltiSnips'
