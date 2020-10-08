@@ -157,6 +157,7 @@ local on_attach_vim = function(client)
     require'diagnostic'.on_attach(client)
 end
 require'nvim_lsp'.clangd.setup{on_attach=on_attach_vim}
+require'nvim_lsp'.pyls.setup{on_attach=on_attach_vim}
 EOF
 
 " Use completion-nvim in every buffer
