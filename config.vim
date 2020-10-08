@@ -141,6 +141,8 @@ nnoremap <leader>=     <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap <leader>ai    <cmd>lua vim.lsp.buf.incoming_calls()<CR>
 nnoremap <leader>ao    <cmd>lua vim.lsp.buf.outgoing_calls()<CR>
 
+vnoremap <leader>= <esc><cmd>lua vim.lsp.buf.range_formatting()<cr>
+
 set completeopt+=menuone,noinsert,noselect
 set completeopt-=preview " Don't open scratchpad for documentation
 set shortmess+=c
