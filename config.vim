@@ -24,7 +24,6 @@ Plug 'nvim-lua/diagnostic-nvim'   " Nvim diagnostic engine
 " Basics
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'rhysd/vim-clang-format'
 
 " Initialize plugin system
 call plug#end()
@@ -212,9 +211,6 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/custom_snippets/']
 let g:UltiSnipsEditSplit="vertical"
-
-" Clang-format configuration
-let g:clang_format#code_style = "google"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => FUNCTIONS
