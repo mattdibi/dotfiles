@@ -132,7 +132,7 @@ class $0 {
 endsnippet
 
 snippet main "main() (main)"
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
 	${VISUAL}$0
 
 	return 0;
@@ -228,7 +228,7 @@ endsnippet
 snippet gtest_main "gtest() (main)"
 #include <gtest/gtest.h>
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
 	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();
 }
@@ -238,7 +238,7 @@ snippet gmock_main "gmock() (main)"
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
 	::testing::InitGoogleMock(&argc, argv);
 	return RUN_ALL_TESTS();
 }

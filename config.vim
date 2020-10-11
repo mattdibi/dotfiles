@@ -1,32 +1,29 @@
 " Vim plug
-call plug#begin('~/.vim/plugged')
+call plug#begin()
 
 " Eye-candy plugins
 Plug 'challenger-deep-theme/vim' " Colorscheme
 Plug 'itchyny/lightline.vim'     " Stylish statusline
-Plug 'markonm/traces.vim'        " Range, pattern and substitute preview (requires 8.0.1206+)
+
+" Visual feedback
 Plug 'mbbill/undotree'           " Visualizes undo history
-if has('nvim') || has('patch-8.0.902')
-  Plug 'mhinz/vim-signify'       " In-editor git diffs
-else
-  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
-endif
+Plug 'markonm/hlyank.vim'        " Highlight yanked text
+Plug 'mhinz/vim-signify'         " In-editor git diffs
 
 " Navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'chrisbra/matchit'          " Improved % matching
 Plug 'tpope/vim-vinegar'         " Netwr enchancer
 
 " Autocompletion
-Plug 'ycm-core/youcompleteme'    " Code autocompletion
-Plug 'SirVer/ultisnips'          " Snippets engine
-Plug 'vim-syntastic/syntastic'   " Syntax checker
+Plug 'SirVer/ultisnips'           " Snippets engine
+Plug 'neovim/nvim-lspconfig'      " Nvim LSP configurations
+Plug 'nvim-lua/completion-nvim'   " Nvim completion engine
+Plug 'nvim-lua/diagnostic-nvim'   " Nvim diagnostic engine
 
 " Basics
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'rhysd/vim-clang-format'
 
 " Initialize plugin system
 call plug#end()
@@ -60,7 +57,7 @@ set cmdheight=1       " Command line height
 set cursorline        " Highlight current line
 
 set undofile          " Maintain undo history between sessions
-set undodir=~/.vim/undodir " Undo history directory
+set undodir=~/.config/nvim/undodir " Undo history directory
 
 set autoread          " Autoload file changes. You can undo by pressing u.
 set wildmenu          " Visual autocomplete for command menu
@@ -70,18 +67,13 @@ set updatetime=250    " Update time 250ms
 
 set backspace=indent,eol,start " Backspace through lines
 
-" Gvim
-set guioptions -=m    " Removes menubar
-set guioptions -=T    " Removes toolbar
-set guioptions -=r    " Removes scrollbar
-set guioptions -=L    " Removes left scrollbar
-set mouse=            " Disable mouse entirely
-
 " Search
-set ignorecase        " The case of normal letters is ignored.
-set smartcase         " Ignore case when the pattern contains lowercase letters only.
-set incsearch         " Start searching before pressing enter
-set nows              " Once hitting the search bottom it stops instead of restarting from the first match
+set ignorecase         " The case of normal letters is ignored.
+set smartcase          " Ignore case when the pattern contains lowercase letters only.
+set incsearch          " Start searching before pressing enter
+set nows               " Once hitting the search bottom it stops instead of restarting from the first match
+set nohlsearch         " Disable highlight search
+set inccommand=nosplit " Shows the effects of a command incrementally, as you type.
 
 "Formatting
 set breakindent       " Wrap lines without changing the amount of indent. VIM 8 only!
@@ -131,6 +123,47 @@ nnoremap <F3> :set list!<CR>
 " => PLUGIN CONFIGURATIONS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" LSP configuration
+nnoremap <leader>gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <leader>gD    <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <leader>K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <leader>gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <leader><c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <leader>gi    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <leader>gt    <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <leader>gw    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <leader>gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <leader>af    <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <leader>ee    <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
+nnoremap <leader>ar    <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <leader>=     <cmd>lua vim.lsp.buf.formatting()<CR>
+nnoremap <leader>ai    <cmd>lua vim.lsp.buf.incoming_calls()<CR>
+nnoremap <leader>ao    <cmd>lua vim.lsp.buf.outgoing_calls()<CR>
+
+vnoremap <leader>= <esc><cmd>lua vim.lsp.buf.range_formatting()<cr>
+
+set completeopt+=menuone,noinsert,noselect
+set completeopt-=preview " Don't open scratchpad for documentation
+set shortmess+=c
+
+let g:completion_enable_snippet = 'UltiSnips'
+let g:completion_trigger_keyword_length = 3
+
+let g:diagnostic_enable_virtual_text = 1 " Enable virtual text display
+let g:diagnostic_insert_delay = 1        " Don't show diagnostics while in insert mode
+
+lua << EOF
+local on_attach_vim = function(client)
+    require'completion'.on_attach(client)
+    require'diagnostic'.on_attach(client)
+end
+require'nvim_lsp'.clangd.setup{on_attach=on_attach_vim}
+require'nvim_lsp'.pyls.setup{on_attach=on_attach_vim}
+EOF
+
+" Use completion-nvim in every buffer
+autocmd BufEnter * lua require'completion'.on_attach()
+
 " FZF configuration
 let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
 
@@ -172,35 +205,12 @@ nnoremap <leader>u  :UndotreeToggle<CR>
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_HighlightChangedWithSign = 0
 
-" YCM configuration
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:ycm_goto_buffer_command = 'split'
-
-nnoremap <leader>g  :botright vertical YcmCompleter GoTo<CR>
-nnoremap <leader>gd :botright vertical YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>t  :botright vertical YcmCompleter GetType<CR>
-nnoremap <leader>d  :botright vertical YcmCompleter GetDoc<CR>
-nnoremap <leader>fi :YcmCompleter FixIt<CR>
-nnoremap <leader>r  :YcmForceCompileAndDiagnostics<CR>
-
-" Syntastic configuration
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_python_checkers = ['python']
-
 " Ultisnips configuration
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/custom_snippets/']
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/custom_snippets/']
 let g:UltiSnipsEditSplit="vertical"
-
-" Clang-format configuration
-let g:clang_format#code_style = "google"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => FUNCTIONS

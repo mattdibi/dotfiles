@@ -3,11 +3,9 @@ These are my configuration files. I need to add it to version tracking because I
 
 
 ## Programs
-- Vim:  [https://github.com/vim](https://github.com/vim)
+- Neovim:  [https://neovim.io/](https://neovim.io/)
 - i3-wm: [https://i3wm.org/](https://i3wm.org/)
 - regolith-desktop: [https://regolith-linux.org/](config/regolith/i3/config) ([Installation tutorial.](https://www.omgubuntu.co.uk/2019/06/install-regolith-linux-i3-gaps-ubuntu))
-
-**Note: clipboard support** You need to install **vim-gnome** or **vim-gtk**, depending on your system configuration, to be able to effectively copy and paste from the system clipboard. The clipboard registers are `+` and `*`  
 
 **Note: Regolith-desktop installation**
 ```sh
@@ -16,6 +14,19 @@ $ sudo apt install regolith-desktop
 ```
 
 ## Installation
+Install neovim nightly:
+
+```sh
+$ curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+$ chmod u+x nvim.appimage
+$ mv nvim.appimage /usr/bin/nvim
+```
+
+Enable Python support in Neovim
+```sh
+$ pip3 install --user --upgrade neovim
+```
+
 Simply type these commands on a terminal window:
 
 ```sh
@@ -28,8 +39,8 @@ $ sh install_dotfiles.sh
 
 #### Vim-Plug manual installation
 ```sh
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
 
 ### Troubleshooting
