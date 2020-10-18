@@ -20,6 +20,7 @@ Plug 'SirVer/ultisnips'           " Snippets engine
 Plug 'neovim/nvim-lspconfig'      " Nvim LSP configurations
 Plug 'nvim-lua/completion-nvim'   " Nvim completion engine
 Plug 'nvim-lua/diagnostic-nvim'   " Nvim diagnostic engine
+Plug 'nvim-treesitter/nvim-treesitter'
 
 " Basics
 Plug 'tpope/vim-surround'
@@ -159,6 +160,13 @@ local on_attach_vim = function(client)
 end
 require'nvim_lsp'.clangd.setup{on_attach=on_attach_vim}
 require'nvim_lsp'.pyls.setup{on_attach=on_attach_vim}
+
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "cpp", "python" }, -- one of "all", "language", or a list of languages
+  highlight = {
+    enable = true           -- false will disable the whole extension
+  }
+}
 EOF
 
 " Use completion-nvim in every buffer
