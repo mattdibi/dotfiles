@@ -159,7 +159,10 @@ local on_attach_vim = function(client)
     require'diagnostic'.on_attach(client)
 end
 require'nvim_lsp'.clangd.setup{on_attach=on_attach_vim}
-require'nvim_lsp'.pyls.setup{on_attach=on_attach_vim}
+require'nvim_lsp'.pyls.setup{
+  on_attach=on_attach_vim,
+  settings = { pyls = { plugins = { pycodestyle =  { enabled = false } } } }
+}
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "cpp", "python" }, -- one of "all", "language", or a list of languages
