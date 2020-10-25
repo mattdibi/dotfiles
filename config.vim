@@ -161,7 +161,10 @@ end
 require'nvim_lsp'.clangd.setup{on_attach=on_attach_vim}
 require'nvim_lsp'.pyls.setup{
   on_attach=on_attach_vim,
-  settings = { pyls = { plugins = { pycodestyle =  { enabled = false } } } }
+  settings = { pyls = { plugins = {
+     pycodestyle =  { enabled = false },
+     pylint =  { enabled = false }
+ } } }
 }
 
 require'nvim-treesitter.configs'.setup {
