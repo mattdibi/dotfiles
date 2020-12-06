@@ -31,24 +31,36 @@ snippet class_doc "Class doxygen documentation"
  */
 endsnippet
 
-snippet cfile ".cpp file doxygen documentation"
+snippet cfile ".cpp file template"
 /*! @file   `!v expand('%:t')`
  *  @author `git config user.name`
  *  @date   `date +%d/%m/%Y`
  *  @brief  `!v expand('%:t:r')`'s class implemetation file.
- *
- *  @details ${4:Detailed description}
  */
+
+#ifndef ${1:_`!v toupper(expand('%:t:r'))`_CPP}
+#define $1
+
+#include <`!v expand('%:t:r')`.h>
+
+${0}
+
+#endif // for #ifndef $1
 endsnippet
 
-snippet hfile ".h file doxygen documentation"
+snippet hfile ".h file template"
 /*! @file   `!v expand('%:t')`
  *  @author `git config user.name`
  *  @date   `date +%d/%m/%Y`
  *  @brief  `!v expand('%:t:r')`'s class header file.
- *
- *  @details ${1:Detailed description}
  */
+
+#ifndef ${1:_`!v toupper(expand('%:t:r'))`_H}
+#define $1
+
+${0}
+
+#endif // for #ifndef $1
 endsnippet
 
 snippet if "if() (if)"
