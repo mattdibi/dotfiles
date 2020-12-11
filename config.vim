@@ -153,8 +153,8 @@ lua << EOF
 local on_attach_vim = function(client)
     require'completion'.on_attach(client)
 end
-require'nvim_lsp'.clangd.setup{on_attach=on_attach_vim}
-require'nvim_lsp'.pyls.setup{
+require'lspconfig'.clangd.setup{on_attach=on_attach_vim}
+require'lspconfig'.pyls.setup{
   on_attach=on_attach_vim,
   settings = { pyls = { plugins = {
      pycodestyle =  { enabled = false },
