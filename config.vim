@@ -124,6 +124,9 @@ tnoremap <Esc> <C-\><C-n>
 " Send <Esc> to the underlying program in terminal mode
 " mnemonic: verbatim esc
 tnoremap <C-v><Esc> <Esc>
+" Open terminal in split
+command! -nargs=* Sterm split | terminal <args>
+command! -nargs=* Vterm vsplit | terminal <args>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => PLUGIN CONFIGURATIONS
