@@ -276,3 +276,15 @@ autocmd Filetype tex inoremap ì \`\i\
 
 " Run current python file
 autocmd Filetype python map <F2> :!python3 %<CR>
+
+" Remove trailing whitespaces
+function! TrimWhitespace()
+   let l:save = winsaveview()
+   keeppatterns %s/\s\+$//e
+   call winrestview(l:save)
+endfun
+
+augroup MATTDIBI
+   autocmd!
+   autocmd BufWritePre * :call TrimWhitespace()
+augroup END
