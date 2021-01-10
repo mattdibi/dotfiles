@@ -19,7 +19,6 @@ Plug 'tpope/vim-vinegar'         " Netwr enchancer
 Plug 'SirVer/ultisnips'           " Snippets engine
 Plug 'neovim/nvim-lspconfig'      " Nvim LSP configurations
 Plug 'nvim-lua/completion-nvim'   " Nvim completion engine
-Plug 'nvim-lua/diagnostic-nvim'   " Nvim diagnostic engine
 Plug 'nvim-treesitter/nvim-treesitter'
 
 " Basics
@@ -120,6 +119,15 @@ vnoremap > >gv
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 nnoremap <F3> :set list!<CR>
 
+" Smart terminal navigation
+tnoremap <Esc> <C-\><C-n>
+" Send <Esc> to the underlying program in terminal mode
+" mnemonic: verbatim esc
+tnoremap <C-v><Esc> <Esc>
+" Open terminal in split
+command! -nargs=* Sterm split | terminal <args>
+command! -nargs=* Vterm vsplit | terminal <args>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => PLUGIN CONFIGURATIONS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -150,16 +158,12 @@ set shortmess+=c
 let g:completion_enable_snippet = 'UltiSnips'
 let g:completion_trigger_keyword_length = 3
 
-let g:diagnostic_enable_virtual_text = 1 " Enable virtual text display
-let g:diagnostic_insert_delay = 1        " Don't show diagnostics while in insert mode
-
 lua << EOF
 local on_attach_vim = function(client)
     require'completion'.on_attach(client)
-    require'diagnostic'.on_attach(client)
 end
-require'nvim_lsp'.clangd.setup{on_attach=on_attach_vim}
-require'nvim_lsp'.pyls.setup{
+require'lspconfig'.clangd.setup{on_attach=on_attach_vim}
+require'lspconfig'.pyls.setup{
   on_attach=on_attach_vim,
   settings = { pyls = { plugins = {
      pycodestyle =  { enabled = false },
@@ -173,6 +177,13 @@ require'nvim-treesitter.configs'.setup {
     enable = true           -- false will disable the whole extension
   }
 }
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = true,
+    update_in_insert = false,
+  }
+)
 EOF
 
 " Use completion-nvim in every buffer

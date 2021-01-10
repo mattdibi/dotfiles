@@ -3,10 +3,18 @@
 CURRENT_EXE=/usr/bin/nvim
 BACKUP_EXE=/usr/bin/old.nvim
 
-echo "NeoVIM Appimage updater"
+echo ""
+echo " ███    ██ ███████  ██████  ██    ██ ██ ███    ███ "
+echo " ████   ██ ██      ██    ██ ██    ██ ██ ████  ████ "
+echo " ██ ██  ██ █████   ██    ██ ██    ██ ██ ██ ████ ██ "
+echo " ██  ██ ██ ██      ██    ██  ██  ██  ██ ██  ██  ██ "
+echo " ██   ████ ███████  ██████    ████   ██ ██      ██ "
+echo "                                  Appimage updater "
+echo ""
 
 echo "Updating nvim.appimage"
 read -s -p "Enter Password for sudo: " sudoPW
+echo ""
 
 echo "Downloading..."
 curl -sSLO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
@@ -14,6 +22,7 @@ chmod u+x nvim.appimage
 
 NEW_VER="$(./nvim.appimage --version | head -n 1)"
 echo "Downloaded version: $NEW_VER"
+echo ""
 
 # Check if NeoVIM is already installed
 if [[ -f "$CURRENT_EXE" ]]; then
@@ -36,5 +45,7 @@ fi
 
 echo "Installing binary to $CURRENT_EXE"
 echo $sudoPW | sudo mv nvim.appimage $CURRENT_EXE
+echo ""
 
 echo "Update complete."
+echo ""
