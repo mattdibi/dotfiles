@@ -217,7 +217,10 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-nnoremap <C-p>  :GFiles<CR>
+nnoremap <C-p>      :GFiles<CR>
+nnoremap <Leader>fs :Rg<CR>
+nnoremap <Leader>fb :Buffers<CR>
+nnoremap <Leader>fl :BLines<CR>
 
 " Signify configuration
 let g:signify_sign_change = '~'
