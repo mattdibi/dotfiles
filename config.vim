@@ -19,7 +19,7 @@ Plug 'tpope/vim-vinegar'         " Netwr enchancer
 " Autocompletion
 Plug 'SirVer/ultisnips'           " Snippets engine
 Plug 'neovim/nvim-lspconfig'      " Nvim LSP configurations
-Plug 'nvim-lua/completion-nvim'   " Nvim completion engine
+Plug 'hrsh7th/nvim-compe'         " Nvim completion engine
 Plug 'nvim-treesitter/nvim-treesitter'
 
 " Basics
@@ -152,17 +152,33 @@ nnoremap <leader>ao    <cmd>lua vim.lsp.buf.outgoing_calls()<CR>
 
 vnoremap <leader>= <esc><cmd>lua vim.lsp.buf.range_formatting()<cr>
 
-set completeopt+=menuone,noinsert,noselect
+" Compe configuration
+set completeopt+=menuone,noselect
 set completeopt-=preview " Don't open scratchpad for documentation
 set shortmess+=c
 
-let g:completion_enable_snippet = 'UltiSnips'
-let g:completion_trigger_keyword_length = 3
+let g:compe = {}
+let g:compe.enabled = v:true
+let g:compe.autocomplete = v:true
+let g:compe.debug = v:false
+let g:compe.min_length = 2
+let g:compe.preselect = 'enable'
+let g:compe.throttle_time = 80
+let g:compe.source_timeout = 200
+let g:compe.incomplete_delay = 400
+let g:compe.max_abbr_width = 100
+let g:compe.max_kind_width = 100
+let g:compe.max_menu_width = 100
+let g:compe.documentation = v:true
+
+let g:compe.source = {}
+let g:compe.source.path = v:true
+let g:compe.source.buffer = v:true
+let g:compe.source.calc = v:true
+let g:compe.source.nvim_lsp = v:true
+let g:compe.source.ultisnips = v:true
 
 lua << EOF
-local on_attach_vim = function(client)
-    require'completion'.on_attach(client)
-end
 require'lspconfig'.clangd.setup{on_attach=on_attach_vim}
 require'lspconfig'.pyls.setup{
   on_attach=on_attach_vim,
@@ -186,9 +202,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 EOF
-
-" Use completion-nvim in every buffer
-autocmd BufEnter * lua require'completion'.on_attach()
 
 " FZF configuration
 let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
