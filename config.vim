@@ -10,6 +10,7 @@ Plug 'mbbill/undotree'           " Visualizes undo history
 Plug 'markonm/hlyank.vim'        " Highlight yanked text
 Plug 'mhinz/vim-signify'         " In-editor git diffs
 Plug 'ntpeters/vim-better-whitespace' " Traling whitespaces
+Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'} " Indenting guidelines
 
 " Navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -132,6 +133,18 @@ command! -nargs=* Vterm vsplit | terminal <args>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => PLUGIN CONFIGURATIONS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Indent-blankline configuration
+if &diff
+    let g:indent_blankline_enabled = v:false
+endif
+
+let g:indent_blankline_char = '▏'
+let g:indent_blankline_filetype_exclude = [
+    \ 'help', 'text', 'yaml'
+    \]
+let g:indent_blankline_show_first_indent_level = v:false
+let g:indent_blankline_show_trailing_blankline_indent = v:false
 
 " LSP configuration
 nnoremap <leader>gd    <cmd>lua vim.lsp.buf.declaration()<CR>
