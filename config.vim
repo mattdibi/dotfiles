@@ -11,7 +11,7 @@ Plug 'markonm/hlyank.vim'        " Highlight yanked text
 Plug 'ntpeters/vim-better-whitespace' " Traling whitespaces
 Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'} " Indenting guidelines
 Plug 'nvim-lua/plenary.nvim'
-Plug 'lewis6991/gitsigns.nvim' " In-editor git diffs
+Plug 'mhinz/vim-signify'         " In-editor git diffs
 
 " Navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -215,8 +215,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     update_in_insert = false,
   }
 )
-
-require('gitsigns').setup()
 EOF
 
 " FZF configuration
