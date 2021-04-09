@@ -305,17 +305,10 @@ autocmd Filetype tex inoremap à \`a
 autocmd Filetype tex inoremap ù \`u
 autocmd Filetype tex inoremap ì \`\i\
 
+" Markdown :make command
+" Requirements install pandoc application
+au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.mdwn,*.md  set ft=markdown
+autocmd Filetype markdown set makeprg=pandoc\ %\ --pdf-engine=pdflatex\ -f\ gfm\ -o\ %.pdf
+
 " Run current python file
 autocmd Filetype python map <F2> :!python3 %<CR>
-
-" View Markdown inside browser ("Markdown Viewer" Chrome extension required)
-" Instructions https://krehwell.com/blog/Open%20Markdown%20Previewer%20Through%20Vim
-let $VIMBROWSER='google-chrome'
-let $OPENBROWSER='nnoremap <F5> :!'. $VIMBROWSER .' %:p<CR>'
-
-augroup OpenMdFile
-  autocmd!
-  autocmd BufEnter *.md echom "Press F5 to Open .md File"
-  " Trying to make a keybind to open browser from here
-  autocmd BufEnter *.md exe $OPENBROWSER
-augroup END
