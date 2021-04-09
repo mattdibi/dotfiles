@@ -203,7 +203,7 @@ require'lspconfig'.pyls.setup{
 }
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "cpp", "python" }, -- one of "all", "language", or a list of languages
+  ensure_installed = { "cpp", "python", "lua" }, -- one of "all", "language", or a list of languages
   highlight = {
     enable = true           -- false will disable the whole extension
   }
