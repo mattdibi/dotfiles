@@ -21,6 +21,7 @@ Plug 'tpope/vim-vinegar'         " Netwr enchancer
 " Autocompletion
 Plug 'SirVer/ultisnips'           " Snippets engine
 Plug 'neovim/nvim-lspconfig'      " Nvim LSP configurations
+Plug 'kabouzeid/nvim-lspinstall'  " Nvim LSP installation
 Plug 'hrsh7th/nvim-compe'         " Nvim completion engine
 Plug 'nvim-treesitter/nvim-treesitter'
 
@@ -193,14 +194,15 @@ let g:compe.source.nvim_lsp = v:true
 let g:compe.source.ultisnips = v:true
 
 lua << EOF
-require'lspconfig'.clangd.setup{on_attach=on_attach_vim}
-require'lspconfig'.pyls.setup{
-  on_attach=on_attach_vim,
-  settings = { pyls = { plugins = {
-     pycodestyle =  { enabled = false },
-     pylint =  { enabled = false }
- } } }
-}
+local function setup_servers()
+  require'lspinstall'.setup()
+  local servers = require'lspinstall'.installed_servers()
+  for _, server in pairs(servers) do
+    require'lspconfig'[server].setup{}
+  end
+end
+
+setup_servers()
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "cpp", "python", "lua" }, -- one of "all", "language", or a list of languages
