@@ -195,11 +195,25 @@ let g:compe.source.ultisnips = v:true
 
 lua << EOF
 local function setup_servers()
-  require'lspinstall'.setup()
-  local servers = require'lspinstall'.installed_servers()
-  for _, server in pairs(servers) do
-    require'lspconfig'[server].setup{}
-  end
+require'lspinstall'.setup()
+    local servers = require'lspinstall'.installed_servers()
+    for _, server in pairs(servers) do
+        -- Lua LSP
+        if server == "lua" then
+            require'lspconfig'[server].setup{
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            -- Get the language server to recognize the "ngx" global
+                            globals = {'ngx'},
+                        }
+                    }
+                }
+            }
+        else
+            require'lspconfig'[server].setup{}
+        end
+    end
 end
 
 setup_servers()
