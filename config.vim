@@ -328,3 +328,6 @@ autocmd Filetype markdown set makeprg=pandoc\ %\ --pdf-engine=pdflatex\ -f\ gfm\
 
 " Run current python file
 autocmd Filetype python map <F2> :!python3 %<CR>
+
+" Run current lua file
+autocmd Filetype lua map <F2> :!lua %<CR>
