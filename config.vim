@@ -6,7 +6,6 @@ Plug 'challenger-deep-theme/vim' " Colorscheme
 Plug 'itchyny/lightline.vim'     " Stylish statusline
 
 " Visual feedback
-Plug 'mbbill/undotree'           " Visualizes undo history
 Plug 'markonm/hlyank.vim'        " Highlight yanked text
 Plug 'ntpeters/vim-better-whitespace' " Traling whitespaces
 Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'} " Indenting guidelines
@@ -271,11 +270,6 @@ highlight link SignifySignAdd             DiffAdd
 highlight link SignifySignChange          DiffChange
 highlight link SignifySignDelete          DiffDelete
 highlight link SignifySignDeleteFirstLine SignifySignDelete
-
-" Undotree configuration
-nnoremap <leader>u  :UndotreeToggle<CR>
-let g:undotree_SetFocusWhenToggle = 1
-let g:undotree_HighlightChangedWithSign = 0
 
 " Ultisnips configuration
 let g:UltiSnipsExpandTrigger = "<tab>"
