@@ -9,12 +9,11 @@ Plug 'itchyny/lightline.vim'     " Stylish statusline
 Plug 'markonm/hlyank.vim'        " Highlight yanked text
 Plug 'ntpeters/vim-better-whitespace' " Traling whitespaces
 Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'} " Indenting guidelines
-Plug 'nvim-lua/plenary.nvim'
 Plug 'mhinz/vim-signify'         " In-editor git diffs
 
 " Navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'          " Fuzzy finder
 Plug 'tpope/vim-vinegar'         " Netwr enchancer
 
 " Autocompletion
@@ -22,7 +21,7 @@ Plug 'SirVer/ultisnips'           " Snippets engine
 Plug 'neovim/nvim-lspconfig'      " Nvim LSP configurations
 Plug 'kabouzeid/nvim-lspinstall'  " Nvim LSP installation
 Plug 'hrsh7th/nvim-compe'         " Nvim completion engine
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter' " Improved syntax highlight
 
 " Basics
 Plug 'tpope/vim-surround'
