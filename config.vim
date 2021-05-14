@@ -4,6 +4,7 @@ call plug#begin()
 " Eye-candy plugins
 Plug 'challenger-deep-theme/vim' " Colorscheme
 Plug 'itchyny/lightline.vim'     " Stylish statusline
+Plug 'folke/todo-comments.nvim'  " Highlight and search for todo comments
 
 " Visual feedback
 Plug 'markonm/hlyank.vim'        " Highlight yanked text
@@ -133,6 +134,44 @@ command! -nargs=* Vterm vsplit | terminal <args>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => PLUGIN CONFIGURATIONS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" todo-comments configuration
+lua << EOF
+require'todo-comments'.setup {
+    signs = false, -- show icons in the signs column
+    -- keywords recognized as todo comments
+    keywords = {
+        FIXME  = { icon = "? ", color = "error", alt = { "BUG",  "ISSUE" } },
+        TODO   = { icon = "? ", color = "info" },
+        HACK   = { icon = "? ", color = "warning" },
+        WARN   = { icon = "? ", color = "warning", alt = { "WARNING", "XXX" } },
+        PERF   = { icon = "? ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+        NOTE   = { icon = "? ", color = "hint", alt = { "INFO" } },
+    },
+    -- highlighting of the line containing the todo comment
+    -- * before: highlights before the keyword (typically comment characters)
+    -- * keyword: highlights of the keyword
+    -- * after: highlights after the keyword (todo text)
+    highlight = {
+        before = "", -- "fg" or "bg" or empty
+        keyword = "wide", -- "fg", "bg", "wide" or empty. (wide is the same as bg, but will also highlight surrounding characters)
+        after = "fg", -- "fg" or "bg" or empty
+    },
+    -- list of named colors where we try to extract the guifg from the
+    -- list of hilight groups or use the hex color if hl not found as a fallback
+    colors = {
+        error = { "LspDiagnosticsDefaultError", "ErrorMsg", "#DC2626" },
+        warning = { "LspDiagnosticsDefaultWarning", "WarningMsg", "#FBBF24" },
+        info = { "LspDiagnosticsDefaultInformation", "#2563EB" },
+        hint = { "LspDiagnosticsDefaultHint", "#10B981" },
+        default = { "Identifier", "#7C3AED" },
+    },
+    -- regex that will be used to match keywords.
+    -- don't replace the (KEYWORDS) placeholder
+    -- pattern = "(KEYWORDS):",
+    pattern = "(KEYWORDS)", -- match without the extra colon. You'll likely get false positives
+}
+EOF
 
 " Indent-blankline configuration
 if &diff
