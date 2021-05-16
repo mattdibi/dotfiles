@@ -5,7 +5,6 @@ call plug#begin()
 Plug 'challenger-deep-theme/vim' " Colorscheme
 Plug 'itchyny/lightline.vim'     " Stylish statusline
 Plug 'folke/todo-comments.nvim'  " Highlight and search for todo comments
-Plug 'shaunsingh/nord.nvim'      " Colorscheme
 
 " Visual feedback
 Plug 'markonm/hlyank.vim'        " Highlight yanked text
@@ -47,7 +46,7 @@ if has('nvim') || has('termguicolors')
 endif
 
 " Challenger deep
-colorscheme nord
+colorscheme challenger_deep
 let g:lightline = { 'colorscheme': 'challenger_deep'}
 
 " Common
