@@ -5,6 +5,7 @@ call plug#begin()
 Plug 'challenger-deep-theme/vim' " Colorscheme
 Plug 'itchyny/lightline.vim'     " Stylish statusline
 Plug 'folke/todo-comments.nvim'  " Highlight and search for todo comments
+Plug 'shaunsingh/nord.nvim'      " Colorscheme
 
 " Visual feedback
 Plug 'markonm/hlyank.vim'        " Highlight yanked text
@@ -46,7 +47,7 @@ if has('nvim') || has('termguicolors')
 endif
 
 " Challenger deep
-colorscheme challenger_deep
+colorscheme nord
 let g:lightline = { 'colorscheme': 'challenger_deep'}
 
 " Common
@@ -156,6 +157,8 @@ require'todo-comments'.setup {
         before = "", -- "fg" or "bg" or empty
         keyword = "wide", -- "fg", "bg", "wide" or empty. (wide is the same as bg, but will also highlight surrounding characters)
         after = "fg", -- "fg" or "bg" or empty
+        pattern = [[.*<(KEYWORDS)\s*]], -- pattern used for highlightng (vim regex)
+        comments_only = true, -- this applies the pattern only inside comments using `commentstring` option
     },
     -- list of named colors where we try to extract the guifg from the
     -- list of hilight groups or use the hex color if hl not found as a fallback
@@ -165,11 +168,7 @@ require'todo-comments'.setup {
         info = { "LspDiagnosticsDefaultInformation", "#2563EB" },
         hint = { "LspDiagnosticsDefaultHint", "#10B981" },
         default = { "Identifier", "#7C3AED" },
-    },
-    -- regex that will be used to match keywords.
-    -- don't replace the (KEYWORDS) placeholder
-    -- pattern = "(KEYWORDS):",
-    pattern = "(KEYWORDS)", -- match without the extra colon. You'll likely get false positives
+    }
 }
 EOF
 
