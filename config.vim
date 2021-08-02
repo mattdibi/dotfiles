@@ -9,7 +9,7 @@ Plug 'folke/todo-comments.nvim'  " Highlight and search for todo comments
 " Visual feedback
 Plug 'markonm/hlyank.vim'        " Highlight yanked text
 Plug 'ntpeters/vim-better-whitespace' " Traling whitespaces
-Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'} " Indenting guidelines
+Plug 'lukas-reineke/indent-blankline.nvim' " Indenting guidelines
 Plug 'mhinz/vim-signify'         " In-editor git diffs
 
 " Navigation
