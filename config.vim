@@ -4,23 +4,25 @@ call plug#begin()
 " Eye-candy plugins
 Plug 'challenger-deep-theme/vim' " Colorscheme
 Plug 'itchyny/lightline.vim'     " Stylish statusline
+Plug 'folke/todo-comments.nvim'  " Highlight and search for todo comments
 
 " Visual feedback
-Plug 'mbbill/undotree'           " Visualizes undo history
-Plug 'markonm/hlyank.vim'        " Highlight yanked text
-Plug 'mhinz/vim-signify'         " In-editor git diffs
-Plug 'ntpeters/vim-better-whitespace' " Traling whitespaces
+Plug 'markonm/hlyank.vim'                  " Highlight yanked text
+Plug 'ntpeters/vim-better-whitespace'      " Traling whitespaces
+Plug 'lukas-reineke/indent-blankline.nvim' " Indenting guidelines
+Plug 'mhinz/vim-signify'                   " In-editor git diffs
 
 " Navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'          " Fuzzy finder
 Plug 'tpope/vim-vinegar'         " Netwr enchancer
 
 " Autocompletion
-Plug 'SirVer/ultisnips'           " Snippets engine
-Plug 'neovim/nvim-lspconfig'      " Nvim LSP configurations
-Plug 'hrsh7th/nvim-compe'         " Nvim completion engine
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'SirVer/ultisnips'                 " Snippets engine
+Plug 'neovim/nvim-lspconfig'            " Nvim LSP configurations
+Plug 'williamboman/nvim-lsp-installer'  " Nvim LSP installation
+Plug 'hrsh7th/nvim-compe'               " Nvim completion engine
+Plug 'nvim-treesitter/nvim-treesitter'  " Improved syntax highlight
 
 " Basics
 Plug 'tpope/vim-surround'
@@ -87,6 +89,9 @@ set nojoinspaces      " Prevents inserting two spaces after punctuation on a joi
 set splitright        " Puts new vsplit windows to the right of the current
 set splitbelow        " Puts new split windows to the bottom of the current
 
+" Highlight syntax inside Markdown
+let g:markdown_fenced_languages = ['sh', 'python', 'bash', 'yaml']
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => MAPPINGS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -132,6 +137,54 @@ command! -nargs=* Vterm vsplit | terminal <args>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => PLUGIN CONFIGURATIONS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" todo-comments configuration
+lua << EOF
+require'todo-comments'.setup {
+    signs = false, -- show icons in the signs column
+    -- keywords recognized as todo comments
+    keywords = {
+        FIXME  = { icon = "? ", color = "error", alt = { "BUG",  "ISSUE" } },
+        TODO   = { icon = "? ", color = "info" },
+        HACK   = { icon = "? ", color = "warning" },
+        WARN   = { icon = "? ", color = "warning", alt = { "WARNING", "XXX" } },
+        PERF   = { icon = "? ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+        NOTE   = { icon = "? ", color = "hint", alt = { "INFO" } },
+    },
+    -- highlighting of the line containing the todo comment
+    -- * before: highlights before the keyword (typically comment characters)
+    -- * keyword: highlights of the keyword
+    -- * after: highlights after the keyword (todo text)
+    highlight = {
+        before = "", -- "fg" or "bg" or empty
+        keyword = "bg", -- "fg", "bg", "wide" or empty. (wide is the same as bg, but will also highlight surrounding characters)
+        after = "fg", -- "fg" or "bg" or empty
+        pattern = [[.*<(KEYWORDS)\s*]], -- pattern used for highlightng (vim regex)
+        comments_only = true, -- this applies the pattern only inside comments using `commentstring` option
+    },
+    -- list of named colors where we try to extract the guifg from the
+    -- list of hilight groups or use the hex color if hl not found as a fallback
+    colors = {
+        error = { "LspDiagnosticsDefaultError", "ErrorMsg", "#DC2626" },
+        warning = { "LspDiagnosticsDefaultWarning", "WarningMsg", "#FBBF24" },
+        info = { "LspDiagnosticsDefaultInformation", "#2563EB" },
+        hint = { "LspDiagnosticsDefaultHint", "#10B981" },
+        default = { "Identifier", "#7C3AED" },
+    }
+}
+EOF
+
+" Indent-blankline configuration
+if &diff
+    let g:indent_blankline_enabled = v:false
+endif
+
+let g:indent_blankline_char = '▏'
+let g:indent_blankline_filetype_exclude = [
+    \ 'help', 'text', 'yaml'
+    \]
+let g:indent_blankline_show_first_indent_level = v:false
+let g:indent_blankline_show_trailing_blankline_indent = v:false
 
 " LSP configuration
 nnoremap <leader>gd    <cmd>lua vim.lsp.buf.declaration()<CR>
@@ -179,17 +232,38 @@ let g:compe.source.nvim_lsp = v:true
 let g:compe.source.ultisnips = v:true
 
 lua << EOF
-require'lspconfig'.clangd.setup{on_attach=on_attach_vim}
-require'lspconfig'.pyls.setup{
-  on_attach=on_attach_vim,
-  settings = { pyls = { plugins = {
-     pycodestyle =  { enabled = false },
-     pylint =  { enabled = false }
- } } }
-}
+local lsp_installer = require("nvim-lsp-installer")
+
+lsp_installer.on_server_ready(function(server)
+    local opts = {}
+
+    -- (optional) Customize the options passed to the server
+    -- if server.name == "tsserver" then
+    --     opts.root_dir = function() ... end
+    -- end
+    -- Lua LSP
+    --    if server == "lua" then
+    --        require'lspconfig'[server].setup{
+    --            settings = {
+    --                Lua = {
+    --                    diagnostics = {
+    --                        -- Get the language server to recognize the "ngx" global
+    --                        globals = {'ngx'},
+    --                    }
+    --                }
+    --            }
+    --        }
+    --    else
+    --        require'lspconfig'[server].setup{}
+    --    end
+
+    -- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
+    server:setup(opts)
+    vim.cmd [[ do User LspAttachBuffers ]]
+end)
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "cpp", "python" }, -- one of "all", "language", or a list of languages
+  ensure_installed = { "cpp", "python", "lua" }, -- one of "all", "language", or a list of languages
   highlight = {
     enable = true           -- false will disable the whole extension
   }
@@ -242,11 +316,6 @@ highlight link SignifySignChange          DiffChange
 highlight link SignifySignDelete          DiffDelete
 highlight link SignifySignDeleteFirstLine SignifySignDelete
 
-" Undotree configuration
-nnoremap <leader>u  :UndotreeToggle<CR>
-let g:undotree_SetFocusWhenToggle = 1
-let g:undotree_HighlightChangedWithSign = 0
-
 " Ultisnips configuration
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -291,17 +360,13 @@ autocmd Filetype tex inoremap à \`a
 autocmd Filetype tex inoremap ù \`u
 autocmd Filetype tex inoremap ì \`\i\
 
+" Markdown :make command
+" Requirements install pandoc application
+au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.mdwn,*.md  set ft=markdown
+autocmd Filetype markdown set makeprg=pandoc\ %\ --pdf-engine=pdflatex\ -f\ gfm\ -o\ %.pdf
+
 " Run current python file
 autocmd Filetype python map <F2> :!python3 %<CR>
 
-" View Markdown inside browser ("Markdown Viewer" Chrome extension required)
-" Instructions https://krehwell.com/blog/Open%20Markdown%20Previewer%20Through%20Vim
-let $VIMBROWSER='google-chrome'
-let $OPENBROWSER='nnoremap <F5> :!'. $VIMBROWSER .' %:p<CR>'
-
-augroup OpenMdFile
-  autocmd!
-  autocmd BufEnter *.md echom "Press F5 to Open .md File"
-  " Trying to make a keybind to open browser from here
-  autocmd BufEnter *.md exe $OPENBROWSER
-augroup END
+" Run current lua file
+autocmd Filetype lua map <F2> :!lua %<CR>
