@@ -7,10 +7,10 @@ Plug 'itchyny/lightline.vim'     " Stylish statusline
 Plug 'folke/todo-comments.nvim'  " Highlight and search for todo comments
 
 " Visual feedback
-Plug 'markonm/hlyank.vim'        " Highlight yanked text
-Plug 'ntpeters/vim-better-whitespace' " Traling whitespaces
+Plug 'markonm/hlyank.vim'                  " Highlight yanked text
+Plug 'ntpeters/vim-better-whitespace'      " Traling whitespaces
 Plug 'lukas-reineke/indent-blankline.nvim' " Indenting guidelines
-Plug 'mhinz/vim-signify'         " In-editor git diffs
+Plug 'mhinz/vim-signify'                   " In-editor git diffs
 
 " Navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -18,11 +18,11 @@ Plug 'junegunn/fzf.vim'          " Fuzzy finder
 Plug 'tpope/vim-vinegar'         " Netwr enchancer
 
 " Autocompletion
-Plug 'SirVer/ultisnips'           " Snippets engine
-Plug 'neovim/nvim-lspconfig'      " Nvim LSP configurations
-Plug 'kabouzeid/nvim-lspinstall'  " Nvim LSP installation
-Plug 'hrsh7th/nvim-compe'         " Nvim completion engine
-Plug 'nvim-treesitter/nvim-treesitter' " Improved syntax highlight
+Plug 'SirVer/ultisnips'                 " Snippets engine
+Plug 'neovim/nvim-lspconfig'            " Nvim LSP configurations
+Plug 'williamboman/nvim-lsp-installer'  " Nvim LSP installation
+Plug 'hrsh7th/nvim-compe'               " Nvim completion engine
+Plug 'nvim-treesitter/nvim-treesitter'  " Improved syntax highlight
 
 " Basics
 Plug 'tpope/vim-surround'
@@ -232,29 +232,35 @@ let g:compe.source.nvim_lsp = v:true
 let g:compe.source.ultisnips = v:true
 
 lua << EOF
-local function setup_servers()
-require'lspinstall'.setup()
-    local servers = require'lspinstall'.installed_servers()
-    for _, server in pairs(servers) do
-        -- Lua LSP
-        if server == "lua" then
-            require'lspconfig'[server].setup{
-                settings = {
-                    Lua = {
-                        diagnostics = {
-                            -- Get the language server to recognize the "ngx" global
-                            globals = {'ngx'},
-                        }
-                    }
-                }
-            }
-        else
-            require'lspconfig'[server].setup{}
-        end
-    end
-end
+local lsp_installer = require("nvim-lsp-installer")
 
-setup_servers()
+lsp_installer.on_server_ready(function(server)
+    local opts = {}
+
+    -- (optional) Customize the options passed to the server
+    -- if server.name == "tsserver" then
+    --     opts.root_dir = function() ... end
+    -- end
+    -- Lua LSP
+    --    if server == "lua" then
+    --        require'lspconfig'[server].setup{
+    --            settings = {
+    --                Lua = {
+    --                    diagnostics = {
+    --                        -- Get the language server to recognize the "ngx" global
+    --                        globals = {'ngx'},
+    --                    }
+    --                }
+    --            }
+    --        }
+    --    else
+    --        require'lspconfig'[server].setup{}
+    --    end
+
+    -- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
+    server:setup(opts)
+    vim.cmd [[ do User LspAttachBuffers ]]
+end)
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "cpp", "python", "lua" }, -- one of "all", "language", or a list of languages
