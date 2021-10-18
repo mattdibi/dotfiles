@@ -18,11 +18,15 @@ Plug 'junegunn/fzf.vim'          " Fuzzy finder
 Plug 'tpope/vim-vinegar'         " Netwr enchancer
 
 " Autocompletion
-Plug 'SirVer/ultisnips'                 " Snippets engine
-Plug 'neovim/nvim-lspconfig'            " Nvim LSP configurations
-Plug 'williamboman/nvim-lsp-installer'  " Nvim LSP installation
-Plug 'hrsh7th/nvim-compe'               " Nvim completion engine
-Plug 'nvim-treesitter/nvim-treesitter'  " Improved syntax highlight
+Plug 'SirVer/ultisnips'                    " Snippets engine
+Plug 'neovim/nvim-lspconfig'               " Nvim LSP configurations
+Plug 'williamboman/nvim-lsp-installer'     " Nvim LSP installation
+Plug 'nvim-treesitter/nvim-treesitter'     " Improved syntax highlight
+
+Plug 'hrsh7th/nvim-cmp'                    " Nvim completion engine
+Plug 'hrsh7th/cmp-path'                    " Path completion source for paths
+Plug 'hrsh7th/cmp-buffer'                  " Buffer completion source for paths
+Plug 'quangnguyen30192/cmp-nvim-ultisnips' " Ultisnips completion source for nvim-cmp
 
 " Basics
 Plug 'tpope/vim-surround'
@@ -206,30 +210,31 @@ nnoremap <leader>ao    <cmd>lua vim.lsp.buf.outgoing_calls()<CR>
 vnoremap <leader>= <esc><cmd>lua vim.lsp.buf.range_formatting()<cr>
 
 " Compe configuration
+
 set completeopt+=menuone,noselect
-set completeopt-=preview " Don't open scratchpad for documentation
-set shortmess+=c
+set completeopt-=preview
 
-let g:compe = {}
-let g:compe.enabled = v:true
-let g:compe.autocomplete = v:true
-let g:compe.debug = v:false
-let g:compe.min_length = 2
-let g:compe.preselect = 'enable'
-let g:compe.throttle_time = 80
-let g:compe.source_timeout = 200
-let g:compe.incomplete_delay = 400
-let g:compe.max_abbr_width = 100
-let g:compe.max_kind_width = 100
-let g:compe.max_menu_width = 100
-let g:compe.documentation = v:true
+lua <<EOF
+  -- Setup nvim-cmp.
+  local cmp = require'cmp'
 
-let g:compe.source = {}
-let g:compe.source.path = v:true
-let g:compe.source.buffer = v:true
-let g:compe.source.calc = v:true
-let g:compe.source.nvim_lsp = v:true
-let g:compe.source.ultisnips = v:true
+  cmp.setup({
+    snippet = {
+      expand = function(args)
+        vim.fn["UltiSnips#Anon"](args.body)
+      end,
+    },
+    completion = {
+        keyword_length = 2,
+    },
+    sources = {
+      { name = 'nvim_lsp' },
+      { name = 'ultisnips' },
+      { name = 'buffer' },
+      { name = 'path' },
+    }
+  })
+EOF
 
 lua << EOF
 local lsp_installer = require("nvim-lsp-installer")
