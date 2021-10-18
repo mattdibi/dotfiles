@@ -287,6 +287,19 @@ nnoremap <Leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <Leader>fb <cmd>Telescope buffers<cr>
 nnoremap <Leader>fh <cmd>Telescope help_tags<cr>
 
+lua << EOF
+local actions = require('telescope.actions')
+require('telescope').setup{
+defaults = {
+    mappings = {
+        i = {
+            ["<esc>"] = actions.close
+            },
+        },
+    }
+}
+EOF
+
 " Signify configuration
 let g:signify_sign_change = '~'
 highlight link SignifySignAdd             DiffAdd
