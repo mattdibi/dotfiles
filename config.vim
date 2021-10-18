@@ -210,11 +210,10 @@ nnoremap <leader>ao    <cmd>lua vim.lsp.buf.outgoing_calls()<CR>
 vnoremap <leader>= <esc><cmd>lua vim.lsp.buf.range_formatting()<cr>
 
 " Compe configuration
-
 set completeopt+=menuone,noselect
 set completeopt-=preview
 
-lua <<EOF
+lua << EOF
   -- Setup nvim-cmp.
   local cmp = require'cmp'
 
