@@ -282,7 +282,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 EOF
 
 " Telescope configuration
-nnoremap <C-p>      <cmd>Telescope find_files<cr>
+nnoremap <C-p>      <cmd>Telescope git_files<cr>
 nnoremap <Leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <Leader>fb <cmd>Telescope buffers<cr>
 nnoremap <Leader>fh <cmd>Telescope help_tags<cr>
