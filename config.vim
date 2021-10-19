@@ -24,8 +24,9 @@ Plug 'williamboman/nvim-lsp-installer'     " Nvim LSP installation
 Plug 'nvim-treesitter/nvim-treesitter'     " Improved syntax highlight
 
 Plug 'hrsh7th/nvim-cmp'                    " Nvim completion engine
-Plug 'hrsh7th/cmp-path'                    " Path completion source for paths
-Plug 'hrsh7th/cmp-buffer'                  " Buffer completion source for paths
+Plug 'hrsh7th/cmp-path'                    " Path completion source for nvim-cmp
+Plug 'hrsh7th/cmp-buffer'                  " Buffer completion source for nvim-cmp
+Plug 'hrsh7th/cmp-nvim-lsp'                " LSP completion source for nvim-cmp
 Plug 'quangnguyen30192/cmp-nvim-ultisnips' " Ultisnips completion source for nvim-cmp
 
 " Basics
@@ -265,6 +266,10 @@ lsp_installer.on_server_ready(function(server)
     server:setup(opts)
     vim.cmd [[ do User LspAttachBuffers ]]
 end)
+
+-- nvim-cmp supports additional completion capabilities
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "cpp", "python", "lua" }, -- one of "all", "language", or a list of languages
