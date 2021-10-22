@@ -43,6 +43,15 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
 
+### Yabai installation
+
+```sh
+$ ln -s "yabai/yabairc" "${HOME}/.yabairc"
+$ ln -s "yabai/skhdrc" "${HOME}/.skhdrc"
+```
+
+Workspace switch is handled [by Mission Control shortcut](https://apple.stackexchange.com/questions/213549/keyboard-shortcuts-for-switching-spaces).
+
 ### Troubleshooting
 
 #### Flickering apps
