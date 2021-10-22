@@ -52,6 +52,8 @@ $ ln -s "yabai/skhdrc" "${HOME}/.skhdrc"
 
 Workspace switch is handled [by Mission Control shortcut](https://apple.stackexchange.com/questions/213549/keyboard-shortcuts-for-switching-spaces).
 
+:information_source: No need to disable *System Integrity Protection* for my needed features to be present.
+
 ### Troubleshooting
 
 #### Flickering apps
