@@ -10,30 +10,30 @@ These are my configuration files. I need to add it to version tracking because I
 
 **Note: Regolith-desktop installation**
 ```sh
-$ sudo add-apt-repository ppa:kgilmer/regolith-stable
-$ sudo apt install regolith-desktop
+sudo add-apt-repository ppa:kgilmer/regolith-stable
+sudo apt install regolith-desktop
 ```
 
 ## Installation
 Install neovim nightly (tested working with NVIM v0.5.0-756-g288f7f855):
 
 ```sh
-$ curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-$ chmod u+x nvim.appimage
-$ mv nvim.appimage /usr/bin/nvim
+curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+chmod u+x nvim.appimage
+mv nvim.appimage /usr/bin/nvim
 ```
 
 Enable Python support in Neovim
 ```sh
-$ pip3 install --user --upgrade neovim
+pip3 install --user --upgrade neovim
 ```
 
 Simply type these commands on a terminal window:
 
 ```sh
-$ git clone https://github.com/mattdibi/dotfiles.git
-$ cd dotfiles/
-$ sh install_dotfiles.sh
+git clone https://github.com/mattdibi/dotfiles.git
+cd dotfiles/
+ln -s nvim "$HOME/.config/nvim"
 ```
 
 ### Plugin management
