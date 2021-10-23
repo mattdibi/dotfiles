@@ -3,7 +3,7 @@ These are my configuration files. I need to add it to version tracking because I
 
 # Linux
 
-## Programs
+## Applications
 - Neovim:  [https://neovim.io/](https://neovim.io/)
 - i3-wm: [https://i3wm.org/](https://i3wm.org/)
 - regolith-desktop: [https://regolith-linux.org/](config/regolith/i3/config) ([Installation tutorial.](https://www.omgubuntu.co.uk/2019/06/install-regolith-linux-i3-gaps-ubuntu))
@@ -54,7 +54,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 # macOS
 
-## Programs
+## Applications
 - Neovim:  [https://neovim.io/](https://neovim.io/)
 - yabai: [https://github.com/koekeishiya/yabai](https://github.com/koekeishiya/yabai)
 - skhd: [https://github.com/koekeishiya/skhd](https://github.com/koekeishiya/skhd)
