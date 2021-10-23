@@ -360,11 +360,6 @@ autocmd Filetype tex inoremap à \`a
 autocmd Filetype tex inoremap ù \`u
 autocmd Filetype tex inoremap ì \`\i\
 
-" Markdown :make command
-" Requirements install pandoc application
-au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.mdwn,*.md  set ft=markdown
-autocmd Filetype markdown set makeprg=pandoc\ %\ --pdf-engine=pdflatex\ -f\ gfm\ -o\ %.pdf
-
 " Run current python file
 autocmd Filetype python map <F2> :!python3 %<CR>
 
