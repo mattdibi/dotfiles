@@ -144,40 +144,7 @@ command! -nargs=* Vterm vsplit | terminal <args>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " todo-comments configuration
-lua << EOF
-require'todo-comments'.setup {
-    signs = false, -- show icons in the signs column
-    -- keywords recognized as todo comments
-    keywords = {
-        FIXME  = { icon = "? ", color = "error", alt = { "BUG",  "ISSUE" } },
-        TODO   = { icon = "? ", color = "info" },
-        HACK   = { icon = "? ", color = "warning" },
-        WARN   = { icon = "? ", color = "warning", alt = { "WARNING", "XXX" } },
-        PERF   = { icon = "? ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-        NOTE   = { icon = "? ", color = "hint", alt = { "INFO" } },
-    },
-    -- highlighting of the line containing the todo comment
-    -- * before: highlights before the keyword (typically comment characters)
-    -- * keyword: highlights of the keyword
-    -- * after: highlights after the keyword (todo text)
-    highlight = {
-        before = "", -- "fg" or "bg" or empty
-        keyword = "bg", -- "fg", "bg", "wide" or empty. (wide is the same as bg, but will also highlight surrounding characters)
-        after = "fg", -- "fg" or "bg" or empty
-        pattern = [[.*<(KEYWORDS)\s*]], -- pattern used for highlightng (vim regex)
-        comments_only = true, -- this applies the pattern only inside comments using `commentstring` option
-    },
-    -- list of named colors where we try to extract the guifg from the
-    -- list of hilight groups or use the hex color if hl not found as a fallback
-    colors = {
-        error = { "LspDiagnosticsDefaultError", "ErrorMsg", "#DC2626" },
-        warning = { "LspDiagnosticsDefaultWarning", "WarningMsg", "#FBBF24" },
-        info = { "LspDiagnosticsDefaultInformation", "#2563EB" },
-        hint = { "LspDiagnosticsDefaultHint", "#10B981" },
-        default = { "Identifier", "#7C3AED" },
-    }
-}
-EOF
+lua require("todo-comments-configuration")
 
 " Indent-blankline configuration
 if &diff
@@ -214,100 +181,18 @@ vnoremap <leader>= <esc><cmd>lua vim.lsp.buf.range_formatting()<cr>
 set completeopt+=menuone,noselect
 set completeopt-=preview
 
-lua << EOF
-  -- Setup nvim-cmp.
-  local cmp = require'cmp'
+lua require("cmp-configuration")
 
-  cmp.setup({
-    snippet = {
-      expand = function(args)
-        vim.fn["UltiSnips#Anon"](args.body)
-      end,
-    },
-    completion = {
-        keyword_length = 2,
-    },
-    sources = {
-      { name = 'nvim_lsp',  max_item_count = 10 },
-      { name = 'ultisnips', max_item_count =  5 },
-      { name = 'buffer',    max_item_count =  5 , keyword_length = 4 },
-      { name = 'path',      max_item_count =  5 },
-    }
-  })
-EOF
-
-lua << EOF
-local lsp_installer = require("nvim-lsp-installer")
-
-lsp_installer.on_server_ready(function(server)
-    local opts = {}
-
-    -- (optional) Customize the options passed to the server
-    -- if server.name == "tsserver" then
-    --     opts.root_dir = function() ... end
-    -- end
-    -- Lua LSP
-    --    if server == "lua" then
-    --        require'lspconfig'[server].setup{
-    --            settings = {
-    --                Lua = {
-    --                    diagnostics = {
-    --                        -- Get the language server to recognize the "ngx" global
-    --                        globals = {'ngx'},
-    --                    }
-    --                }
-    --            }
-    --        }
-    --    else
-    --        require'lspconfig'[server].setup{}
-    --    end
-
-    -- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
-    server:setup(opts)
-    vim.cmd [[ do User LspAttachBuffers ]]
-end)
-
--- nvim-cmp supports additional completion capabilities
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "cpp", "python", "lua" }, -- one of "all", "language", or a list of languages
-  highlight = {
-    enable = true           -- false will disable the whole extension
-  }
-}
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = true,
-    update_in_insert = false,
-  }
-)
-EOF
+" LSP configuration
+lua require("lsp-configuration")
 
 " Telescope configuration
-nnoremap <C-p>      <cmd>Telescope git_files<cr>
+nnoremap <C-p>      <cmd>lua require('telescope-configuration').project_files()<cr>
 nnoremap <Leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <Leader>fb <cmd>Telescope buffers<cr>
 nnoremap <Leader>fh <cmd>Telescope help_tags<cr>
 
-lua << EOF
-local actions = require('telescope.actions')
-require('telescope').setup{
-defaults = {
-    layout_config = {
-        prompt_position = "top",
-    },
-    sorting_strategy = "ascending",
-    mappings = {
-        i = {
-            ["<esc>"] = actions.close
-            },
-        },
-    }
-}
-EOF
+lua require("telescope-configuration")
 
 " Signify configuration
 let g:signify_sign_change = '~'
