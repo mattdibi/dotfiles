@@ -52,7 +52,18 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 - Other informations: [Regolith Compositors](https://regolith-linux.org/docs/customize/compositors/)
 - Solution: **Disable compton**
 
-# Max
+# macOS
+
+## Programs
+- Neovim:  [https://neovim.io/](https://neovim.io/)
+- yabai: [https://github.com/koekeishiya/yabai](https://github.com/koekeishiya/yabai)
+- skhd: [https://github.com/koekeishiya/skhd](https://github.com/koekeishiya/skhd)
+
+### Neovim installation
+
+```sh
+brew install neovim
+```
 
 ### Yabai installation
 
