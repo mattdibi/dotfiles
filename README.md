@@ -33,7 +33,7 @@ Simply type these commands on a terminal window:
 ```sh
 git clone https://github.com/mattdibi/dotfiles.git
 cd dotfiles/
-ln -s nvim "$HOME/.config/nvim"
+ln -s $(pwd)/nvim $HOME/.config/nvim
 ```
 
 ### Plugin management
@@ -103,8 +103,8 @@ Open System Preferences.app and navigate to Security & Privacy, then Privacy, th
 From the `dotfiles` folder
 
 ```sh
-ln -s "yabai/yabairc" "${HOME}/.yabairc"
-ln -s "yabai/skhdrc" "${HOME}/.skhdrc"
+ln -s $(pwd)/yabai/yabairc ${HOME}/.yabairc
+ln -s $(pwd)/yabai/skhdrc ${HOME}/.skhdrc
 ```
 
 Workspace switch is handled [by Mission Control shortcut](https://apple.stackexchange.com/questions/213549/keyboard-shortcuts-for-switching-spaces).
