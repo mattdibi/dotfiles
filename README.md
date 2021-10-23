@@ -101,9 +101,9 @@ $ ln -s "yabai/skhdrc" "${HOME}/.skhdrc"
 Workspace switch is handled [by Mission Control shortcut](https://apple.stackexchange.com/questions/213549/keyboard-shortcuts-for-switching-spaces).
 
 <p align="center">
-<img src="imgs/rasdn.png" alt="Switch space shortcut" width="400"/>
+<img src="docs/imgs/rasdn.png" alt="Switch space shortcut" width="400"/>
 </p>
 
 <p align="center">
-<img src="imgs/gi3ny.png" alt="iTerm2 shortcut" width="400"/>
+<img src="docs/imgs/gi3ny.png" alt="iTerm2 shortcut" width="400"/>
 </p>
