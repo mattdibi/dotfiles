@@ -56,11 +56,35 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 ### Yabai installation
 
+Follow [official instructions](https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)).
+
+```sh
+brew install koekeishiya/formulae/yabai
+# start yabai
+brew services start yabai
+```
+
+Open System Preferences.app and navigate to Security & Privacy, then Privacy, then Accessibility. Click the lock icon at the bottom and enter your password to allow changes to the list. Starting with brew services start yabai will prompt the user to allow yabai accessibility permissions. Check the box next to yabai to allow accessibility permissions.
+
+:information_source: No need to disable *System Integrity Protection* for my needed features to be present.
+
+### skhd installation
+
+Follow [official instructions](https://github.com/koekeishiya/skhd).
+
+```sh
+brew install koekeishiya/formulae/skhd
+# start skhd
+brew services start skhd
+```
+
+Open System Preferences.app and navigate to Security & Privacy, then Privacy, then Accessibility. Click the lock icon at the bottom and enter your password to allow changes to the list. Starting with brew services start skhd will prompt the user to allow skhd accessibility permissions. Check the box next to skhd to allow accessibility permissions.
+
+### Shortcut configuration
+
 ```sh
 $ ln -s "yabai/yabairc" "${HOME}/.yabairc"
 $ ln -s "yabai/skhdrc" "${HOME}/.skhdrc"
 ```
 
 Workspace switch is handled [by Mission Control shortcut](https://apple.stackexchange.com/questions/213549/keyboard-shortcuts-for-switching-spaces).
-
-:information_source: No need to disable *System Integrity Protection* for my needed features to be present.
