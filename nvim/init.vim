@@ -1,3 +1,7 @@
+" References
+" https://github.com/nanotee/nvim-lua-guide
+" https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
+
 " Vim plug
 call plug#begin()
 
