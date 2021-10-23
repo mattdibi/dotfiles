@@ -2,9 +2,9 @@
 call plug#begin()
 
 " Eye-candy plugins
-Plug 'challenger-deep-theme/vim' " Colorscheme
-Plug 'itchyny/lightline.vim'     " Stylish statusline
-Plug 'folke/todo-comments.nvim'  " Highlight and search for todo comments
+Plug 'challenger-deep-theme/vim'           " Colorscheme
+Plug 'itchyny/lightline.vim'               " Stylish statusline
+Plug 'folke/todo-comments.nvim'            " Highlight and search for todo comments
 
 " Visual feedback
 Plug 'markonm/hlyank.vim'                  " Highlight yanked text
@@ -13,16 +13,21 @@ Plug 'lukas-reineke/indent-blankline.nvim' " Indenting guidelines
 Plug 'mhinz/vim-signify'                   " In-editor git diffs
 
 " Navigation
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'          " Fuzzy finder
-Plug 'tpope/vim-vinegar'         " Netwr enchancer
+Plug 'nvim-lua/plenary.nvim'               " Telescope utilities
+Plug 'nvim-telescope/telescope.nvim'       " Fuzzy finder
+Plug 'tpope/vim-vinegar'                   " Netwr enchancer
 
 " Autocompletion
-Plug 'SirVer/ultisnips'                 " Snippets engine
-Plug 'neovim/nvim-lspconfig'            " Nvim LSP configurations
-Plug 'williamboman/nvim-lsp-installer'  " Nvim LSP installation
-Plug 'hrsh7th/nvim-compe'               " Nvim completion engine
-Plug 'nvim-treesitter/nvim-treesitter'  " Improved syntax highlight
+Plug 'SirVer/ultisnips'                    " Snippets engine
+Plug 'neovim/nvim-lspconfig'               " Nvim LSP configurations
+Plug 'williamboman/nvim-lsp-installer'     " Nvim LSP installation
+Plug 'nvim-treesitter/nvim-treesitter'     " Improved syntax highlight
+
+Plug 'hrsh7th/nvim-cmp'                    " Nvim completion engine
+Plug 'hrsh7th/cmp-path'                    " Path completion source for nvim-cmp
+Plug 'hrsh7th/cmp-buffer'                  " Buffer completion source for nvim-cmp
+Plug 'hrsh7th/cmp-nvim-lsp'                " LSP completion source for nvim-cmp
+Plug 'quangnguyen30192/cmp-nvim-ultisnips' " Ultisnips completion source for nvim-cmp
 
 " Basics
 Plug 'tpope/vim-surround'
@@ -207,29 +212,29 @@ vnoremap <leader>= <esc><cmd>lua vim.lsp.buf.range_formatting()<cr>
 
 " Compe configuration
 set completeopt+=menuone,noselect
-set completeopt-=preview " Don't open scratchpad for documentation
-set shortmess+=c
+set completeopt-=preview
 
-let g:compe = {}
-let g:compe.enabled = v:true
-let g:compe.autocomplete = v:true
-let g:compe.debug = v:false
-let g:compe.min_length = 2
-let g:compe.preselect = 'enable'
-let g:compe.throttle_time = 80
-let g:compe.source_timeout = 200
-let g:compe.incomplete_delay = 400
-let g:compe.max_abbr_width = 100
-let g:compe.max_kind_width = 100
-let g:compe.max_menu_width = 100
-let g:compe.documentation = v:true
+lua << EOF
+  -- Setup nvim-cmp.
+  local cmp = require'cmp'
 
-let g:compe.source = {}
-let g:compe.source.path = v:true
-let g:compe.source.buffer = v:true
-let g:compe.source.calc = v:true
-let g:compe.source.nvim_lsp = v:true
-let g:compe.source.ultisnips = v:true
+  cmp.setup({
+    snippet = {
+      expand = function(args)
+        vim.fn["UltiSnips#Anon"](args.body)
+      end,
+    },
+    completion = {
+        keyword_length = 2,
+    },
+    sources = {
+      { name = 'nvim_lsp',  max_item_count = 10 },
+      { name = 'ultisnips', max_item_count =  5 },
+      { name = 'buffer',    max_item_count =  5 , keyword_length = 4 },
+      { name = 'path',      max_item_count =  5 },
+    }
+  })
+EOF
 
 lua << EOF
 local lsp_installer = require("nvim-lsp-installer")
@@ -262,6 +267,10 @@ lsp_installer.on_server_ready(function(server)
     vim.cmd [[ do User LspAttachBuffers ]]
 end)
 
+-- nvim-cmp supports additional completion capabilities
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "cpp", "python", "lua" }, -- one of "all", "language", or a list of languages
   highlight = {
@@ -277,37 +286,28 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 EOF
 
-" FZF configuration
-let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
+" Telescope configuration
+nnoremap <C-p>      <cmd>Telescope git_files<cr>
+nnoremap <Leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <Leader>fb <cmd>Telescope buffers<cr>
+nnoremap <Leader>fh <cmd>Telescope help_tags<cr>
 
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-if has('nvim') || has('patch-8.2.191')
-    let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
-endif
-
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-nnoremap <C-p>      :GFiles<CR>
-nnoremap <Leader>fs :Rg<CR>
-nnoremap <Leader>fb :Buffers<CR>
-nnoremap <Leader>fl :BLines<CR>
+lua << EOF
+local actions = require('telescope.actions')
+require('telescope').setup{
+defaults = {
+    layout_config = {
+        prompt_position = "top",
+    },
+    sorting_strategy = "ascending",
+    mappings = {
+        i = {
+            ["<esc>"] = actions.close
+            },
+        },
+    }
+}
+EOF
 
 " Signify configuration
 let g:signify_sign_change = '~'
@@ -359,11 +359,6 @@ autocmd Filetype tex inoremap ò \`o
 autocmd Filetype tex inoremap à \`a
 autocmd Filetype tex inoremap ù \`u
 autocmd Filetype tex inoremap ì \`\i\
-
-" Markdown :make command
-" Requirements install pandoc application
-au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.mdwn,*.md  set ft=markdown
-autocmd Filetype markdown set makeprg=pandoc\ %\ --pdf-engine=pdflatex\ -f\ gfm\ -o\ %.pdf
 
 " Run current python file
 autocmd Filetype python map <F2> :!python3 %<CR>
