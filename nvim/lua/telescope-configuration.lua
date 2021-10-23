@@ -1,11 +1,14 @@
+-- Telescope configuration
 local actions = require('telescope.actions')
 
 require('telescope').setup{
 defaults = {
+    -- Set prompt position to top
     layout_config = {
         prompt_position = "top",
     },
     sorting_strategy = "ascending",
+    -- Let esc close Telescope
     mappings = {
         i = {
             ["<esc>"] = actions.close
@@ -14,7 +17,7 @@ defaults = {
     }
 }
 
--- Falling back to find_files if git_files can't find a .git directory
+-- project_files(): falling back to find_files if git_files can't find a .git directory
 local M = {}
 
 M.project_files = function()
