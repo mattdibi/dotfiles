@@ -65,6 +65,13 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 brew install neovim
 ```
 
+Configuration installation:
+
+```sh
+cd /path/to/dotfiles
+ln -s nvim "$HOME/.config/nvim"
+```
+
 ### Yabai installation
 
 Follow [official instructions](https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)).
@@ -96,10 +103,8 @@ Open System Preferences.app and navigate to Security & Privacy, then Privacy, th
 From the `dotfiles` folder
 
 ```sh
-ln -s "${HOME}/.yabairc" "yabai/yabairc" 
-```
-```sh
-ln -s "${HOME}/.skhdrc" "yabai/skhdrc" 
+ln -s "yabai/yabairc" "${HOME}/.yabairc"
+ln -s "yabai/skhdrc" "${HOME}/.skhdrc"
 ```
 
 Workspace switch is handled [by Mission Control shortcut](https://apple.stackexchange.com/questions/213549/keyboard-shortcuts-for-switching-spaces).
