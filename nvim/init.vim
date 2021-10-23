@@ -98,6 +98,10 @@ set nojoinspaces      " Prevents inserting two spaces after punctuation on a joi
 set splitright        " Puts new vsplit windows to the right of the current
 set splitbelow        " Puts new split windows to the bottom of the current
 
+" Completion
+set completeopt+=menuone,noselect
+set completeopt-=preview
+
 " Highlight syntax inside Markdown
 let g:markdown_fenced_languages = ['sh', 'python', 'bash', 'yaml']
 
@@ -182,9 +186,6 @@ nnoremap <leader>ao    <cmd>lua vim.lsp.buf.outgoing_calls()<CR>
 vnoremap <leader>= <esc><cmd>lua vim.lsp.buf.range_formatting()<cr>
 
 " Compe configuration
-set completeopt+=menuone,noselect
-set completeopt-=preview
-
 lua require("cmp-configuration")
 
 " LSP configuration
