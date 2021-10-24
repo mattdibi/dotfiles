@@ -50,3 +50,8 @@ RUN nvim --headless +"sleep 10" +qa
 RUN nvim --headless +"silent LspInstall clangd" +"sleep 60" +qa
 
 CMD ["/usr/local/bin/nvim", "."]
+
+# Build with
+# docker build -t dockdevenv --build-arg base_image=[builder image] .
+# Run with
+# docker run -it -v `pwd`:/mnt/volume --workdir=/mnt/volume dockdevenv
