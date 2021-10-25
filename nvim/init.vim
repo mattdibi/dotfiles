@@ -214,7 +214,9 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-nnoremap <C-p>      :GFiles<CR>
+command! Ctrlp execute (len(system('git rev-parse'))) ? ':Files' : ':GFiles'
+nnoremap <C-p>      :Ctrlp<CR>
+
 nnoremap <Leader>fs :Rg<CR>
 nnoremap <Leader>fb :Buffers<CR>
 nnoremap <Leader>fl :BLines<CR>
