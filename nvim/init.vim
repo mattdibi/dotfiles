@@ -214,10 +214,18 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
+" GFiles fallback
 command! Ctrlp execute (len(system('git rev-parse'))) ? ':Files' : ':GFiles'
-nnoremap <C-p>      :Ctrlp<CR>
 
-nnoremap <Leader>fs :Rg<CR>
+" The following example implements GGrep command that
+" works similarly to predefined Ag or Rg using fzf#vim#grep.
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep(
+  \   'git grep --line-number -- '.shellescape(<q-args>), 0,
+  \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+
+nnoremap <C-p>      :Ctrlp<CR>
+nnoremap <Leader>fs :GGrep<CR>
 nnoremap <Leader>fb :Buffers<CR>
 nnoremap <Leader>fl :BLines<CR>
 
