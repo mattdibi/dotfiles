@@ -17,8 +17,8 @@ Plug 'lukas-reineke/indent-blankline.nvim' " Indenting guidelines
 Plug 'mhinz/vim-signify'                   " In-editor git diffs
 
 " Navigation
-Plug 'nvim-lua/plenary.nvim'               " Telescope utilities
-Plug 'nvim-telescope/telescope.nvim'       " Fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'                    " Fuzzy finder
 Plug 'tpope/vim-vinegar'                   " Netwr enchancer
 
 " Autocompletion
@@ -187,13 +187,37 @@ lua require("cmp-configuration")
 " LSP configuration
 lua require("lsp-configuration")
 
-" Telescope configuration
-nnoremap <C-p>      <cmd>lua require('telescope-configuration').project_files()<cr>
-nnoremap <Leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <Leader>fb <cmd>Telescope buffers<cr>
-nnoremap <Leader>fh <cmd>Telescope help_tags<cr>
+" FZF configuration
+let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
 
-lua require("telescope-configuration")
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+if has('nvim') || has('patch-8.2.191')
+    let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
+endif
+
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+nnoremap <C-p>      :GFiles<CR>
+nnoremap <Leader>fs :Rg<CR>
+nnoremap <Leader>fb :Buffers<CR>
+nnoremap <Leader>fl :BLines<CR>
 
 " Signify configuration
 let g:signify_sign_change = '~'
