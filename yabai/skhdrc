@@ -47,10 +47,8 @@ shift + alt - x : yabai -m space --mirror x-axis
 shift + alt - y : yabai -m space --mirror y-axis
 
 # Set insertion point for focused container
-shift + lctrl + alt - h : yabai -m window --insert west
-shift + lctrl + alt - j : yabai -m window --insert south
-shift + lctrl + alt - k : yabai -m window --insert north
-shift + lctrl + alt - l : yabai -m window --insert east
+shift + lctrl + alt - h : yabai -m display --focus prev
+shift + lctrl + alt - l : yabai -m display --focus next
 
 # Float / Unfloat window
 shift + alt - space : \
