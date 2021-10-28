@@ -17,8 +17,8 @@ Plug 'lukas-reineke/indent-blankline.nvim' " Indenting guidelines
 Plug 'mhinz/vim-signify'                   " In-editor git diffs
 
 " Navigation
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'                    " Fuzzy finder
+Plug 'nvim-lua/plenary.nvim'               " Telescope utilities
+Plug 'nvim-telescope/telescope.nvim'       " Fuzzy finder
 Plug 'tpope/vim-vinegar'                   " Netwr enchancer
 
 " Autocompletion
@@ -187,47 +187,13 @@ lua require("cmp-configuration")
 " LSP configuration
 lua require("lsp-configuration")
 
-" FZF configuration
-let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
+" Telescope configuration
+nnoremap <C-p>      <cmd>lua require('telescope-configuration').project_files()<cr>
+nnoremap <Leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <Leader>fb <cmd>Telescope buffers<cr>
+nnoremap <Leader>fh <cmd>Telescope help_tags<cr>
 
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-if has('nvim') || has('patch-8.2.191')
-    let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
-endif
-
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-" GFiles fallback
-command! Ctrlp execute (len(system('git rev-parse'))) ? ':Files' : ':GFiles'
-
-" The following example implements GGrep command that
-" works similarly to predefined Ag or Rg using fzf#vim#grep.
-command! -bang -nargs=* GGrep
-  \ call fzf#vim#grep(
-  \   'git grep --line-number -- '.shellescape(<q-args>), 0,
-  \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
-
-nnoremap <C-p>      :Ctrlp<CR>
-nnoremap <Leader>fs :GGrep<CR>
-nnoremap <Leader>fb :Buffers<CR>
-nnoremap <Leader>fl :BLines<CR>
+lua require("telescope-configuration")
 
 " Signify configuration
 let g:signify_sign_change = '~'
