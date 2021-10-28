@@ -1,3 +1,7 @@
+# Open iTerm2  and Chrome with shortcuts
+alt - return : open -a iTerm
+alt - i : open -a Chrome
+
 # Close window
 shift + alt - q : yabai -m window --close
 
