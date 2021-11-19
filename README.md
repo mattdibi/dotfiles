@@ -3,37 +3,37 @@ These are my configuration files. I need to add it to version tracking because I
 
 # Linux
 
-## Programs
+## Applications
 - Neovim:  [https://neovim.io/](https://neovim.io/)
 - i3-wm: [https://i3wm.org/](https://i3wm.org/)
 - regolith-desktop: [https://regolith-linux.org/](config/regolith/i3/config) ([Installation tutorial.](https://www.omgubuntu.co.uk/2019/06/install-regolith-linux-i3-gaps-ubuntu))
 
 **Note: Regolith-desktop installation**
 ```sh
-$ sudo add-apt-repository ppa:kgilmer/regolith-stable
-$ sudo apt install regolith-desktop
+sudo add-apt-repository ppa:kgilmer/regolith-stable
+sudo apt install regolith-desktop
 ```
 
 ## Installation
 Install neovim nightly (tested working with NVIM v0.5.0-756-g288f7f855):
 
 ```sh
-$ curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-$ chmod u+x nvim.appimage
-$ mv nvim.appimage /usr/bin/nvim
+curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+chmod u+x nvim.appimage
+mv nvim.appimage /usr/bin/nvim
 ```
 
 Enable Python support in Neovim
 ```sh
-$ pip3 install --user --upgrade neovim
+pip3 install --user --upgrade neovim
 ```
 
 Simply type these commands on a terminal window:
 
 ```sh
-$ git clone https://github.com/mattdibi/dotfiles.git
-$ cd dotfiles/
-$ sh install_dotfiles.sh
+git clone https://github.com/mattdibi/dotfiles.git
+cd dotfiles/
+ln -s $(pwd)/nvim $HOME/.config/nvim
 ```
 
 ### Plugin management
@@ -54,7 +54,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 # macOS
 
-## Programs
+## Applications
 - Neovim:  [https://neovim.io/](https://neovim.io/)
 - yabai: [https://github.com/koekeishiya/yabai](https://github.com/koekeishiya/yabai)
 - skhd: [https://github.com/koekeishiya/skhd](https://github.com/koekeishiya/skhd)
@@ -63,6 +63,20 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 ```sh
 brew install neovim
+```
+
+Configuration installation:
+
+```sh
+cd /path/to/dotfiles
+ln -s $(pwd)/nvim "$HOME/.config/nvim"
+```
+
+Vim-Plug manual installation
+
+```sh
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
 
 ### Yabai installation
@@ -93,17 +107,19 @@ Open System Preferences.app and navigate to Security & Privacy, then Privacy, th
 
 ### Shortcut configuration
 
+From the `dotfiles` folder
+
 ```sh
-$ ln -s "yabai/yabairc" "${HOME}/.yabairc"
-$ ln -s "yabai/skhdrc" "${HOME}/.skhdrc"
+ln -s $(pwd)/yabai/yabairc ${HOME}/.yabairc
+ln -s $(pwd)/yabai/skhdrc ${HOME}/.skhdrc
 ```
 
 Workspace switch is handled [by Mission Control shortcut](https://apple.stackexchange.com/questions/213549/keyboard-shortcuts-for-switching-spaces).
 
 <p align="center">
-<img src="imgs/rasdn.png" alt="Switch space shortcut" width="400"/>
+<img src="docs/imgs/rasdn.png" alt="Switch space shortcut" width="400"/>
 </p>
 
 <p align="center">
-<img src="imgs/gi3ny.png" alt="iTerm2 shortcut" width="400"/>
+<img src="docs/imgs/gi3ny.png" alt="iTerm2 shortcut" width="400"/>
 </p>

@@ -46,40 +46,20 @@ if ! [[ "$target" = "all" || "$target" = "i3" || "$target" = "zsh" || "$target" 
     exit 1
 fi
 
-# Checking requirements
-command -v git >/dev/null 2>&1 || { echo >&2 "I require git but it's not installed.  Aborting."; exit 1; }
-command -v i3  >/dev/null 2>&1 || { echo >&2 "WARNING: i3-wm is not installed."; }
-command -v vim >/dev/null 2>&1 || { echo >&2 "Vim is not installed.  Aborting."; exit 1; }
-
-if ! [ -d  ~/.config/nvim/undodir ]; then
-  echo "Creating ~/.config/nvim/undodir directory..."
-  mkdir ~/.config/nvim/undodir
-fi
-echo "Undodir: OK"
-
-if ! [ -d  ~/.config/regolith/i3 ]; then
-  echo "Creating ~/.i3 directory..."
-  mkdir -p ~/.config/regolith/i3
-fi
-echo "i3-wm: OK"
-
 # Dotfiles installation
 if [[ "$target" = "vim" ||  "$target" = "all" ]]; then
-    echo "Installing ~/.config/nvim/init.vim"
-    mkdir -p ~/.config/nvim/
-    ln -s $("pwd")/config.vim ~/.config/nvim/init.vim
-    echo "Installing custom snippets"
-    ln -s $("pwd")/custom_snippets/ ~/.config/nvim/
+    echo "Installing ~/.config/nvim"
+    ln -s $("pwd")/nvim ~/.config/nvim/
 fi
 
 if [[ "$target" = "i3" ||  "$target" = "all" ]]; then
     echo "Installing ~/.config/regolith/i3/config"
-    cat config.i3       > ~/.config/regolith/i3/config
+    ln -s $("pwd")/i3 ~/.config/regolith/i3/
 fi
 
 if [[ "$target" = "zsh" ||  "$target" = "all" ]]; then
     echo "Installing ~/.zshrc"
-    cat config.zsh      > ~/.zshrc
+    ln -s $("pwd")/zsh/zhsrc ~/.zshrc
 fi
 
 echo ""

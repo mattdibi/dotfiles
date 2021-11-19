@@ -1,6 +1,3 @@
-# Ignore swap files
-*.swp
-
 # Ignore files created by OS when symlinking the nvim directory
 nvim/plugged
 nvim/undodir
