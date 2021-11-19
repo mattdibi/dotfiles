@@ -36,6 +36,7 @@ Plug 'quangnguyen30192/cmp-nvim-ultisnips' " Ultisnips completion source for nvi
 " Basics
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
 
 " Initialize plugin system
 call plug#end()
@@ -153,6 +154,10 @@ command! -nargs=* Vterm vsplit | terminal <args>
 
 " todo-comments configuration
 lua require("todo-comments-configuration")
+
+" vim-commentary configuration
+" set comment style
+autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
 
 " Indent-blankline configuration
 if &diff
