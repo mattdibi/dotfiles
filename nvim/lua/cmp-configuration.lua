@@ -12,7 +12,7 @@ cmp.setup({
     },
     sources = {
         { name = 'nvim_lsp',  max_item_count = 10 },
-        { name = 'ultisnips', max_item_count =  5 , keyword_length = 1 },
+        { name = 'ultisnips', max_item_count =  5 },
         { name = 'buffer',    max_item_count =  5 , keyword_length = 4 },
         { name = 'path',      max_item_count =  5 },
     }
