@@ -1,17 +1,12 @@
 lua require('plugins')
+lua require('settings')
+
 
 if has('nvim') || has('termguicolors')
   set termguicolors
 endif
 
 colorscheme challenger_deep
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => SETTINGS
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set undofile          " Maintain undo history between sessions
-set undodir=~/.config/nvim/undodir " Undo history directory
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => MAPPINGS
