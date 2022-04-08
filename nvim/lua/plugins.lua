@@ -6,4 +6,5 @@ return require('packer').startup(function()
 
   -- Eye-candy plugins
   use 'challenger-deep-theme/vim'
+
 end)

@@ -16,6 +16,11 @@ vim.opt.updatetime  = 250    -- Update time 250ms
 
 vim.opt.backspace   = "indent,eol,start" -- backspace works on every char in insert mode
 
+-- Sidebar
+vim.opt.number      = true   -- Line number on the left
+vim.opt.signcolumn  = 'yes'  -- Keep 1 column for info
+vim.opt.relativenumber = true   -- Line numbers are relative to current line
+
 -- Backup files
 vim.opt.swapfile    = false  -- Do not create swap files
 vim.opt.undofile    = true   -- Create undofiles
