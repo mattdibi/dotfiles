@@ -39,5 +39,3 @@ vim.opt.tabstop     = 4      -- An indentation every four columns
 vim.opt.joinspaces  = false  -- Prevents inserting two spaces after punctuation on a join (J)
 vim.opt.splitright  = true   -- Puts new vsplit windows to the right of the current
 vim.opt.splitbelow  = true   -- Puts new split windows to the bottom of the current
-vim.opt.eol         = false  -- Show if there's no eol char
-vim.opt.showbreak   = '↪'    -- Character to show when line is broken
