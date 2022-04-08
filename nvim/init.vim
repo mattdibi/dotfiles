@@ -1,5 +1,6 @@
 lua require('plugins')
 lua require('settings')
+lua require('indent-blankline')
 
 
 if has('nvim') || has('termguicolors')

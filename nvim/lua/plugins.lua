@@ -7,6 +7,12 @@ return require('packer').startup(function()
   -- Eye-candy plugins
   use 'challenger-deep-theme/vim'
 
+  -- Visual feedback
+  use 'markonm/hlyank.vim'
+  use 'ntpeters/vim-better-whitespace'
+  use 'lukas-reineke/indent-blankline.nvim'
+  use 'mhinz/vim-signify'
+
   -- Basics
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
