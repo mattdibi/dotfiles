@@ -7,4 +7,9 @@ return require('packer').startup(function()
   -- Eye-candy plugins
   use 'challenger-deep-theme/vim'
 
+  -- Basics
+  use 'tpope/vim-surround'
+  use 'tpope/vim-repeat'
+  use 'tpope/vim-vinegar'
+  use 'tpope/vim-commentary'
 end)
