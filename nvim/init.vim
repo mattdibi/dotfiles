@@ -42,3 +42,17 @@ nnoremap <Right> :vertical resize +5<CR>
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
 vnoremap > >gv
+
+" Function row mode toggle hotkeys
+" F3: Toggle list char
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
+nnoremap <F3> :set list!<CR>
+
+" Smart terminal navigation
+tnoremap <Esc> <C-\><C-n>
+" Send <Esc> to the underlying program in terminal mode
+" mnemonic: verbatim esc
+tnoremap <C-v><Esc> <Esc>
+" Open terminal in split
+command! -nargs=* Sterm split | terminal <args>
+command! -nargs=* Vterm vsplit | terminal <args>
