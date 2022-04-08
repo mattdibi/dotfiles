@@ -122,3 +122,16 @@ prompt_context() {
 
 # st-term color fix
 export TERM=xterm-256color
+
+# AWS download method
+aws_down_folder() {
+    # $1: s3 urls
+    # $2: target folder (absolute path)
+    docker run --rm -it -v ~/.aws:/root/.aws -v $2:/root/volume/target amazon/aws-cli s3 cp $1 /root/volume/target --recursive
+}
+
+# Enable Ctrl-x-e to edit command line
+autoload -U edit-command-line
+# Vi style:
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
