@@ -13,9 +13,13 @@ return require('packer').startup(function()
   use 'lukas-reineke/indent-blankline.nvim'
   use 'mhinz/vim-signify'
 
+  -- Navigation
+  use 'nvim-lua/plenary.nvim'
+  use 'nvim-telescope/telescope.nvim'
+  use 'tpope/vim-vinegar'
+
   -- Basics
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
-  use 'tpope/vim-vinegar'
   use 'tpope/vim-commentary'
 end)
