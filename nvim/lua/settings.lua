@@ -1,7 +1,5 @@
 HOME = os.getenv("HOME")
 
-vim.g.mapleader = '<Space>'
-
 -- Common
 vim.opt.showcmd     = true   -- Show typed commands
 vim.opt.showmatch   = true   -- Show matching parenthesis
