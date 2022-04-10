@@ -1,5 +1,6 @@
 lua require('plugins')
 lua require('settings')
+lua require('mappings')
 lua require('indent-blankline')
 lua require('telescope-conf')
 
@@ -18,26 +19,6 @@ colorscheme challenger_deep
 " <Space> and \ are now leader keys, this way
 " something will pop up in the showcmd corner.
 map <Space> <leader>
-
-" This mapping makes Y work from the cursor to the end of line
-" (which is more logical, but not Vi-compatible).
-map Y y$
-
-" Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
-" Smart resize
-nnoremap <Up>    :resize +5<CR>
-nnoremap <Down>  :resize -5<CR>
-nnoremap <Left>  :vertical resize -5<CR>
-nnoremap <Right> :vertical resize +5<CR>
-
-" Visual shifting (does not exit Visual mode)
-vnoremap < <gv
-vnoremap > >gv
 
 " Function row mode toggle hotkeys
 " F3: Toggle list char
