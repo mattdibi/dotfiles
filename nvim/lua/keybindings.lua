@@ -1,5 +1,9 @@
 local map = vim.api.nvim_set_keymap
 
+-- <Space> and \ are now leader keys, this way
+-- something will pop up in the showcmd corner.
+map('', '<Space>', '<leader>', {})
+
 -- This mapping makes Y work from the cursor to the end of line
 -- (which is more logical, but not Vi-compatible).
 map('', 'Y', 'y$', {})

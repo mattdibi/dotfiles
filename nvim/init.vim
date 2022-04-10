@@ -14,10 +14,6 @@ colorscheme challenger_deep
 " => KEYBINDINGS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" <Space> and \ are now leader keys, this way
-" something will pop up in the showcmd corner.
-map <Space> <leader>
-
 " Function row mode toggle hotkeys
 " F3: Toggle list char
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
