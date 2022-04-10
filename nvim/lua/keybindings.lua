@@ -19,3 +19,9 @@ map('n', '<Right>', ':vertical resize +5<CR>', { noremap = true })
 -- Visual shifting (does not exit Visual mode)
 map('v', '<', '<gv', { noremap = true })
 map('v', '>', '>gv', { noremap = true })
+
+-- Smart terminal navigation
+map('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
+-- Send <Esc> to the underlying program in terminal mode
+-- mnemonic: verbatim esc
+map('t', '<C-v><Esc>', '<Esc>', { noremap = true })

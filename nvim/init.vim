@@ -1,6 +1,6 @@
 lua require('plugins')
 lua require('settings')
-lua require('mappings')
+lua require('keybindings')
 lua require('indent-blankline')
 lua require('telescope-conf')
 
@@ -11,10 +11,8 @@ endif
 colorscheme challenger_deep
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => MAPPINGS
+" => KEYBINDINGS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" TODO: When 0.7.0 is available swith to lua
 
 " <Space> and \ are now leader keys, this way
 " something will pop up in the showcmd corner.
@@ -25,11 +23,6 @@ map <Space> <leader>
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 nnoremap <F3> :set list!<CR>
 
-" Smart terminal navigation
-tnoremap <Esc> <C-\><C-n>
-" Send <Esc> to the underlying program in terminal mode
-" mnemonic: verbatim esc
-tnoremap <C-v><Esc> <Esc>
 " Open terminal in split
 command! -nargs=* Sterm split | terminal <args>
 command! -nargs=* Vterm vsplit | terminal <args>
