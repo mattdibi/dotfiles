@@ -19,6 +19,14 @@ colorscheme challenger_deep
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 nnoremap <F3> :set list!<CR>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => FUNCTIONS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Jump to alternate C++ file
+command A  e  %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,
+command AV vs %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,
+
 " Open terminal in split
 command! -nargs=* Sterm split | terminal <args>
 command! -nargs=* Vterm vsplit | terminal <args>
