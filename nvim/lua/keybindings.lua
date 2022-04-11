@@ -30,6 +30,16 @@ map('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
 -- mnemonic: verbatim esc
 map('t', '<C-v><Esc>', '<Esc>', { noremap = true })
 
+-- F3: Toggle list char
+vim.opt.listchars = {
+  eol = '¬',
+  tab = '>·',
+  extends = '>',
+  precedes = '<',
+  trail = '~'
+}
+map('n', '<F3>', ':set list!<CR>', { noremap = true })
+
 -- Telescope keybindings
 map('n', '<C-p>',  [[<Cmd>lua require('telescope-conf').project_files()<CR>]], { noremap = true})
 map('n', '<leader>fg',  [[<Cmd>Telescope live_grep<CR>]], { noremap = true})

@@ -11,15 +11,6 @@ endif
 colorscheme challenger_deep
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => KEYBINDINGS
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Function row mode toggle hotkeys
-" F3: Toggle list char
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
-nnoremap <F3> :set list!<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => FUNCTIONS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
