@@ -22,9 +22,3 @@ nnoremap <F3> :set list!<CR>
 " Open terminal in split
 command! -nargs=* Sterm split | terminal <args>
 command! -nargs=* Vterm vsplit | terminal <args>
-
-" Telescope configuration
-nnoremap <C-p>      <cmd>lua require('telescope-conf').project_files()<cr>
-nnoremap <Leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <Leader>fb <cmd>Telescope buffers<cr>
-nnoremap <Leader>fh <cmd>Telescope help_tags<cr>

@@ -29,3 +29,9 @@ map('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
 -- Send <Esc> to the underlying program in terminal mode
 -- mnemonic: verbatim esc
 map('t', '<C-v><Esc>', '<Esc>', { noremap = true })
+
+-- Telescope keybindings
+map('n', '<C-p>',  [[<Cmd>lua require('telescope-conf').project_files()<CR>]], { noremap = true})
+map('n', '<leader>fg',  [[<Cmd>Telescope live_grep<CR>]], { noremap = true})
+map('n', '<leader>fb',  [[<Cmd>Telescope buffers<CR>]], { noremap = true})
+map('n', '<leader>fh',  [[<Cmd>Telescope help_tags<CR>]], { noremap = true})
