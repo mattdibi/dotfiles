@@ -6,6 +6,7 @@ return require('packer').startup(function()
 
   -- Eye-candy plugins
   use 'challenger-deep-theme/vim'
+  use 'nvim-lualine/lualine.nvim'
 
   -- Visual feedback
   use 'markonm/hlyank.vim'
