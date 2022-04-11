@@ -1,6 +1,9 @@
+" Basic configuration
 lua require('plugins')
 lua require('settings')
 lua require('keybindings')
+
+" Plugin configuration
 lua require('indent-blankline-conf')
 lua require('telescope-conf')
 lua require('lualine-conf')
