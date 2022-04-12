@@ -13,6 +13,7 @@ return require('packer').startup(function()
   use 'ntpeters/vim-better-whitespace'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'lewis6991/gitsigns.nvim'
+  use 'nvim-treesitter/nvim-treesitter'
 
   -- Navigation
   use 'nvim-lua/plenary.nvim'
