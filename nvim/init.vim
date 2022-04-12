@@ -8,10 +8,6 @@ lua require('indent-blankline-conf')
 lua require('telescope-conf')
 lua require('lualine-conf')
 
-if has('nvim') || has('termguicolors')
-  set termguicolors
-endif
-
 colorscheme challenger_deep
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
