@@ -4,10 +4,6 @@ local map = vim.api.nvim_set_keymap
 -- something will pop up in the showcmd corner.
 map('', '<Space>', '<leader>', {})
 
--- This mapping makes Y work from the cursor to the end of line
--- (which is more logical, but not Vi-compatible).
-map('', 'Y', 'y$', {})
-
 -- Smart way to move between windows
 map('', '<C-j>', '<C-W>j', {})
 map('', '<C-k>', '<C-W>k', {})
