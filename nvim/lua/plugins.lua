@@ -9,7 +9,6 @@ return require('packer').startup(function()
   use 'nvim-lualine/lualine.nvim'
 
   -- Visual feedback
-  use 'markonm/hlyank.vim'
   use 'ntpeters/vim-better-whitespace'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'lewis6991/gitsigns.nvim'
