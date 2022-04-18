@@ -5,6 +5,7 @@ require('keybindings')
 require('commands')
 
 -- Plugin configuration
+require('treesitter-conf')
 require('indent-blankline-conf')
 require('telescope-conf')
 require('lualine-conf')
