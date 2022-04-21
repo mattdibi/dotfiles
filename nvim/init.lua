@@ -25,3 +25,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.cmd [[
     colorscheme challenger_deep
 ]]
+
+-- Terminal visual tweaks:
+-- enter insert mode when switching to terminal
+-- close terminal buffer on process exit
+vim.cmd([[
+  autocmd TermOpen * setlocal listchars= nonumber norelativenumber nocursorline
+  autocmd TermOpen * startinsert
+  autocmd BufLeave term://* stopinsert
+]])
