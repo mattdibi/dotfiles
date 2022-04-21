@@ -26,11 +26,29 @@ vim.cmd [[
     colorscheme challenger_deep
 ]]
 
--- Terminal visual tweaks:
--- enter insert mode when switching to terminal
--- close terminal buffer on process exit
-vim.cmd([[
-  autocmd TermOpen * setlocal listchars= nonumber norelativenumber nocursorline
-  autocmd TermOpen * startinsert
-  autocmd BufLeave term://* stopinsert
-]])
+-- Autocommands
+--- This function is taken from https://github.com/norcalli/nvim_utils
+function nvim_create_augroups(definitions)
+    for group_name, definition in pairs(definitions) do
+        vim.api.nvim_command('augroup '..group_name)
+        vim.api.nvim_command('autocmd!')
+        for _, def in ipairs(definition) do
+            local command = table.concat(vim.tbl_flatten{'autocmd', def}, ' ')
+            vim.api.nvim_command(command)
+        end
+        vim.api.nvim_command('augroup END')
+    end
+end
+
+local autocmds = {
+    terminal_job = {
+        { "TermOpen", "*", "startinsert" };
+        { "TermOpen", "*", "setlocal listchars= nonumber norelativenumber" };
+    };
+    restore_cursor = {
+        { 'BufRead', '*', [[call setpos(".", getpos("'\""))]] };
+    };
+}
+
+nvim_create_augroups(autocmds)
+-- Autocommands END
