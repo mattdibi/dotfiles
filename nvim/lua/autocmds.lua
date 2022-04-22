@@ -21,13 +21,13 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 -- Terminal visual tweaks
-local termGrp = vim.api.nvim_create_augroup("terminal_job", { clear = true })
+local terminal_group = vim.api.nvim_create_augroup("terminal_job", { clear = true })
 vim.api.nvim_create_autocmd("TermOpen", {
     command = "startinsert",
-    group = termGrp,
+    group = terminal_group,
 })
 vim.api.nvim_create_autocmd("TermOpen", {
     command = "setlocal listchars= nonumber norelativenumber",
-    group = termGrp,
+    group = terminal_group,
 })
 
