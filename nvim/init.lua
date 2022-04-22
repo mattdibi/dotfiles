@@ -21,6 +21,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     pattern = '*',
 })
 
+-- Go to last loc when opening a buffer
+vim.api.nvim_create_autocmd(
+  "BufRead",
+  {command = [[call setpos(".", getpos("'\""))]]}
+)
+
 -- Coloscheme
 vim.cmd [[
     colorscheme challenger_deep
@@ -44,9 +50,6 @@ local autocmds = {
     terminal_job = {
         { "TermOpen", "*", "startinsert" };
         { "TermOpen", "*", "setlocal listchars= nonumber norelativenumber" };
-    };
-    restore_cursor = {
-        { 'BufRead', '*', [[call setpos(".", getpos("'\""))]] };
     };
 }
 
