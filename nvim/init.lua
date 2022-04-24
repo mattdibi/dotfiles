@@ -7,6 +7,7 @@ require('autocmds')
 
 -- Plugin configuration
 require('treesitter-conf')
+require('nvim-cmp-conf')
 require('command-center-conf')
 require('indent-blankline-conf')
 require('telescope-conf')

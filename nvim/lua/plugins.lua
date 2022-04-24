@@ -14,6 +14,11 @@ return require('packer').startup(function()
   use 'lewis6991/gitsigns.nvim'
   use 'nvim-treesitter/nvim-treesitter'
 
+  -- Autocompletion
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-buffer'
+
   -- Navigation
   use {
       "nvim-telescope/telescope.nvim",
