@@ -29,3 +29,22 @@ command_center.add({
         cmd = "<CMD>StripWhitespace<CR>",
     }
 })
+
+-- Command center Telescope integration
+local telescope = require("telescope")
+
+telescope.setup {
+  extensions = {
+    command_center = {
+      components = {
+        command_center.component.DESCRIPTION,
+        command_center.component.KEYBINDINGS,
+        -- command_center.component.COMMAND,
+      },
+      seperator = "  │  ",
+      auto_replace_desc_with_cmd = false,
+    }
+  }
+}
+
+telescope.load_extension('command_center')
