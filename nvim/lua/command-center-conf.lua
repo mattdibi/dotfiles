@@ -17,6 +17,10 @@ command_center.add({
         cmd = "<CMD>Telescope current_buffer_fuzzy_find<CR>",
         keybindings = { "n", "<leader>fl", noremap },
     }, {
+        description = "Find string in project",
+        cmd = "<CMD>Telescope live_grep<CR>",
+        keybindings = { "n", "<leader>fg", noremap },
+    }, {
         description = "Find hidden files",
         cmd = "<CMD>Telescope find_files hidden=true<CR>",
     }, {
