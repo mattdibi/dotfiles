@@ -20,6 +20,10 @@ return require('packer').startup(function()
       requires = { "nvim-lua/plenary.nvim" }
   }
   use 'tpope/vim-vinegar'
+  use {
+      "gfeiyou/command-center.nvim",
+      requires = { "nvim-telescope/telescope.nvim" }
+  }
 
   -- Basics
   use 'tpope/vim-surround'

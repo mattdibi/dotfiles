@@ -35,9 +35,3 @@ vim.opt.listchars = {
   trail = '~'
 }
 map('n', '<F3>', ':set list!<CR>', { noremap = true })
-
--- Telescope keybindings
-map('n', '<C-p>',  [[<Cmd>lua require('telescope-conf').project_files()<CR>]], { noremap = true})
-map('n', '<leader>fg',  [[<Cmd>Telescope live_grep<CR>]], { noremap = true})
-map('n', '<leader>fb',  [[<Cmd>Telescope buffers<CR>]], { noremap = true})
-map('n', '<leader>fh',  [[<Cmd>Telescope help_tags<CR>]], { noremap = true})

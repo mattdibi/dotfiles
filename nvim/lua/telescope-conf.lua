@@ -17,6 +17,9 @@ defaults = {
     }
 }
 
+-- Add command center extension
+require("telescope").load_extension('command_center')
+
 -- project_files(): falling back to find_files if git_files can't find a .git directory
 local M = {}
 
