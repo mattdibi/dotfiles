@@ -27,7 +27,11 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'clangd' }
+--
+-- For reference see:
+--  https://github.com/SmiteshP/Dotfiles/blob/master/.config/nvim/lua/config/lsp.lua
+--  https://github.com/williamboman/nvim-lsp-installer
+local servers = { 'clangd' , 'pyright'}
 -- nvim-cmp configuration
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
