@@ -15,8 +15,10 @@ return require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter'
 
   -- Navigation
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-telescope/telescope.nvim'
+  use {
+      "nvim-telescope/telescope.nvim",
+      requires = { "nvim-lua/plenary.nvim" }
+  }
   use 'tpope/vim-vinegar'
 
   -- Basics
