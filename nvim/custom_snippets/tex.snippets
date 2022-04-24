@@ -1,0 +1,54 @@
+priority -50
+
+snippet enum "Enumerate" b
+\begin{enumerate}
+	\item $0
+\end{enumerate}
+endsnippet
+
+snippet item "Itemize" b
+\begin{itemize}
+	\item $0
+\end{itemize}
+endsnippet
+
+snippet bold "Bold"
+\textbf{${1:${VISUAL}}}
+endsnippet
+
+snippet ital "Italic"
+\textit{${1:${VISUAL}}}
+endsnippet
+
+snippet verb "Verbatim"
+\verb|${1:${VISUAL}}|
+endsnippet
+
+snippet fig "Figure environment" b
+\begin{figure}[${2:h!}]
+\centering
+\includegraphics[width=${3:0.8}\textwidth]{${4:filename.ext}}
+\caption{${4/(\w+)\.\w+/\u$1/}$0}
+\label{fig:${4/(\w+)\.\w+/$1/}}
+\end{figure}
+endsnippet
+
+snippet sec "Section"
+\section{${0:${VISUAL:section name}}}
+endsnippet
+
+snippet sub "Subsection"
+\subsection{${0:${VISUAL:subsection name}}}
+endsnippet
+
+snippet ssub "Subsubsection"
+\subsubsection{${0:${VISUAL:subsubsection name}}}
+endsnippet
+
+snippet lst "Lstlisting"
+\begin{lstlisting}[language=${1:something}]
+${0:${VISUAL}}
+\end{lstlisting}
+endsnippet
+
+# vim:ft=snippets:

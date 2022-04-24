@@ -15,9 +15,11 @@ return require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter'
 
   -- Autocompletion
+  use 'SirVer/ultisnips'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-buffer'
+  use 'quangnguyen30192/cmp-nvim-ultisnips'
 
   -- Navigation
   use {

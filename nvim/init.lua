@@ -18,3 +18,11 @@ require('gitsigns-conf')
 vim.cmd [[
     colorscheme challenger_deep
 ]]
+
+vim.cmd [[
+    let g:UltiSnipsExpandTrigger = "<tab>"
+    let g:UltiSnipsJumpForwardTrigger="<tab>"
+    let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+    let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/custom_snippets/']
+    let g:UltiSnipsEditSplit="vertical"
+]]

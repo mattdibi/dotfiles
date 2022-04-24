@@ -1,0 +1,69 @@
+priority -50
+
+snippet cmake "cmake (cmake)"
+cmake_minimum_required(VERSION 3.6)
+project( ${1:ProjectName} )
+
+# Generate compilation database (needed for autocompletion)
+set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
+
+# Disable in-source builds to prevent source tree corruption.
+if(" ${CMAKE_SOURCE_DIR}" STREQUAL " ${CMAKE_BINARY_DIR}")
+    message(FATAL_ERROR "
+    FATAL: In-source builds are not allowed.
+    You should create separate directory for build files.
+    ")
+endif()
+
+set( CMAKE_CXX_STANDARD 14 )
+set( CMAKE_CXX_STANDARD_REQUIRED ON )
+set( CMAKE_CXX_EXTENSIONS OFF )
+
+set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall" )
+set( CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -ggdb -fno-omit-frame-pointer" )
+set( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2" )
+
+if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+    message(STATUS "Setting build type to 'Release' as no build type was specified")
+    set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose the build type (Debug/Release)" FORCE)
+endif()
+
+add_executable( $1 main.cpp )
+endsnippet
+
+snippet cmake_opencv "cmake with opencv (cmake)"
+cmake_minimum_required(VERSION 3.6)
+project( ${1:ProjectName} )
+
+# Generate compilation database (needed for autocompletion)
+set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
+
+# Disable in-source builds to prevent source tree corruption.
+if(" ${CMAKE_SOURCE_DIR}" STREQUAL " ${CMAKE_BINARY_DIR}")
+    message(FATAL_ERROR "
+    FATAL: In-source builds are not allowed.
+    You should create separate directory for build files.
+    ")
+endif()
+
+set( CMAKE_CXX_STANDARD 14 )
+set( CMAKE_CXX_STANDARD_REQUIRED ON )
+set( CMAKE_CXX_EXTENSIONS OFF )
+
+set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall" )
+set( CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -ggdb -fno-omit-frame-pointer" )
+set( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2" )
+
+if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+    message(STATUS "Setting build type to 'Release' as no build type was specified")
+    set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose the build type (Debug/Release)" FORCE)
+endif()
+
+find_package( OpenCV REQUIRED )
+
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+add_executable( $1 main.cpp )
+target_link_libraries( $1 ${OpenCV_LIBS} )
+endsnippet
+
+# vim:ft=snippets:
