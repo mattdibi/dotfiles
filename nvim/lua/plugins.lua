@@ -21,6 +21,9 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-buffer'
   use 'quangnguyen30192/cmp-nvim-ultisnips'
 
+  use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/cmp-nvim-lsp'
+
   -- Navigation
   use {
       "nvim-telescope/telescope.nvim",

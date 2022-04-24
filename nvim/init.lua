@@ -13,6 +13,7 @@ require('indent-blankline-conf')
 require('telescope-conf')
 require('lualine-conf')
 require('gitsigns-conf')
+require('lsp-config-conf')
 
 -- Coloscheme
 vim.cmd [[
