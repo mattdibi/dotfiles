@@ -91,7 +91,7 @@ telescope.setup {
         command_center.component.KEYBINDINGS,
         -- command_center.component.COMMAND,
       },
-      seperator = "  │  ",
+      separator = "  │  ",
       auto_replace_desc_with_cmd = false,
     }
   }
