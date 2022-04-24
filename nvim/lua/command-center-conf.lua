@@ -28,6 +28,10 @@ command_center.add({
         cmd = "<CMD>Telescope help_tags<CR>",
         keybindings = { "n", "<leader>fh", noremap },
     }, {
+    -- LSP
+        description = "Get LSP log",
+        cmd = "<CMD>lua vim.cmd('e'..vim.lsp.get_log_path())<CR>",
+    }, {
     -- Functions
         description = "Strip trailing whitespaces",
         cmd = "<CMD>StripWhitespace<CR>",
