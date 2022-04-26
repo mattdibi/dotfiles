@@ -8,18 +8,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     pattern = '*',
 })
 
--- Go to last loc when opening a buffer
-vim.api.nvim_create_autocmd("BufReadPost", {
-    callback = function()
-        -- Go to the last known cursor position
-        local lastline = vim.fn.line('\'"')
-        local filetype = vim.bo.filetype:match("commit")
-        if lastline >= 1 and lastline <= vim.fn.line("$") and filetype ~= "commit" then
-            vim.cmd("normal " .. lastline .. "gg")
-        end
-    end,
-})
-
 -- Fix text highligh for Jenkinsfiles
 vim.api.nvim_create_autocmd( "BufEnter", {
     pattern = {"Jenkinsfile"},
