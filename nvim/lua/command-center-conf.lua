@@ -6,7 +6,7 @@ command_center.add({
     {
         description = "[Comm] Open command center",
         cmd = "<CMD>Telescope command_center<CR>",
-        keybindings = { "n", "<leader>fc", noremap },
+        keybindings = { "n", "π", noremap }, -- Alt+P on Mac
     },  {
     -- Telescope finders
         description = "[Find] Find project files",
