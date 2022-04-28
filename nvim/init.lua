@@ -26,3 +26,7 @@ vim.cmd [[
     autocmd BufRead * autocmd FileType <buffer> ++once
       \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
 ]]
+
+vim.cmd [[
+    let g:markdown_fenced_languages = ['bash', 'python', 'sh', 'java']
+]]
