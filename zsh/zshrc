@@ -97,6 +97,8 @@ alias pcn='cd /home/mattia/Desktop/pcn_v2'
 
 # Vi mode
 bindkey -v
+# Restore history search
+bindkey '^r' history-incremental-search-backward
 
 # Default editor
 export EDITOR=/usr/bin/vim
