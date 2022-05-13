@@ -54,28 +54,3 @@ for _, lsp in pairs(servers) do
   }
 end
 
-local root_dir = "/Users/mattia/Desktop/JavaDojo/JDTLS"
-local jar = vim.fn.expand( root_dir .. "/plugins" .. "/org.eclipse.equinox.launcher_*.jar" )
-local lombok = vim.fn.expand( root_dir .. "/lombok.jar" )
-local config = vim.fn.expand( root_dir .. "/config_mac")
-require("lspconfig").jdtls.setup {
-    cmd = { "java",
-            "-Declipse.application=org.eclipse.jdt.ls.core.id1",
-            "-Dosgi.bundles.defaultStartLevel=4",
-            "-Declipse.product=org.eclipse.jdt.ls.core.product",
-            "-Dlog.protocol=true",
-            "-Dlog.level=ALL",
-            "-Xms1g",
-            "-Xmx2G",
-            "-jar",
-            jar,
-            "-configuration",
-            config,
-            "-data",
-            "/tmp/jdtls_wrkdir"
-    },
-	on_attach = on_attach,
-	capabilities = capabilities,
-	filetypes = { "java" },
-	rootPatterns = { ".git", "build.gradle", "pom.xml" },
-}
