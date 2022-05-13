@@ -1,8 +1,15 @@
-local root_dir = "/Users/mattia/Desktop/JavaDojo/JDTLS"
-local pde_dir = "/Users/mattia/Desktop/JavaDojo/JAVAPDE"
+-- Currently only works with https://download.eclipse.org/jdtls/milestones/0.57.0/jdt-language-server-0.57.0-202006172108.tar.gz
+local root_dir = "/Users/mattia.dalben/Downloads/jdt-0-57"
+local pde_dir = "/Users/mattia.dalben/Downloads/vscode-pde/extension/server"
+local kura_dir = "/Users/mattia.dalben/Desktop/EclipseKura/iot-kura-develop/git/kura"
 local jar = vim.fn.expand( root_dir .. "/plugins" .. "/org.eclipse.equinox.launcher_*.jar" )
 local lombok = vim.fn.expand( root_dir .. "/lombok.jar" )
 local config = vim.fn.expand( root_dir .. "/config_mac")
+
+local bundles = { vim.fn.glob(kura_dir .. "/kura/org.*/target/*.jar") }
+vim.list_extend( bundles, vim.split(vim.fn.glob(pde_dir .. "/*.jar"), "\n"))
+
+print(bundles)
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
@@ -44,7 +51,7 @@ local config = {
   --
   -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
   init_options = {
-    bundles = vim.split(vim.fn.glob(pde_dir .. "/*.jar"), "\n")
+    bundles = bundles
   },
 }
 -- This starts a new client & server,
