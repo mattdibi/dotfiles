@@ -49,4 +49,24 @@ snippet todo "Todo list"
 - [ ] $0
 endsnippet
 
+# Use content of + register as url
+snippet url "URL to something"
+[${1:${VISUAL:Text}}](`!v @+`)$0
+endsnippet
+
+snippet note "Note callout"
+> [!NOTE]
+> $0
+endsnippet
+
+snippet info "Info callout"
+> [!INFO]
+> $0
+endsnippet
+
+snippet warn "Warning callout"
+> [!WARNING]
+> $0
+endsnippet
+
 # vim:ft=snippets:
