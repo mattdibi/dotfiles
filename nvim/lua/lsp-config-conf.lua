@@ -38,7 +38,16 @@ end
 -- For reference see:
 --  https://github.com/SmiteshP/Dotfiles/blob/master/.config/nvim/lua/config/lsp.lua
 --  https://github.com/williamboman/nvim-lsp-installer
-local servers = { 'clangd' , 'pyright'}
+
+local machine = os.getenv("MACHINE")
+
+local servers
+if(machine == "workstation") then
+    servers = { 'clangd' , 'jedi_language_server', 'marksman'}
+else
+    servers = { 'clangd' , 'pyright', 'marksman'}
+end
+
 -- nvim-cmp configuration
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
