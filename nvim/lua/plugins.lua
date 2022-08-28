@@ -25,6 +25,7 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp'
 
   -- Navigation
+  use 'justinmk/vim-gtfo'
   use {
       "nvim-telescope/telescope.nvim",
       requires = { "nvim-lua/plenary.nvim" }
