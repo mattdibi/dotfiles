@@ -43,9 +43,9 @@ local machine = os.getenv("MACHINE")
 
 local servers
 if(machine == "workstation") then
-    servers = { 'clangd' , 'jedi_language_server', 'marksman'}
+    servers = { 'clangd' , 'jedi_language_server'}
 else
-    servers = { 'clangd' , 'pyright', 'marksman'}
+    servers = { 'clangd' , 'pyright'}
 end
 
 -- nvim-cmp configuration
