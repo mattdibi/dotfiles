@@ -45,7 +45,7 @@ local servers
 if(machine == "workstation") then
     servers = { 'clangd' , 'jedi_language_server'}
 else
-    servers = { 'clangd' , 'pyright'}
+    servers = { 'clangd' , 'pyright', 'rust_analyzer'}
 end
 
 -- nvim-cmp configuration
