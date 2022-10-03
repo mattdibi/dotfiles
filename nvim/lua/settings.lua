@@ -15,6 +15,8 @@ vim.opt.updatetime  = 250    -- Update time 250ms
 vim.opt.backspace   = "indent,eol,start" -- backspace works on every char in insert mode
 vim.opt.termguicolors = true -- Enable 24-bit RGB colors
 
+vim.opt.mouse       = "" -- disable mouse
+
 -- Sidebar
 vim.opt.number      = true   -- Line number on the left
 vim.opt.signcolumn  = 'yes'  -- Keep 1 column for info
