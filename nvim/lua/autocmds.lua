@@ -24,4 +24,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
     command = "setlocal listchars= nonumber norelativenumber",
     group = terminal_group,
 })
-
+vim.api.nvim_create_autocmd("TermOpen", {
+    command = "DisableWhitespace",
+    group = terminal_group,
+})
