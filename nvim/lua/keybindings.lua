@@ -10,6 +10,14 @@ map('', '<C-k>', '<C-W>k', {})
 map('', '<C-h>', '<C-W>h', {})
 map('', '<C-l>', '<C-W>l', {})
 
+-- Center screen after half page jump
+map('n', '<C-u>', '<C-u>zz', { noremap = true })
+map('n', '<C-d>', '<C-d>zz', { noremap = true })
+
+-- Center screen after search jump
+map('n', 'n', 'nzz', { noremap = true })
+map('n', 'N', 'Nzz', { noremap = true })
+
 -- Smart resize
 map('n', '<Up>',    ':resize +5<CR>', { noremap = true })
 map('n', '<Down>',  ':resize -5<CR>', { noremap = true })
