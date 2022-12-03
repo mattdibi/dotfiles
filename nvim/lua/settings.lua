@@ -20,6 +20,7 @@ vim.opt.mouse       = "" -- disable mouse
 -- Sidebar
 vim.opt.number      = true   -- Line number on the left
 vim.opt.signcolumn  = 'yes'  -- Keep 1 column for info
+vim.opt.relativenumber = true   -- Show relative line numbers for improved vertical motion
 
 -- Backup files
 vim.opt.swapfile    = false  -- Do not create swap files
