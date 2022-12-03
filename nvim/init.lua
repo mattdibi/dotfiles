@@ -17,9 +17,7 @@ require('lsp-config-conf')
 require('ultisnips-conf')
 
 -- Coloscheme
-vim.cmd [[
-    colorscheme challenger_deep
-]]
+vim.cmd.colorscheme('challenger_deep')
 
 -- Go to last loc when opening a buffer
 vim.cmd [[
