@@ -15,6 +15,7 @@ require('lualine-conf')
 require('gitsigns-conf')
 require('lsp-config-conf')
 require('ultisnips-conf')
+require('img-paste-conf')
 
 -- Coloscheme
 vim.cmd.colorscheme('challenger_deep')
@@ -25,9 +26,3 @@ vim.cmd [[
       \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
 ]]
 
--- img-paste plugin
-vim.cmd [[
-    autocmd FileType markdown nmap <buffer><silent> <leader>xp :call mdip#MarkdownClipboardImage()<CR>
-]]
-
-vim.g.mdip_imgdir = 'imgs'
