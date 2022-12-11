@@ -24,3 +24,10 @@ vim.cmd [[
     autocmd BufRead * autocmd FileType <buffer> ++once
       \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
 ]]
+
+-- img-paste plugin
+vim.cmd [[
+    autocmd FileType markdown nmap <buffer><silent> <leader>xp :call mdip#MarkdownClipboardImage()<CR>
+]]
+
+vim.g.mdip_imgdir = 'imgs'

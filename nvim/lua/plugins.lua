@@ -14,6 +14,9 @@ return require('packer').startup(function()
   use 'lewis6991/gitsigns.nvim'
   use 'nvim-treesitter/nvim-treesitter'
 
+  -- Markdown
+  use 'img-paste-devs/img-paste.vim'
+
   -- Autocompletion
   use 'SirVer/ultisnips'
   use 'hrsh7th/nvim-cmp'
