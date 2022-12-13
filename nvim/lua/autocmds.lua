@@ -33,37 +33,37 @@ vim.api.nvim_create_autocmd("TermOpen", {
 local latex_group = vim.api.nvim_create_augroup('LatexAutogroup', { clear = true })
 vim.api.nvim_create_autocmd( "Filetype", {
     pattern = {"tex"},
-    command = "inoremap è \\`e",
+    command = [[inoremap è \`e]],
     group = latex_group
 })
 vim.api.nvim_create_autocmd( "Filetype", {
     pattern = {"tex"},
-    command = "inoremap é \\'e",
+    command = [[inoremap é \'e]],
     group = latex_group
 })
 vim.api.nvim_create_autocmd( "Filetype", {
     pattern = {"tex"},
-    command = "inoremap ò \\`o",
+    command = [[inoremap ò \`o]],
     group = latex_group
 })
 vim.api.nvim_create_autocmd( "Filetype", {
     pattern = {"tex"},
-    command = "inoremap à \\`a",
+    command = [[inoremap à \`a]],
     group = latex_group
 })
 vim.api.nvim_create_autocmd( "Filetype", {
     pattern = {"tex"},
-    command = "inoremap ù \\`u",
+    command = [[inoremap ù \`u]],
     group = latex_group
 })
 vim.api.nvim_create_autocmd( "Filetype", {
     pattern = {"tex"},
-    command = "inoremap ì \\`\\i\\",
+    command = [[inoremap ì \`\i\]],
     group = latex_group
 })
 
 vim.api.nvim_create_autocmd( "Filetype", {
     pattern = {"tex"},
-    command = "set makeprg=pdflatex\\ %\\ \\-file\\-line\\-error\\ \\-interaction=nonstopmode",
+    command = [[set makeprg=pdflatex\ %\ \-file\-line\-error\ \-interaction=nonstopmode]],
     group = latex_group
 })
