@@ -61,3 +61,9 @@ vim.api.nvim_create_autocmd( "Filetype", {
     command = "inoremap ì \\`\\i\\",
     group = latex_group
 })
+
+vim.api.nvim_create_autocmd( "Filetype", {
+    pattern = {"tex"},
+    command = "set makeprg=pdflatex\\ %\\ \\-file\\-line\\-error\\ \\-interaction=nonstopmode",
+    group = latex_group
+})
