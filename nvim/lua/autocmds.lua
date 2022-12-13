@@ -64,6 +64,6 @@ vim.api.nvim_create_autocmd( "Filetype", {
 
 vim.api.nvim_create_autocmd( "Filetype", {
     pattern = {"tex"},
-    command = [[set makeprg=pdflatex\ %\ \-file\-line\-error\ \-interaction=nonstopmode]],
+    command = [[set makeprg=pdflatex\ %\ -file-line-error\ -interaction=nonstopmode]],
     group = latex_group
 })
