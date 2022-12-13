@@ -28,3 +28,36 @@ vim.api.nvim_create_autocmd("TermOpen", {
     command = "DisableWhitespace",
     group = terminal_group,
 })
+
+-- Latex tweaks
+local latex_group = vim.api.nvim_create_augroup('LatexAutogroup', { clear = true })
+vim.api.nvim_create_autocmd( "Filetype", {
+    pattern = {"tex"},
+    command = "inoremap è \\`e",
+    group = latex_group
+})
+vim.api.nvim_create_autocmd( "Filetype", {
+    pattern = {"tex"},
+    command = "inoremap é \\'e",
+    group = latex_group
+})
+vim.api.nvim_create_autocmd( "Filetype", {
+    pattern = {"tex"},
+    command = "inoremap ò \\`o",
+    group = latex_group
+})
+vim.api.nvim_create_autocmd( "Filetype", {
+    pattern = {"tex"},
+    command = "inoremap à \\`a",
+    group = latex_group
+})
+vim.api.nvim_create_autocmd( "Filetype", {
+    pattern = {"tex"},
+    command = "inoremap ù \\`u",
+    group = latex_group
+})
+vim.api.nvim_create_autocmd( "Filetype", {
+    pattern = {"tex"},
+    command = "inoremap ì \\`\\i\\",
+    group = latex_group
+})
