@@ -19,7 +19,7 @@ command_center.add({
     }, {
         description = "[Find] Live grep",
         cmd = "<CMD>Telescope live_grep<CR>",
-        keybindings = { "n", "<leader>rg", noremap },
+        keybindings = { "n", "<leader><C-p>", noremap },
     }, {
         description = "[Find] Find hidden files",
         cmd = "<CMD>Telescope find_files hidden=true<CR>",
