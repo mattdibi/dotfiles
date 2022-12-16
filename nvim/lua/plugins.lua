@@ -13,6 +13,7 @@ return require('packer').startup(function()
   use 'lukas-reineke/indent-blankline.nvim'
   use 'lewis6991/gitsigns.nvim'
   use 'nvim-treesitter/nvim-treesitter'
+  use 'mbbill/undotree'
 
   -- Markdown
   use 'img-paste-devs/img-paste.vim'

@@ -75,6 +75,11 @@ command_center.add({
     -- Functions
         description = "[Space] Strip trailing whitespaces",
         cmd = "<CMD>StripWhitespace<CR>",
+    }, {
+    -- Functions
+        description = "[Undo] Undotree",
+        cmd = "<CMD>UndotreeToggle<CR>",
+        keybindings = { "n", '<leader>u', noremap }
     }
 })
 

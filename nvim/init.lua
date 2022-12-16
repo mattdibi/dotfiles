@@ -16,6 +16,7 @@ require('gitsigns-conf')
 require('lsp-config-conf')
 require('ultisnips-conf')
 require('img-paste-conf')
+require('undotree-conf')
 
 -- Coloscheme
 vim.cmd.colorscheme('challenger_deep')
