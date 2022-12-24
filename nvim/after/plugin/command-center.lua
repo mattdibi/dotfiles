@@ -10,7 +10,7 @@ command_center.add({
     },  {
     -- Telescope finders
         description = "[Find] Find project files",
-        cmd = "<CMD>lua require('after.plugin.telescope').project_files()<CR>",
+        cmd = "<CMD>lua project_files()<CR>",
         keybindings = { "n", "<C-p>", noremap },
     },  {
         description = "[Find] Find inside current buffer",
