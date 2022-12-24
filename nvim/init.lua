@@ -1,28 +1,21 @@
--- Basic configuration
-require('plugins')
-require('settings')
-require('keybindings')
-require('commands')
-require('autocmds')
+--[[ Notes to people reading my configuration!
 
--- Plugin configuration
-require('treesitter-conf')
-require('nvim-cmp-conf')
-require('command-center-conf')
-require('indent-blankline-conf')
-require('telescope-conf')
-require('lualine-conf')
-require('gitsigns-conf')
-require('lsp-config-conf')
-require('ultisnips-conf')
-require('img-paste-conf')
-require('undotree-conf')
+Much of the configuration of individual plugins you can find in either:
 
--- Coloscheme
-vim.cmd.colorscheme('challenger_deep')
+./after/plugin/*
+  This is where configuration for lua plugins live.
+  They get auto sourced on startup. In general, the name of the file configures
+  the plugin with the corresponding name.
 
--- Go to last loc when opening a buffer
-vim.cmd [[
-    autocmd BufRead * autocmd FileType <buffer> ++once
-      \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
-]]
+./lua/mattdibi/*.lua
+  This is where configuration/extensions for new style plugins live.
+  They don't get sourced automatically, but do get sourced by doing something like:
+    require('mattdibi.dap')
+  or similar. I generally recommend that people do this so that you don't accidentally
+  override any of the plugin requires with namespace clashes. So don't just put your configuration
+  in "./lua/dap.lua" because then it will override the plugin version of "dap.lua"
+
+--]]
+
+require('mattdibi')
+
