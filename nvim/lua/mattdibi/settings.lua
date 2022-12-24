@@ -10,7 +10,7 @@ vim.opt.autoread    = true   -- Autoload file changes. You can undo by pressing 
 vim.opt.wildmenu    = true   -- Visual autocomplete for command menu
 vim.opt.laststatus  = 2      -- Always diplay status bar
 vim.opt.showmode    = false  -- Don't show current vim mode
-vim.opt.updatetime  = 250    -- Update time 250ms
+vim.opt.updatetime  = 50     -- Update time 50ms
 
 vim.opt.backspace   = "indent,eol,start" -- backspace works on every char in insert mode
 vim.opt.termguicolors = true -- Enable 24-bit RGB colors
