@@ -1,7 +1,7 @@
 -- Basic configuration
-require('mattdibi.plugins')
+require('mattdibi.packer')
 require('mattdibi.settings')
-require('mattdibi.keybindings')
+require('mattdibi.remap')
 require('mattdibi.commands')
 require('mattdibi.autocmds')
 
