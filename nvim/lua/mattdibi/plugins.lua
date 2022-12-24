@@ -29,16 +29,11 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp'
 
   -- Navigation
-  use 'justinmk/vim-gtfo'
   use {
       "nvim-telescope/telescope.nvim",
       requires = { "nvim-lua/plenary.nvim" }
   }
   use 'tpope/vim-vinegar'
-  use {
-      "gfeiyou/command-center.nvim",
-      requires = { "nvim-telescope/telescope.nvim" }
-  }
 
   -- Basics
   use 'tpope/vim-surround'

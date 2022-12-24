@@ -32,3 +32,8 @@ project_files = function()
     local ok = pcall(require'telescope.builtin'.git_files, opts)
     if not ok then require'telescope.builtin'.find_files(opts) end
 end
+
+vim.api.nvim_set_keymap('n', '<C-p>', '<CMD>lua project_files()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader><C-p>', '<CMD>Telescope live_grep<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>fl', '<CMD>Telescope current_buffer_fuzzy_find<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>fh', '<CMD>Telescope help_tags<CR>', { noremap = true })
