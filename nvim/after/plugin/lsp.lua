@@ -27,6 +27,7 @@ lsp.configure('sumneko_lua', {
 
 --- CMP configuration
 local cmp = require('cmp')
+local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 lsp.setup_nvim_cmp({
     snippet = {
         expand = function(args)
@@ -39,7 +40,18 @@ lsp.setup_nvim_cmp({
     mapping = {
         ['<C-p>'] = cmp.mapping.select_prev_item(),
         ['<C-n>'] = cmp.mapping.select_next_item(),
-        ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+        ["<Tab>"] = cmp.mapping(
+          function(fallback)
+            cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
+          end,
+          { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
+        ),
+        ["<S-Tab>"] = cmp.mapping(
+          function(fallback)
+            cmp_ultisnips_mappings.jump_backwards(fallback)
+          end,
+          { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
+        ),
     },
     sources = {
         { name = 'nvim_lsp',  max_item_count = 10 },
