@@ -44,13 +44,13 @@ lsp.setup_nvim_cmp({
           function(fallback)
             cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
           end,
-          { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
+          { "i", "s" }
         ),
         ["<S-Tab>"] = cmp.mapping(
           function(fallback)
             cmp_ultisnips_mappings.jump_backwards(fallback)
           end,
-          { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
+          { "i", "s" }
         ),
     },
     sources = {
