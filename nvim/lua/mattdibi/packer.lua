@@ -36,7 +36,6 @@ return require('packer').startup(function()
 
           -- Snippets
           {'SirVer/ultisnips'},
-          {'quangnguyen30192/cmp-nvim-ultisnips'},
       }
   }
 
