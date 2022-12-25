@@ -14,6 +14,17 @@ end
 
 lsp.ensure_installed(servers)
 
+-- Fix Undefined global 'vim'
+lsp.configure('sumneko_lua', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+})
+
 --- CMP configuration
 local cmp = require('cmp')
 lsp.setup_nvim_cmp({
