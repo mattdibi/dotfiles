@@ -7,7 +7,7 @@ local machine = os.getenv("MACHINE")
 
 local servers
 if(machine == "workstation") then
-    servers = { 'clangd' , 'jedi_language_server'}
+    servers = { 'clangd' , 'jedi_language_server', 'sumneko_lua'}
 else
     servers = { 'clangd' , 'pyright', 'rust_analyzer', 'sumneko_lua'}
 end
