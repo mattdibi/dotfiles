@@ -18,15 +18,27 @@ return require('packer').startup(function()
   -- Markdown
   use 'img-paste-devs/img-paste.vim'
 
-  -- Autocompletion
-  use 'SirVer/ultisnips'
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-buffer'
-  use 'quangnguyen30192/cmp-nvim-ultisnips'
+  -- LSP
+  use {
+	  'VonHeikemen/lsp-zero.nvim',
+	  requires = {
+		  -- LSP Support
+		  {'neovim/nvim-lspconfig'},
+		  {'williamboman/mason.nvim'},
+		  {'williamboman/mason-lspconfig.nvim'},
 
-  use 'neovim/nvim-lspconfig'
-  use 'hrsh7th/cmp-nvim-lsp'
+		  -- Autocompletion
+		  {'hrsh7th/nvim-cmp'},
+		  {'hrsh7th/cmp-buffer'},
+		  {'hrsh7th/cmp-path'},
+		  {'hrsh7th/cmp-nvim-lsp'},
+		  {'hrsh7th/cmp-nvim-lua'},
+
+		  -- Snippets
+		  {'SirVer/ultisnips'},
+		  {'quangnguyen30192/cmp-nvim-ultisnips'},
+	  }
+  }
 
   -- Navigation
   use {
