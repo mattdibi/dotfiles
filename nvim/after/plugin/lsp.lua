@@ -1,3 +1,4 @@
+-- Reference: https://github.com/ThePrimeagen/init.lua/blob/master/after/plugin/lsp.lua
 local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
