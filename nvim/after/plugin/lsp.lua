@@ -66,12 +66,6 @@ lsp.set_preferences({
     suggest_lsp_servers = false,
     set_lsp_keymaps = false,
     manage_nvim_cmp = false,
-    sign_icons = {
-        error = '✖',
-        warn = '⚠',
-        hint = '➤',
-        info = 'ℹ'
-    }
 })
 
 lsp.on_attach(function(client, bufnr)
