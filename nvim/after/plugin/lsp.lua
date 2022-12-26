@@ -29,7 +29,7 @@ lsp.configure('sumneko_lua', {
 --- CMP configuration
 local cmp = require('cmp')
 local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
-lsp.setup_nvim_cmp({
+cmp.setup({
     snippet = {
         expand = function(args)
         vim.fn["UltiSnips#Anon"](args.body)
@@ -64,6 +64,8 @@ lsp.setup_nvim_cmp({
 
 lsp.set_preferences({
     suggest_lsp_servers = false,
+    set_lsp_keymaps = false,
+    manage_nvim_cmp = false,
     sign_icons = {
         error = '✖',
         warn = '⚠',
