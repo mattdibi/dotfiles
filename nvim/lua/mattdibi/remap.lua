@@ -1,8 +1,7 @@
 local map = vim.api.nvim_set_keymap
 
--- <Space> and \ are now leader keys, this way
--- something will pop up in the showcmd corner.
-map('', '<Space>', '<leader>', {})
+-- <space> is now <leader> key
+vim.g.mapleader = " "
 
 -- Smart way to move between windows
 map('', '<C-j>', '<C-W>j', {})
