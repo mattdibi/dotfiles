@@ -16,7 +16,7 @@ return require('packer').startup(function()
   use 'mbbill/undotree'
 
   -- Markdown
-  use 'img-paste-devs/img-paste.vim'
+  use 'mattdibi/incolla.nvim'
 
   -- LSP
   use {
@@ -51,4 +51,5 @@ return require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-commentary'
+
 end)
