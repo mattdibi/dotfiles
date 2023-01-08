@@ -16,7 +16,7 @@ return require('packer').startup(function()
   use 'mbbill/undotree'
 
   -- Markdown
-  use 'img-paste-devs/img-paste.vim'
+  use 'mattdibi/incolla.nvim'
 
   -- Autocompletion
   use 'SirVer/ultisnips'
