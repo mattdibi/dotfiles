@@ -19,6 +19,7 @@ cmp.setup({
         { name = 'ultisnips', max_item_count =  5 },
         { name = 'buffer',    max_item_count =  5 , keyword_length = 4 },
         { name = 'path',      max_item_count =  5 },
+        { name = 'nvim_lua',  max_item_count =  5 },
     }
 })
 
