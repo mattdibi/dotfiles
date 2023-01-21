@@ -13,7 +13,7 @@ vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -45,20 +45,37 @@ local servers
 if(machine == "workstation") then
     servers = { 'clangd' , 'jedi_language_server'}
 else
-    servers = { 'clangd' , 'pyright', 'rust_analyzer'}
+    servers = { 'clangd' , 'pyright', 'rust_analyzer', 'sumneko_lua'}
 end
 
 -- nvim-cmp configuration
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-for _, lsp in pairs(servers) do
-  require('lspconfig')[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = {
-      -- This will be the default in neovim 0.7+
-      debounce_text_changes = 150,
+-- Mason setup taken from: https://github.com/VonHeikemen/lsp-zero.nvim#you-might-not-need-lsp-zero
+require('mason').setup()
+
+require('mason-lspconfig').setup({
+  ensure_installed = servers
+})
+
+local lspconfig = require('lspconfig')
+require('mason-lspconfig').setup_handlers({
+  function(server_name)
+    lspconfig[server_name].setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+    })
+  end,
+})
+
+-- Fix vim global for sumneko_lua
+require'lspconfig'.sumneko_lua.setup {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
     }
-  }
-end
+}
