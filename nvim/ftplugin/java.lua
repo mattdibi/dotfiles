@@ -24,7 +24,7 @@ local config = {
     '-data', '/home/mattia/Desktop/kura/kura',
   },
 
-  root_dir = require('jdtls.setup').find_root({'.kura'}),
+  root_dir = require('jdtls.setup').find_root({'javaConfig.json'}),
 
   -- Here you can configure eclipse.jdt.ls specific settings
   -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
