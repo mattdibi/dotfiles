@@ -19,6 +19,7 @@ return require('packer').startup(function()
   use 'mattdibi/incolla.nvim'
 
   -- Autocompletion
+  use 'mfussenegger/nvim-jdtls'
   use 'SirVer/ultisnips'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-path'
