@@ -48,7 +48,7 @@ local config = {
   -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
   init_options = {
     bundles = vim.split(vim.fn.glob("/home/mattia/Downloads/vscode-pde-0.8.0/server/*.jar"), "\n"),
-    extendedClientCapabilities = {
+    extendedClientCapabilities = { -- Required for fidget.nvim support see: https://github.com/j-hui/fidget.nvim/issues/57#issuecomment-1231730001
         progressReportProvider = false,
     },
   },
