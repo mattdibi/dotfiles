@@ -20,6 +20,8 @@ return require('packer').startup(function()
 
   -- Autocompletion
   use 'mfussenegger/nvim-jdtls'
+  use 'j-hui/fidget.nvim'
+
   use 'SirVer/ultisnips'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-path'

@@ -4,6 +4,7 @@ require('mattdibi.settings')
 require('mattdibi.remap')
 require('mattdibi.commands')
 require('mattdibi.autocmds')
+require"fidget".setup{}
 
 -- Coloscheme
 vim.cmd.colorscheme('challenger_deep')
