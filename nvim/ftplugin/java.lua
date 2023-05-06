@@ -1,3 +1,8 @@
+-- A lot of good stuff in: https://gitlab.com/schrieveslaach/dotfiles
+local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+local project_hash = string.sub(vim.api.nvim_call_function("sha256", {vim.fn.getcwd()}), 1, 6)
+local data_path = vim.env.HOME .. '/.cache/jdtls/' .. project_name .. '-' .. project_hash
+
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
   -- The command that starts the language server
@@ -21,7 +26,7 @@ local config = {
 
     '-configuration', '/home/mattia/.vscode/extensions/redhat.java-1.18.0-linux-x64/server/config_linux',
 
-    '-data', '/home/mattia/Desktop/kura/kura',
+    '-data', data_path,
   },
 
   root_dir = require('jdtls.setup').find_root({'javaConfig.json'}),
