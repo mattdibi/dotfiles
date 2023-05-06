@@ -3,6 +3,16 @@ local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local project_hash = string.sub(vim.api.nvim_call_function("sha256", {vim.fn.getcwd()}), 1, 6)
 local data_path = vim.env.HOME .. '/.cache/jdtls/' .. project_name .. '-' .. project_hash
 
+
+-- This bundles definition is the same as in the previous section (java-debug installation)
+local bundles = {
+  vim.fn.glob("/home/mattia/.vscode/extensions/vscjava.vscode-java-debug-0.50.0/server/com.microsoft.java.debug.plugin-*.jar", 1),
+};
+
+-- This is the new part
+vim.list_extend(bundles, vim.split(vim.fn.glob("/home/mattia/.vscode/extensions/vscjava.vscode-java-test-0.38.2/server/*.jar", 1), "\n"))
+vim.list_extend(bundles, vim.split(vim.fn.glob("/home/mattia/Downloads/vscode-pde-0.8.0/server/*.jar"), "\n"))
+
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
   -- The command that starts the language server
@@ -47,12 +57,21 @@ local config = {
   --
   -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
   init_options = {
-    bundles = vim.split(vim.fn.glob("/home/mattia/Downloads/vscode-pde-0.8.0/server/*.jar"), "\n"),
+    bundles = bundles,
     extendedClientCapabilities = { -- Required for fidget.nvim support see: https://github.com/j-hui/fidget.nvim/issues/57#issuecomment-1231730001
         progressReportProvider = false,
     },
   },
 }
+
+config['on_attach'] = function(client, bufnr)
+  -- With `hotcodereplace = 'auto' the debug adapter will try to apply code changes
+  -- you make during a debug session immediately.
+  -- Remove the option if you do not want that.
+  -- You can use the `JdtHotcodeReplace` command to trigger it manually
+  require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+end
+
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
 require('jdtls').start_or_attach(config)

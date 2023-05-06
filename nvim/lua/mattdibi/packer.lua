@@ -21,6 +21,7 @@ return require('packer').startup(function()
   -- Autocompletion
   use 'mfussenegger/nvim-jdtls'
   use 'j-hui/fidget.nvim'
+  use 'mfussenegger/nvim-dap'
 
   use 'SirVer/ultisnips'
   use 'hrsh7th/nvim-cmp'
