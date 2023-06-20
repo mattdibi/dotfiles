@@ -25,6 +25,7 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-nvim-lua'
   use 'quangnguyen30192/cmp-nvim-ultisnips'
+  use 'github/copilot.vim'
 
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
