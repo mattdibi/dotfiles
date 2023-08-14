@@ -6,7 +6,9 @@ require('mattdibi.commands')
 require('mattdibi.autocmds')
 
 -- Coloscheme
-vim.cmd.colorscheme('challenger_deep')
+if vim.fn.exists('g:vscode') ~= 1 then
+   vim.cmd.colorscheme('challenger_deep')
+end
 
 -- Go to last loc when opening a buffer
 vim.cmd [[
