@@ -45,7 +45,7 @@ local servers
 if(machine == "workstation") then
     servers = { 'clangd' , 'jedi_language_server'}
 else
-    servers = { 'clangd' , 'pyright', 'rust_analyzer', 'sumneko_lua'}
+    servers = { 'clangd' , 'pyright', 'rust_analyzer', 'lua_ls'}
 end
 
 -- nvim-cmp configuration
@@ -68,14 +68,3 @@ require('mason-lspconfig').setup_handlers({
     })
   end,
 })
-
--- Fix vim global for sumneko_lua
-require'lspconfig'.sumneko_lua.setup {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
-}
