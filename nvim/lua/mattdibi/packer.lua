@@ -10,10 +10,8 @@ return require('packer').startup(function()
 
   -- Visual feedback
   use 'ntpeters/vim-better-whitespace'
-  use 'lukas-reineke/indent-blankline.nvim'
   use 'lewis6991/gitsigns.nvim'
   use 'nvim-treesitter/nvim-treesitter'
-  use 'mbbill/undotree'
 
   -- Markdown
   use 'mattdibi/incolla.nvim'

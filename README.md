@@ -15,7 +15,7 @@ sudo apt install regolith-desktop
 ```
 
 ## Installation
-Install neovim nightly (tested working with NVIM v0.7.0):
+Install neovim (tested working with NVIM v0.9.5):
 
 ```sh
 curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
