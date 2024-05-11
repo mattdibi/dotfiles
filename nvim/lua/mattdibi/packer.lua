@@ -12,7 +12,6 @@ return require('packer').startup(function()
   use 'ntpeters/vim-better-whitespace'
   use 'lewis6991/gitsigns.nvim'
   use 'nvim-treesitter/nvim-treesitter'
-  use 'mbbill/undotree'
 
   -- Markdown
   use 'mattdibi/incolla.nvim'
