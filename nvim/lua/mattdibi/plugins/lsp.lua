@@ -105,5 +105,11 @@ return {
                 { name = 'nvim_lua',  max_item_count =  5 },
             }
         })
+
+        vim.g.UltiSnipsExpandTrigger = '<tab>'
+        vim.g.UltiSnipsJumpForwardTrigger='<tab>'
+        vim.g.UltiSnipsJumpBackwardTrigger='<s-tab>'
+        vim.g.UltiSnipsSnippetDirectories={ os.getenv("HOME") ..'/.config/nvim/custom_snippets/'}
+        vim.g.UltiSnipsEditSplit='vertical'
     end
 }
