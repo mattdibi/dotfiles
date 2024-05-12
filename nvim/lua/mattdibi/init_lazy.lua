@@ -17,20 +17,3 @@ require("lazy").setup({
     spec = "mattdibi.plugins",
     change_detection = { notify = false }
 })
-
--- return require('packer').startup(function()
---   -- Autocompletion
---   use 'SirVer/ultisnips'
---   use 'hrsh7th/nvim-cmp'
---   use 'hrsh7th/cmp-path'
---   use 'hrsh7th/cmp-buffer'
---   use 'hrsh7th/cmp-nvim-lua'
---   use 'quangnguyen30192/cmp-nvim-ultisnips'
---   use 'github/copilot.vim'
-
---   use 'williamboman/mason.nvim'
---   use 'williamboman/mason-lspconfig.nvim'
---   use 'neovim/nvim-lspconfig'
---   use 'hrsh7th/cmp-nvim-lsp'
-
--- end)

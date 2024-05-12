@@ -1,5 +1,5 @@
 -- Basic configuration
-require('mattdibi.packer')
+require('mattdibi.init_lazy')
 require('mattdibi.settings')
 require('mattdibi.remap')
 require('mattdibi.commands')
