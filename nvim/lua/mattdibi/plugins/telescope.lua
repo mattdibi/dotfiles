@@ -6,8 +6,6 @@ return {
     },
 
     config = function()
-        local actions = require('telescope.actions')
-
         local ignore_patterns = {
             "%.png",
             "%.jpg",
@@ -20,13 +18,7 @@ return {
                 layout_config = {
                     prompt_position = "top",
                 },
-                sorting_strategy = "ascending",
-                -- Let esc close Telescope
-                mappings = {
-                    i = {
-                        ["<esc>"] = actions.close
-                    },
-                },
+                sorting_strategy = "ascending"
             }
         }
 
