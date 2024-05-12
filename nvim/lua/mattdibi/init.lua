@@ -5,9 +5,6 @@ require('mattdibi.remap')
 require('mattdibi.commands')
 require('mattdibi.autocmds')
 
--- Coloscheme
-vim.cmd.colorscheme('challenger_deep')
-
 -- Go to last loc when opening a buffer
 vim.cmd [[
     autocmd BufRead * autocmd FileType <buffer> ++once
