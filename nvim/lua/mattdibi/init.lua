@@ -2,7 +2,6 @@
 require('mattdibi.init_lazy')
 require('mattdibi.settings')
 require('mattdibi.remap')
-require('mattdibi.commands')
 require('mattdibi.autocmds')
 
 -- Go to last loc when opening a buffer
