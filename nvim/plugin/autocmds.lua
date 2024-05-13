@@ -28,3 +28,4 @@ vim.api.nvim_create_autocmd("TermOpen", {
     command = "DisableWhitespace",
     group = terminal_group,
 })
+

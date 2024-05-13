@@ -1,21 +1,24 @@
---[[ Notes to people reading my configuration!
+-- Go to last loc when opening a buffer
+vim.cmd [[
+    autocmd BufRead * autocmd FileType <buffer> ++once
+      \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
+]]
 
-Much of the configuration of individual plugins you can find in either:
+-- Load lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-./after/plugin/*
-  This is where configuration for lua plugins live.
-  They get auto sourced on startup. In general, the name of the file configures
-  the plugin with the corresponding name.
-
-./lua/mattdibi/*.lua
-  This is where configuration/extensions for new style plugins live.
-  They don't get sourced automatically, but do get sourced by doing something like:
-    require('mattdibi.dap')
-  or similar. I generally recommend that people do this so that you don't accidentally
-  override any of the plugin requires with namespace clashes. So don't just put your configuration
-  in "./lua/dap.lua" because then it will override the plugin version of "dap.lua"
-
---]]
-
-require('mattdibi')
-
+require("lazy").setup({
+    spec = "mattdibi.plugins",
+    change_detection = { notify = false }
+})
