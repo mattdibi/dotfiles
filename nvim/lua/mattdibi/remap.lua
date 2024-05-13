@@ -24,13 +24,6 @@ map('n', '<Down>',  ':resize -5<CR>', { noremap = true })
 map('n', '<Left>',  ':vertical resize -5<CR>', { noremap = true })
 map('n', '<Right>', ':vertical resize +5<CR>', { noremap = true })
 
--- Smart paste (avoid overwriting register)
-map('x', '<leader>p', '\"_dP', { noremap = true })
-
--- Smart delete (avoid overwriting register)
-map('n', '<leader>d', '\"_d', { noremap = true })
-map('v', '<leader>d', '\"_d', { noremap = true })
-
 -- Copy into system clipboard
 map('n', '<leader>y', '\"+y', { noremap = true })
 map('v', '<leader>y', '\"+y', { noremap = true })
