@@ -47,4 +47,3 @@ vim.opt.listchars = {
   trail = '~'
 }
 map('n', '<F3>', ':set list!<CR>', { noremap = true })
-
