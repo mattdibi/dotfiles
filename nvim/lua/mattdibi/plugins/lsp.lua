@@ -3,6 +3,7 @@ return {
     dependencies = {
         "williamboman/mason-lspconfig.nvim",
         "williamboman/mason.nvim",
+        { 'j-hui/fidget.nvim', opts = {} },
     },
     config = function()
         -- Based on: https://github.com/neovim/nvim-lspconfig/wiki/UI-customization#change-diagnostic-symbols-in-the-sign-column-gutter
