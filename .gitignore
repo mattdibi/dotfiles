@@ -5,5 +5,4 @@
 *.DS_Store
 
 # Ignore files created by OS when symlinking the nvim directory
-nvim/plugin
 nvim/undodir
