@@ -4,11 +4,11 @@ local map = vim.api.nvim_set_keymap
 -- something will pop up in the showcmd corner.
 map('', '<Space>', '<leader>', {})
 
--- Smart way to move between windows
-map('', '<C-j>', '<C-W>j', {})
-map('', '<C-k>', '<C-W>k', {})
-map('', '<C-h>', '<C-W>h', {})
-map('', '<C-l>', '<C-W>l', {})
+-- -- Smart way to move between windows
+-- map('', '<C-j>', '<C-W>j', {})
+-- map('', '<C-k>', '<C-W>k', {})
+-- map('', '<C-h>', '<C-W>h', {})
+-- map('', '<C-l>', '<C-W>l', {})
 
 -- Center screen after half page jump
 map('n', '<C-u>', '<C-u>zz', { noremap = true })

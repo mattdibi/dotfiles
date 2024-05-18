@@ -3,5 +3,6 @@ return {
     "tpope/vim-vinegar",
     "tpope/vim-surround",
     "tpope/vim-repeat",
-    "tpope/vim-commentary"
+    "tpope/vim-commentary",
+    "christoomey/vim-tmux-navigator"
 }
