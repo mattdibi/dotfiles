@@ -6,3 +6,7 @@
 
 # Ignore files created by OS when symlinking the nvim directory
 nvim/undodir
+
+# Ignore nvim-kitty-navigator files
+kitty/navigate_kitty.py
+kitty/pass_keys.py
