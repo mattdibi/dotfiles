@@ -2,6 +2,9 @@ return {
     "mattdibi/incolla.nvim",
     config = function()
         require("incolla").setup {
+            defaults = {
+                prompt_filename = true
+            },
             markdown = {
                 affix = "![](%s)",
             },
