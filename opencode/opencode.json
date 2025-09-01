@@ -1,4 +1,5 @@
 {
-  "theme": "catpuccin",
-  "$schema": "https://opencode.ai/config.json"
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "catppuccin",
+  "autoupdate": true
 }
