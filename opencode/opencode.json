@@ -6,7 +6,7 @@
     "mcp": {
         "git": {
             "type": "local",
-            "command": ["/usr/local/bin/uvx", "mcp-server-git", "--repository", "${PWD}"]
+            "command": ["/usr/local/bin/uvx", "mcp-server-git"]
         }
     }
 }
