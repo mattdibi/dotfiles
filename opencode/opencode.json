@@ -12,6 +12,10 @@
         "git": {
             "type": "local",
             "command": ["/usr/local/bin/uvx", "mcp-server-git"]
+        },
+        "fetch": {
+            "type": "local",
+            "command": ["/usr/local/bin/uvx", "mcp-server-fetch"]
         }
     }
 }
