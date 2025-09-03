@@ -3,6 +3,11 @@
     "theme": "catppuccin",
     "model": "github-copilot/claude-sonnet-4",
     "autoupdate": false,
+    "permission": {
+        "edit": "ask",
+        "bash": "ask",
+        "webfetch": "ask"
+    },
     "mcp": {
         "git": {
             "type": "local",
