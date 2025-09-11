@@ -47,5 +47,5 @@ vim.opt.splitright  = true   -- Puts new vsplit windows to the right of the curr
 vim.opt.splitbelow  = true   -- Puts new split windows to the bottom of the current
 
 -- Markdown
-vim.g.markdown_fenced_languages = {'bash', 'python', 'sh', 'java', 'xml'}
+vim.g.markdown_fenced_languages = {'bash', 'python', 'sh', 'java', 'xml', 'groovy'}
 

@@ -1,0 +1,21 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    "theme": "catppuccin",
+    "model": "github-copilot/claude-sonnet-4",
+    "autoupdate": false,
+    "permission": {
+        "edit": "ask",
+        "bash": "ask",
+        "webfetch": "ask"
+    },
+    "mcp": {
+        "git": {
+            "type": "local",
+            "command": ["/usr/local/bin/uvx", "mcp-server-git"]
+        },
+        "fetch": {
+            "type": "local",
+            "command": ["/usr/local/bin/uvx", "mcp-server-fetch"]
+        }
+    }
+}
