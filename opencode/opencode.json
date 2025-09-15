@@ -1,5 +1,6 @@
 {
     "$schema": "https://opencode.ai/config.json",
+    "share": "disabled",
     "theme": "catppuccin",
     "model": "github-copilot/claude-sonnet-4",
     "autoupdate": false,
