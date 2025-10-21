@@ -24,5 +24,6 @@ return {
     vim.keymap.set("n", "<leader>oA", function() require("opencode").command("agent_cycle") end, { desc = "Cycle selected agent" })
     vim.keymap.set("n", "<S-C-u>",    function() require("opencode").command("messages_half_page_up") end, { desc = "Messages half page up" })
     vim.keymap.set("n", "<S-C-d>",    function() require("opencode").command("messages_half_page_down") end, { desc = "Messages half page down" })
+    vim.keymap.set("v", "<leader>ov", function() require("opencode").prompt("@selection", { append = true }) end, { desc = "Add selection to prompt" })
   end,
 }
