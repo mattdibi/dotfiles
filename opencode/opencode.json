@@ -26,6 +26,16 @@
                 "Authorization": "Bearer {file:~/.secrets/githubpat}"
             }
         },
+        "atlassian": {
+            "type": "local",
+            "command": [
+                "npx",
+                "-y",
+                "mcp-remote",
+                "https://mcp.atlassian.com/v1/sse"
+            ],
+            "enabled": true
+        },
         "context7": {
             "type": "remote",
             "url": "https://mcp.context7.com/mcp",
