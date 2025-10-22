@@ -3,6 +3,7 @@
     "share": "disabled",
     "theme": "catppuccin",
     "model": "github-copilot/claude-sonnet-4.5",
+    "small_model": "github-copilot/claude-haiku-4.5",
     "autoupdate": false,
     "permission": {
         "edit": "ask",
