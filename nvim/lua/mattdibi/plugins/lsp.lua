@@ -36,8 +36,7 @@ return {
             vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
             vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>af', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
             vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ar', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-            vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-            vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>=', '<esc><cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
+            vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>=', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
         end
 
         -- Use a loop to conveniently call 'setup' on multiple servers and
