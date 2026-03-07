@@ -5,7 +5,7 @@
   "cmp-nvim-lua": { "branch": "main", "commit": "f12408bdb54c39c23e67cab726264c10db33ada8" },
   "cmp-nvim-ultisnips": { "branch": "main", "commit": "2be0eda0f7fbf47ebd9fbdace369cc45d57acf49" },
   "cmp-path": { "branch": "main", "commit": "c6635aae33a50d6010bf1aa756ac2398a2d54c32" },
-  "copilot.vim": { "branch": "release", "commit": "8d1e0f86d8aaa64070c080589bc2a516beb4024f" },
+  "copilot.vim": { "branch": "release", "commit": "a12fd5672110c8aa7e3c8419e28c96943ca179be" },
   "fidget.nvim": { "branch": "main", "commit": "d9ba6b7bfe29b3119a610892af67602641da778e" },
   "gitsigns.nvim": { "branch": "main", "commit": "b79047e81f645875e500b4f433d8133bc421446c" },
   "incolla.nvim": { "branch": "master", "commit": "23454666333e5b30c87ff9576083ce6706c58715" },
