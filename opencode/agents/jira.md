@@ -15,3 +15,5 @@ When connected to atlassian-rovo-mcp:
 - **MUST** use cloudId = "<CLOUD-URL>" (do NOT call getAccessibleAtlassianResources)
 - **MUST** use Confluence spaceId = "<COUNFLUENCE-ID>"
 - **MUST** use `maxResults: 10` or `limit: 10` for ALL Jira JQL and Confluence CQL search operations.
+
+Always provide the URL of the updated Jira issue in the answer.
