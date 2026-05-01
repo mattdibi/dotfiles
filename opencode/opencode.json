@@ -12,11 +12,11 @@
     "mcp": {
         "git": {
             "type": "local",
-            "command": ["/usr/local/bin/uvx", "mcp-server-git"]
+            "command": ["uvx", "mcp-server-git"]
         },
         "fetch": {
             "type": "local",
-            "command": ["/usr/local/bin/uvx", "mcp-server-fetch"]
+            "command": ["uvx", "mcp-server-fetch"]
         },
         "github": {
             "type": "remote",
