@@ -18,7 +18,13 @@ return {
                 layout_config = {
                     prompt_position = "top",
                 },
-                sorting_strategy = "ascending"
+                sorting_strategy = "ascending",
+                path_display = {
+                    shorten = {
+                        len = 3, exclude = {1, -1}
+                    },
+                    truncate = true
+                },
             }
         }
 
