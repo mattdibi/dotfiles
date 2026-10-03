@@ -9,13 +9,13 @@ return {
                 section_separators = '',
                 disabled_filetypes = {},
                 always_divide_middle = true,
-                globalstatus = true,
+                globalstatus = false,
             },
             sections = {
                 lualine_a = {'mode'},
-                lualine_b = {'branch', 'diff', 'diagnostics'},
+                lualine_b = {'branch'},
                 lualine_c = {'filename'},
-                lualine_x = {'encoding', 'fileformat', 'filetype'},
+                lualine_x = {'filetype'},
                 lualine_y = {'progress'},
                 lualine_z = {'location'}
             },
