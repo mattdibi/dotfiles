@@ -37,5 +37,27 @@ return {
             },
             extensions = {}
         }
+
+        -- Smarter focus detection
+        -- Reference: https://github.com/nvim-lualine/lualine.nvim/issues/498
+        local old_is_focused = require'lualine.utils.utils'.is_focused
+        require'lualine.utils.utils'.is_focused = function()
+            if _G.ForceLualineFocus ~= nil then
+                return _G.ForceLualineFocus
+            end
+            return old_is_focused()
+        end
+
+        vim.api.nvim_create_autocmd("FocusGained", {
+            callback = function()
+                ForceLualineFocus = nil
+            end,
+        })
+        vim.api.nvim_create_autocmd("FocusLost", {
+            callback = function()
+                ForceLualineFocus = false
+            end,
+        })
+
     end
 }
